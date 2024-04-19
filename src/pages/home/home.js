@@ -8,7 +8,7 @@ import {
   ListItemIcon,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
-import Faq from "C:/Users/Dell/Desktop/AgreementInPrinciple/first_poc/src/components/faq/Faq.js";
+import Faq from "../../components/faq/Faq";
 
 import { Link } from "react-router-dom";
 
@@ -43,19 +43,16 @@ export default function Home() {
           </Link>
         </Button>
         <Button
+          component={Link}
           color="inherit"
           style={{
             backgroundColor: "blue",
             marginRight: "100px",
             padding: "15px 70px",
           }}
+          to="/register"
         >
-          <Link
-            style={{ textDecoration: "none", color: "white" }}
-            to="/register"
-          >
-            Register
-          </Link>
+          Register
         </Button>
       </Container>
 

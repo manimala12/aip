@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 export default function FirstStep() {
   return (
-    <Box style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}>
+    <Box style={{ marginTop: "200px", marginLeft: "100px" }}>
       <Typography variant="h5" style={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
