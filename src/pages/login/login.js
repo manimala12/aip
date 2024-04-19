@@ -1,55 +1,54 @@
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   InputAdornment,
   TextField,
   Button,
   Typography,
   IconButton,
-} from '@mui/material';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useFormik } from 'formik';
+} from "@mui/material";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
 
 const style = {
-  width: '550px',
-  height: '450px',
-  backgroundColor: 'white',
-  bgcolor: 'background.paper',
+  width: "550px",
+  height: "450px",
+  backgroundColor: "white",
+  bgcolor: "background.paper",
   p: 4,
-  textAlign: 'center',
-  borderRadius: '20px',
-  marginTop: '180px',
-  marginBottom: '390px',
-  marginLeft: '600px',
+  textAlign: "center",
+  borderRadius: "20px",
+  marginTop: "180px",
+  marginBottom: "390px",
+  marginLeft: "600px",
 };
 
 export default function Login() {
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      userName: 'dfg',
-      password: 'asd',
+      userName: "",
+      password: "",
     },
     onSubmit: (values) => {
-      fetch('http://localhost:8000/users?userName=' + values.userName)
+      fetch("http://localhost:8000/users?userName=" + values.userName)
         .then((res) => {
           return res.json();
         })
         .then((data) => {
-          if (Object.keys(data).length === 0) {
-            console.log('Please Enter valid User Name');
+          if (!data || data.length !== 1) {
+            console.log("Please Enter valid User Name");
           } else {
-            if (data.password === values.password) {
-              console.log('Logged in');
+            if (data[0].password === values.password) {
+              navigate("/home");
             } else {
-              console.log('Please Enter valid credentials');
+              console.log("Please Enter valid credentials");
             }
           }
-          navigate('/home');
         })
         .catch((err) => {
-          console.log('Failed:' + err.message);
+          console.log("Failed:" + err.message);
         });
     },
   });
@@ -63,10 +62,10 @@ export default function Login() {
       <Typography
         variant="h5"
         style={{
-          fontWeight: 'bold',
-          marginBottom: '50px',
-          color: 'blue',
-          paddingTop: '30px',
+          fontWeight: "bold",
+          marginBottom: "50px",
+          color: "blue",
+          paddingTop: "30px",
         }}
       >
         Login Here!!
@@ -75,7 +74,7 @@ export default function Login() {
         label="User Name"
         name="userName"
         value={formik.values.userName}
-        style={{ width: '400px', marginBottom: '50px' }}
+        style={{ width: "400px", marginBottom: "50px" }}
         onChange={formik.handleChange}
       />
       <br />
@@ -83,10 +82,10 @@ export default function Login() {
         label="Password"
         name="password"
         value={formik.values.password}
-        style={{ width: '400px', marginBottom: '50px' }}
+        style={{ width: "400px", marginBottom: "50px" }}
         onChange={formik.handleChange}
         o
-        type={showPassword ? 'text' : 'password'}
+        type={showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -106,10 +105,10 @@ export default function Login() {
         type="submit"
         color="inherit"
         style={{
-          color: 'white',
-          backgroundColor: 'blue',
-          padding: '10px 40px',
-          marginRight: '100px',
+          color: "white",
+          backgroundColor: "blue",
+          padding: "10px 40px",
+          marginRight: "100px",
         }}
       >
         LOGIN
@@ -117,22 +116,22 @@ export default function Login() {
       <Button
         color="inherit"
         style={{
-          color: 'white',
-          backgroundColor: 'blue',
-          padding: '10px 40px',
+          color: "white",
+          backgroundColor: "blue",
+          padding: "10px 40px",
         }}
       >
-        {' '}
-        <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
+        {" "}
+        <Link style={{ textDecoration: "none", color: "white" }} to="/">
           CANCEL
         </Link>
       </Button>
-      <Typography paragraph style={{ marginTop: '30px' }}>
-        Don't have an account?{' '}
-        <strong style={{ color: 'blue', cursor: 'pointer' }}>
+      <Typography paragraph style={{ marginTop: "30px" }}>
+        Don't have an account?{" "}
+        <strong style={{ color: "blue", cursor: "pointer" }}>
           <Link
             to="/register"
-            style={{ textDecoration: 'none', color: 'blue' }}
+            style={{ textDecoration: "none", color: "blue" }}
           >
             Register Here
           </Link>

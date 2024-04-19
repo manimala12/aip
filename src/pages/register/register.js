@@ -1,4 +1,4 @@
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   InputAdornment,
   TextField,
@@ -7,49 +7,49 @@ import {
   IconButton,
   Checkbox,
   FormControlLabel,
-} from '@mui/material';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useFormik } from 'formik';
+} from "@mui/material";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
 
 const style = {
-  width: '750px',
-  height: '740px',
-  backgroundColor: 'white',
-  bgcolor: 'background.paper',
+  width: "750px",
+  height: "740px",
+  backgroundColor: "white",
+  bgcolor: "background.paper",
   p: 4,
-  textAlign: 'center',
-  borderRadius: '20px',
-  marginTop: '180px',
-  marginBottom: '100px',
-  marginLeft: '550px',
+  textAlign: "center",
+  borderRadius: "20px",
+  marginTop: "180px",
+  marginBottom: "100px",
+  marginLeft: "550px",
 };
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
-
   const navigate = useNavigate();
+
   const [checked, setChecked] = useState(false);
   const formik = useFormik({
     initialValues: {
-      userName: '',
-      fullName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+      userName: "",
+      fullName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
     onSubmit: (values) => {
-      fetch('http://localhost:8000/users', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
+      fetch("http://localhost:8000/users", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
         body: JSON.stringify(values),
       })
         .then(() => {
-          console.log('Registered Successfully');
-          navigate('/registered');
+          console.log("Registered Successfully");
+          navigate("/registered");
         })
         .catch((err) => {
-          console.log('Failed:' + err.message);
+          console.log("Failed:" + err.message);
         });
     },
   });
@@ -67,10 +67,10 @@ export default function Register() {
       <Typography
         variant="h5"
         style={{
-          fontWeight: 'bold',
-          marginBottom: '40px',
-          color: 'blue',
-          paddingTop: '30px',
+          fontWeight: "bold",
+          marginBottom: "40px",
+          color: "blue",
+          paddingTop: "30px",
         }}
       >
         Register Here!!
@@ -78,7 +78,7 @@ export default function Register() {
       <TextField
         label="User Name"
         name="userName"
-        style={{ width: '500px', marginBottom: '40px' }}
+        style={{ width: "500px", marginBottom: "40px" }}
         value={formik.values.userName}
         onChange={formik.handleChange}
       />
@@ -86,7 +86,7 @@ export default function Register() {
       <TextField
         label="Full Name"
         name="fullName"
-        style={{ width: '500px', marginBottom: '40px' }}
+        style={{ width: "500px", marginBottom: "40px" }}
         value={formik.values.fullName}
         onChange={formik.handleChange}
       />
@@ -94,20 +94,18 @@ export default function Register() {
       <TextField
         label="Email"
         name="email"
-        style={{ width: '500px', marginBottom: '40px' }}
+        style={{ width: "500px", marginBottom: "40px" }}
         value={formik.values.email}
         onChange={formik.handleChange}
-        error={formik.errors.email}
-        helperText={formik.errors.email}
       />
       <br />
       <TextField
         label="Password"
         name="password"
-        style={{ width: '500px', marginBottom: '40px' }}
+        style={{ width: "500px", marginBottom: "40px" }}
         value={formik.values.password}
         onChange={formik.handleChange}
-        type={showPassword ? 'text' : 'password'}
+        type={showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -127,10 +125,10 @@ export default function Register() {
       <TextField
         label="Confirm Password"
         name="confirmPassword"
-        style={{ width: '500px', marginBottom: '20px' }}
+        style={{ width: "500px", marginBottom: "20px" }}
         value={formik.values.confirmPassword}
         onChange={formik.handleChange}
-        type={showPassword ? 'text' : 'password'}
+        type={showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -147,7 +145,7 @@ export default function Register() {
         fullWidth
       />
       <FormControlLabel
-        style={{ marginBottom: '20px' }}
+        style={{ marginBottom: "20px" }}
         control={<Checkbox onChange={handleChange} checked={checked} />}
         label="I agree to the terms & conditions."
       />
@@ -156,10 +154,10 @@ export default function Register() {
         type="submit"
         color="inherit"
         style={{
-          color: 'white',
-          backgroundColor: 'blue',
-          padding: '10px 40px',
-          marginRight: '100px',
+          color: "white",
+          backgroundColor: "blue",
+          padding: "10px 40px",
+          marginRight: "100px",
         }}
       >
         Register
@@ -167,19 +165,19 @@ export default function Register() {
       <Button
         color="inherit"
         style={{
-          color: 'white',
-          backgroundColor: 'blue',
-          padding: '10px 50px',
+          color: "white",
+          backgroundColor: "blue",
+          padding: "10px 50px",
         }}
       >
-        <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
+        <Link style={{ textDecoration: "none", color: "white" }} to="/">
           CANCEL
         </Link>
       </Button>
-      <Typography paragraph style={{ marginTop: '20px' }}>
-        Already have an account?{' '}
-        <strong style={{ color: 'blue', cursor: 'pointer' }}>
-          <Link to="/login" style={{ textDecoration: 'none', color: 'blue' }}>
+      <Typography paragraph style={{ marginTop: "20px" }}>
+        Already have an account?{" "}
+        <strong style={{ color: "blue", cursor: "pointer" }}>
+          <Link to="/login" style={{ textDecoration: "none", color: "blue" }}>
             Login Here.
           </Link>
         </strong>
