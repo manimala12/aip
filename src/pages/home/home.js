@@ -31,16 +31,16 @@ export default function Home() {
           Start your journey with us today!
         </Typography>
         <Button
+        component={Link}
           color="inherit"
           style={{
             backgroundColor: "blue",
             marginRight: "100px",
             padding: "15px 70px",
           }}
+          to='/about'
         >
-          <Link style={{ textDecoration: "none", color: "white" }} to="/about">
             Explore
-          </Link>
         </Button>
         <Button
           component={Link}

@@ -29,16 +29,16 @@ export default function DialogModal() {
       <br />
       <br />
       <Button
+      component={Link}
         style={{
           backgroundColor: "blue",
           color: "white",
           padding: "10px 50px",
           marginRight: "20px",
         }}
+        to="/login"
       >
-        <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
-          Ok
-        </Link>
+        Ok
       </Button>
     </Box>
   );

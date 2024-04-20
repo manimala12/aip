@@ -13,8 +13,10 @@ import {
   RadioGroup,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 
-export default function ThirdStep() {
+export default function IncomeDetails() {
   return (
     <Box style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}>
       <Typography variant="h5" style={{ marginBottom: "20px" }}>
@@ -167,37 +169,35 @@ export default function ThirdStep() {
         }}
       />
       <Button
+        variant="contained"
         color="inherit"
+        component={Link}
         style={{
           backgroundColor: "blue",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
         }}
+        to="/personal-details"
       >
-        <Link
-          style={{ textDecoration: "none", color: "white" }}
-          to="/second-step"
-        >
-          &lt; Back
-        </Link>
+        <ArrowLeftIcon style={{ fontSize: "30px" }} />
+        Back
       </Button>
       <Button
+        variant="contained"
         color="inherit"
+        component={Link}
         style={{
           backgroundColor: "blue",
-          marginLeft: "810px",
+          marginLeft: "785px",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
         }}
+        endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+        to="/expenditures"
       >
-        <Link
-          style={{ textDecoration: "none", color: "white" }}
-          to="/fourth-step"
-        >
-          Continue &gt;
-        </Link>
+        Continue
       </Button>
     </Box>
   );

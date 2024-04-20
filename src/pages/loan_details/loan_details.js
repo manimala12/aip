@@ -13,11 +13,13 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Link } from "react-router-dom";
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-export default function FirstStep() {
+
+export default function LoanDetails() {
   return (
-    <Box style={{ marginTop: "200px", marginLeft: "100px" }}>
-      <Typography variant="h5" style={{ marginBottom: "20px" }}>
+    <Box style={{ marginTop: "200px", marginLeft: "100px", color:'white' }}>
+      <Typography variant="h5" style={{ marginBottom: "20px" ,}}>
         Agreement In Principle
       </Typography>
       <Typography variant="h2"> Your Loan Details</Typography>
@@ -111,8 +113,10 @@ export default function FirstStep() {
           marginTop: "50px",
         }}
       />
-      <Button
-        color="inherit"
+
+
+      <Button variant="contained" color="inherit"
+      component={Link}
         style={{
           backgroundColor: "blue",
           marginLeft: "985px",
@@ -120,14 +124,11 @@ export default function FirstStep() {
           marginTop: "40px",
           fontWeight: "bold",
         }}
-      >
-        <Link
-          style={{ textDecoration: "none", color: "white" }}
-          to="/second-step"
-        >
-          Continue &gt;
-        </Link>
+        endIcon={<ArrowRightIcon style={{fontSize:'30px'}}/>}
+        to='/personal-details'>
+        Continue
       </Button>
+      
     </Box>
   );
 }

@@ -78,7 +78,7 @@ export default function Register() {
       <TextField
         label="User Name"
         name="userName"
-        style={{ width: "500px", marginBottom: "40px" }}
+        style={{ width: "500px", marginBottom: "40px", color:'black' }}
         value={formik.values.userName}
         onChange={formik.handleChange}
       />
@@ -152,7 +152,9 @@ export default function Register() {
       <br />
       <Button
         type="submit"
+        component={Link}
         color="inherit"
+        to='/registered'
         style={{
           color: "white",
           backgroundColor: "blue",
@@ -163,16 +165,18 @@ export default function Register() {
         Register
       </Button>
       <Button
+      component={Link}
         color="inherit"
         style={{
           color: "white",
           backgroundColor: "blue",
           padding: "10px 50px",
         }}
+        to="/"
       >
-        <Link style={{ textDecoration: "none", color: "white" }} to="/">
+         
           CANCEL
-        </Link>
+        
       </Button>
       <Typography paragraph style={{ marginTop: "20px" }}>
         Already have an account?{" "}

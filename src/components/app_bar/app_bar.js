@@ -10,14 +10,6 @@ import {
 import { Link } from "react-router-dom";
 
 function ButtonAppBar() {
-  // const [clicked,setClicked]=useState(false)
-
-  // function handleLogin(){
-  //   setClicked(true)
-  // }
-  // function handleClose(){
-  //   setClicked(false)
-  // }
 
   return (
     <Box sx={{ display: "flex" }}>

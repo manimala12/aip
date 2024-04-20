@@ -1,7 +1,9 @@
 import { Box, Typography, Divider, TextField, Button } from "@mui/material";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { Link } from "react-router-dom";
 
-export default function FourthStep() {
+export default function Expenditures() {
   return (
     <Box style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}>
       <Typography variant="h5" style={{ marginBottom: "20px" }}>
@@ -27,34 +29,35 @@ export default function FourthStep() {
         }}
       />
       <Button
+        variant="contained"
         color="inherit"
+        component={Link}
         style={{
           backgroundColor: "blue",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
         }}
+        to="/third-step"
       >
-        <Link
-          style={{ textDecoration: "none", color: "white" }}
-          to="/second-step"
-        >
-          &lt; Back
-        </Link>
+        <ArrowLeftIcon style={{ fontSize: "30px" }} />
+        Back
       </Button>
       <Button
+        variant="contained"
         color="inherit"
+        component={Link}
         style={{
           backgroundColor: "blue",
-          marginLeft: "810px",
+          marginLeft: "785px",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
         }}
+        endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+        to="/result"
       >
-        <Link style={{ textDecoration: "none", color: "white" }} to="/result">
-          Submit
-        </Link>
+        Submit
       </Button>
     </Box>
   );
