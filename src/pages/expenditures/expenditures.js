@@ -1,4 +1,4 @@
-import { Box, Typography, Divider, TextField, Button } from "@mui/material";
+import { Box, Typography, Divider, Button } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { Link } from "react-router-dom";
@@ -7,7 +7,6 @@ export default function Expenditures() {
   return (
     <Box style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}>
       <Typography variant="h5" style={{ marginBottom: "20px" }}>
-        {" "}
         Agreement In Principle
       </Typography>
       <Typography variant="h2">Your Spendings</Typography>
@@ -38,7 +37,7 @@ export default function Expenditures() {
           marginTop: "40px",
           fontWeight: "bold",
         }}
-        to="/third-step"
+        to="/income-details"
       >
         <ArrowLeftIcon style={{ fontSize: "30px" }} />
         Back

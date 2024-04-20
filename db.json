@@ -1,52 +1,57 @@
 {
   "users": [
     {
-      "userName": "jaanu123",
-      "fullName": "Jaanu Yalla",
-      "email": "jaanu@gmail.com",
-      "password": "Jaanu123",
-      "confirmPassword": "Jaanu@123",
-      "id": 1
-    },
-    {
-      "userName": "abc",
-      "fullName": "abc",
-      "email": "abc",
-      "password": "abc",
-      "confirmPassword": "abc",
-      "id": 2
-    },
-    {
-      "userName": "apple",
-      "fullName": "apple",
-      "email": "apple",
-      "password": "apple",
-      "confirmPassword": "apple",
-      "id": 3
-    },
-    {
-      "userName": "ball",
-      "fullName": "ball",
-      "email": "ball",
-      "password": "ball",
-      "confirmPassword": "ball",
-      "id": 4
-    },
-    {
       "userName": "",
       "fullName": "",
       "email": "",
       "password": "",
       "confirmPassword": "",
       "id": 5
+    }
+  ],
+  "loan-details": [
+    {
+      "noOfPeople": "2",
+      "homeType": "Reconstructing an existing home",
+      "propertyValue": "10000000",
+      "deposit": "5000000",
+      "id": 1
     },
     {
-      "userName": "sf",
-      "fullName": "dfs",
-      "email": "fdkjgd@jdslkhd",
-      "password": "234",
-      "confirmPassword": "222",
-      "id": 6
+      "noOfPeople": "",
+      "homeType": "",
+      "propertyValue": "",
+      "deposit": "",
+      "id": 2
+    }
+  ],
+  "personal-details": [
+    {
+      "fullName": "sdfghb",
+      "dateOfBirth": "10/22/2023",
+      "gender": "Male",
+      "mobileNumber": "2564789123",
+      "address": "dfgvhbjnmk,./cfvgbhnjm,",
+      "id": 1
+    },
+    {
+      "fullName": "",
+      "dateOfBirth": "",
+      "gender": "",
+      "mobileNumber": "",
+      "address": "",
+      "id": 2
+    }
+  ],
+  "income-details": [
+    {
+      "typeOfEmployement": "1",
+      "contractType": "1",
+      "occupation": "Doctor",
+      "nameOfTheEmployer": "fcgvhbjn",
+      "oftenYouGetPaid": "Weekly",
+      "earning": "78632",
+      "id": 1
     }
   ]
 }

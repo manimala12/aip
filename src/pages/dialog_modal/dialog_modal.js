@@ -29,7 +29,7 @@ export default function DialogModal() {
       <br />
       <br />
       <Button
-      component={Link}
+        component={Link}
         style={{
           backgroundColor: "blue",
           color: "white",

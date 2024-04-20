@@ -21,8 +21,8 @@ export default function MainHome() {
         journey with us today!
       </Typography>
       <Button
-      component={Link}
-      to="/loan-details"
+        component={Link}
+        to="/loan-details"
         style={{
           color: "white",
           backgroundColor: "blue",
@@ -33,7 +33,7 @@ export default function MainHome() {
           fontWeight: "bold",
         }}
       >
-          Check your eligibility for home loan
+        Check your eligibility for home loan
       </Button>
     </Container>
   );

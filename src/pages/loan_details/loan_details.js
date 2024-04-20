@@ -1,5 +1,4 @@
 import {
-  Box,
   Typography,
   Divider,
   TextField,
@@ -12,14 +11,42 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Link } from "react-router-dom";
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
+import { useNavigate } from "react-router-dom";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { useFormik } from "formik";
 
 export default function LoanDetails() {
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      noOfPeople: "",
+      homeType: "",
+      propertyValue: "",
+      deposit: "",
+    },
+    onSubmit: (values) => {
+      fetch("http://localhost:8000/loan-details", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(values),
+      })
+        .then(() => {
+          console.log("Posted Successfully");
+          navigate("/personal-details");
+        })
+        .catch((err) => {
+          console.log("Failed:" + err.message);
+        });
+    },
+  });
   return (
-    <Box style={{ marginTop: "200px", marginLeft: "100px", color:'white' }}>
-      <Typography variant="h5" style={{ marginBottom: "20px" ,}}>
+    <form
+      style={{ marginTop: "200px", marginLeft: "100px", color: "white" }}
+      autoComplete="off"
+      onSubmit={formik.handleSubmit}
+    >
+      <Typography variant="h5" style={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
       <Typography variant="h2"> Your Loan Details</Typography>
@@ -45,15 +72,17 @@ export default function LoanDetails() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
-          name="radio-buttons-group"
+          name="noOfPeople"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         >
           <FormControlLabel
-            value="Just me"
+            value="1"
             control={<Radio style={{ color: "white" }} />}
             label="Just me"
           />
           <FormControlLabel
-            value="Me and someone else"
+            value="2"
             control={<Radio style={{ color: "white" }} />}
             label="Me and someone else"
           />
@@ -68,7 +97,12 @@ export default function LoanDetails() {
       </Typography>
 
       <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
-        <Select defaultValue={"Select an option"}>
+        <Select
+          defaultValue={"Select an option"}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          name="homeType"
+        >
           <MenuItem style={{ fontSize: "20px" }} value={"Select an option"}>
             Select an option
           </MenuItem>
@@ -93,18 +127,28 @@ export default function LoanDetails() {
       <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
         Property Value
       </Typography>
-      <Typography paragraph style={{ fontSize: "23px", marginTop: "20px" }}>
+      <Typography paragraph style={{ fontSize: "18px", marginTop: "20px" }}>
         This doesn't need to be the exact amount right now.
       </Typography>
-      <TextField style={{ borderColor: "white", width: "500px" }} />
+      <TextField
+        style={{ borderColor: "white", width: "500px" }}
+        name="propertyValue"
+        value={formik.values.propertyValue}
+        onChange={formik.handleChange}
+      />
 
       <Typography paragraph style={{ fontSize: "25px", marginTop: "60px" }}>
         Deposit
       </Typography>
-      <Typography paragraph style={{ fontSize: "23px", marginTop: "20px" }}>
+      <Typography paragraph style={{ fontSize: "18px", marginTop: "20px" }}>
         Tell us roughly how much your deposit wil be.
       </Typography>
-      <TextField style={{ borderColor: "white", width: "500px" }} />
+      <TextField
+        style={{ borderColor: "white", width: "500px" }}
+        name="deposit"
+        value={formik.values.deposit}
+        onChange={formik.handleChange}
+      />
       <Divider
         style={{
           backgroundColor: "white",
@@ -114,9 +158,10 @@ export default function LoanDetails() {
         }}
       />
 
-
-      <Button variant="contained" color="inherit"
-      component={Link}
+      <Button
+        variant="contained"
+        color="inherit"
+        type="submit"
         style={{
           backgroundColor: "blue",
           marginLeft: "985px",
@@ -124,11 +169,10 @@ export default function LoanDetails() {
           marginTop: "40px",
           fontWeight: "bold",
         }}
-        endIcon={<ArrowRightIcon style={{fontSize:'30px'}}/>}
-        to='/personal-details'>
+        endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+      >
         Continue
       </Button>
-      
-    </Box>
+    </form>
   );
 }

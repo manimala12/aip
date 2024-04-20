@@ -1,5 +1,4 @@
 import {
-  Box,
   Typography,
   Divider,
   TextField,
@@ -12,13 +11,45 @@ import {
   FormLabel,
   RadioGroup,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import { useFormik } from "formik";
 
 export default function IncomeDetails() {
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      typeOfEmployement: "",
+      contractType: "",
+      occupation: "",
+      nameOfTheOccupation: "",
+      nameOfTheEmployer: "",
+      oftenYouGetPaid: "",
+      earning: "",
+    },
+    onSubmit: (values) => {
+      fetch("http://localhost:8000/income-details", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(values),
+      })
+        .then(() => {
+          console.log("Posted Successfully");
+          navigate("/expenditures");
+        })
+        .catch((err) => {
+          console.log("Failed:" + err.message);
+        });
+    },
+  });
   return (
-    <Box style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}>
+    <form
+      style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
+      autoComplete="off"
+      onSubmit={formik.handleSubmit}
+    >
       <Typography variant="h5" style={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
@@ -44,7 +75,9 @@ export default function IncomeDetails() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
-          name="radio-buttons-group"
+          name="typeOfEmployement"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         >
           <FormControlLabel
             value="Salaried"
@@ -73,7 +106,9 @@ export default function IncomeDetails() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
-          name="radio-buttons-group"
+          name="contractType"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         >
           <FormControlLabel
             value="Full Time"
@@ -96,7 +131,12 @@ export default function IncomeDetails() {
       </Typography>
 
       <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
-        <Select defaultValue={"Select an option"}>
+        <Select
+          defaultValue={"Select an option"}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          name="occupation"
+        >
           <MenuItem style={{ fontSize: "20px" }} value={"Select an option"}>
             Select an option
           </MenuItem>
@@ -127,10 +167,29 @@ export default function IncomeDetails() {
         </Select>
       </FormControl>
 
+      {formik.values.occupation === "Others" && (
+        <>
+          <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+            Name of the Occupation
+          </Typography>
+          <TextField
+            style={{ borderColor: "white", width: "500px" }}
+            name="nameOfTheOccupation"
+            value={formik.values.nameOfTheOccupation}
+            onChange={formik.handleChange}
+          />
+        </>
+      )}
+
       <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
         Name of the Employer
       </Typography>
-      <TextField style={{ borderColor: "white", width: "500px" }} />
+      <TextField
+        style={{ borderColor: "white", width: "500px" }}
+        name="nameOfTheEmployer"
+        value={formik.values.nameOfTheEmployer}
+        onChange={formik.handleChange}
+      />
 
       <Typography
         paragraph
@@ -139,7 +198,12 @@ export default function IncomeDetails() {
         How Often do you get paid
       </Typography>
       <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
-        <Select defaultValue={"Select an option"}>
+        <Select
+          defaultValue={"Select an option"}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          name="oftenYouGetPaid"
+        >
           <MenuItem style={{ fontSize: "20px" }} value={"Select an option"}>
             Select an option
           </MenuItem>
@@ -158,7 +222,12 @@ export default function IncomeDetails() {
       <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
         How much will you earn
       </Typography>
-      <TextField style={{ borderColor: "white", width: "500px" }} />
+      <TextField
+        style={{ borderColor: "white", width: "500px" }}
+        name="earning"
+        value={formik.values.earning}
+        onChange={formik.handleChange}
+      />
 
       <Divider
         style={{
@@ -186,7 +255,7 @@ export default function IncomeDetails() {
       <Button
         variant="contained"
         color="inherit"
-        component={Link}
+        type="submit"
         style={{
           backgroundColor: "blue",
           marginLeft: "785px",
@@ -195,10 +264,9 @@ export default function IncomeDetails() {
           fontWeight: "bold",
         }}
         endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
-        to="/expenditures"
       >
         Continue
       </Button>
-    </Box>
+    </form>
   );
 }

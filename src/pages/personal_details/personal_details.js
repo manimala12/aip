@@ -4,13 +4,43 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import { useFormik } from "formik";
 
 export default function PersonalDetails() {
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      dateOfBirth: "",
+      gender: "",
+      mobileNumber: "",
+      address: "",
+    },
+    onSubmit: (values) => {
+      fetch("http://localhost:8000/personal-details", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(values),
+      })
+        .then(() => {
+          console.log("Posted Successfully");
+          navigate("/income-details");
+        })
+        .catch((err) => {
+          console.log("Failed:" + err.message);
+        });
+    },
+  });
   return (
-    <Box style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}>
+    <form
+      style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
+      autoComplete="off"
+      onSubmit={formik.handleSubmit}
+    >
       <Typography variant="h5" style={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
@@ -29,7 +59,12 @@ export default function PersonalDetails() {
       >
         Full Name
       </Typography>
-      <TextField style={{ borderColor: "white", width: "500px" }} />
+      <TextField
+        style={{ borderColor: "white", width: "500px" }}
+        name="fullName"
+        value={formik.values.fullName}
+        onChange={formik.handleChange}
+      />
 
       <Typography
         paragraph
@@ -38,9 +73,13 @@ export default function PersonalDetails() {
         Date of Birth
       </Typography>
       <Box style={{ display: "flex", gap: "20px" }}>
-        <TextField style={{ width: "50px", color: "white" }} placeholder="DD" />
-        <TextField style={{ width: "60px" }} placeholder="MM" />
-        <TextField style={{ width: "100px" }} placeholder="YYYY" />
+        <TextField
+          style={{ width: "150px", color: "white" }}
+          placeholder="DD/MM/YYYY"
+          name="dateOfBirth"
+          value={formik.values.dateOfBirth}
+          onChange={formik.handleChange}
+        />
       </Box>
 
       <FormControl>
@@ -56,7 +95,9 @@ export default function PersonalDetails() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
-          name="radio-buttons-group"
+          name="gender"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         >
           <FormControlLabel
             value="Male"
@@ -74,11 +115,21 @@ export default function PersonalDetails() {
       <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
         Mobile Number
       </Typography>
-      <TextField style={{ borderColor: "white", width: "500px" }} />
+      <TextField
+        style={{ borderColor: "white", width: "500px" }}
+        name="mobileNumber"
+        value={formik.values.mobileNumber}
+        onChange={formik.handleChange}
+      />
       <Typography paragraph style={{ fontSize: "23px", marginTop: "50px" }}>
         Address
       </Typography>
-      <TextField style={{ borderColor: "white", width: "500px" }} />
+      <TextField
+        style={{ borderColor: "white", width: "500px" }}
+        name="address"
+        value={formik.values.address}
+        onChange={formik.handleChange}
+      />
 
       <Divider
         style={{
@@ -106,7 +157,7 @@ export default function PersonalDetails() {
       <Button
         variant="contained"
         color="inherit"
-        component={Link}
+        type="submit"
         style={{
           backgroundColor: "blue",
           marginLeft: "785px",
@@ -115,10 +166,9 @@ export default function PersonalDetails() {
           fontWeight: "bold",
         }}
         endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
-        to="/income-details"
       >
         Continue
       </Button>
-    </Box>
+    </form>
   );
 }

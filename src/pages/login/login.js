@@ -102,7 +102,7 @@ export default function Login() {
         fullWidth
       />
       <Button
-      component={Link}
+        component={Link}
         type="submit"
         color="inherit"
         style={{
@@ -111,23 +111,21 @@ export default function Login() {
           padding: "10px 40px",
           marginRight: "100px",
         }}
-        to='/home'
+        to="/home"
       >
         LOGIN
       </Button>
       <Button
-      component={Link}
+        component={Link}
         color="inherit"
         style={{
           color: "white",
           backgroundColor: "blue",
           padding: "10px 40px",
         }}
-        to='/'
+        to="/"
       >
-        
-          CANCEL
-        
+        CANCEL
       </Button>
       <Typography paragraph style={{ marginTop: "30px" }}>
         Don't have an account?{" "}
