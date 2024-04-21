@@ -1,4 +1,11 @@
-import { Box, Typography, Divider, TextField, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Divider,
+  TextField,
+  Button,
+  FormHelperText,
+} from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -22,11 +29,14 @@ export default function PersonalDetails() {
       address: "",
     },
     validationSchema: Yup.object().shape({
-      fullName:Yup.string().required('Please enter your full name'),
-      mobileNumber: Yup.number().positive('Please enter a valid mobile number')
-        .required('Please enter your mobile number'),
-        address:Yup.string().required('Please enter your address'),
-        
+      fullName: Yup.string().required("Please enter your full name"),
+      mobileNumber: Yup.number()
+        .positive("Please enter a valid mobile number")
+        .required("Please enter your mobile number"),
+      gender: Yup.string()
+        .required("Please enter your gender")
+        .oneOf(["Male", "Female"]),
+      address: Yup.string().required("Please enter your address"),
     }),
     onSubmit: (values) => {
       fetch("http://localhost:8000/personal-details", {
@@ -73,8 +83,8 @@ export default function PersonalDetails() {
         value={formik.values.fullName}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.fullName && formik.errors.fullName}
-            helperText={formik.touched.fullName && formik.errors.fullName}
+        error={Boolean(formik.touched.fullName && formik.errors.fullName)}
+        helperText={formik.touched.fullName && formik.errors.fullName}
       />
 
       <Typography
@@ -122,6 +132,11 @@ export default function PersonalDetails() {
             label="Female"
           />
         </RadioGroup>
+        <FormHelperText
+          error={Boolean(formik.touched.gender && formik.errors.gender)}
+        >
+          {formik.touched.gender && formik.errors.gender}
+        </FormHelperText>
       </FormControl>
 
       <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
@@ -133,8 +148,10 @@ export default function PersonalDetails() {
         value={formik.values.mobileNumber}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.mobileNumber && formik.errors.mobileNumber}
-            helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
+        error={Boolean(
+          formik.touched.mobileNumber && formik.errors.mobileNumber
+        )}
+        helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
       />
       <Typography paragraph style={{ fontSize: "23px", marginTop: "50px" }}>
         Address
@@ -145,8 +162,8 @@ export default function PersonalDetails() {
         value={formik.values.address}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.address && formik.errors.address}
-            helperText={formik.touched.address && formik.errors.address}
+        error={Boolean(formik.touched.address && formik.errors.address)}
+        helperText={formik.touched.address && formik.errors.address}
       />
 
       <Divider

@@ -8,6 +8,7 @@ import {
   FormControl,
   FormLabel,
   RadioGroup,
+  FormHelperText,
 } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
@@ -32,22 +33,31 @@ export default function Expenditures() {
       otherAmount: "",
     },
     validationSchema: Yup.object().shape({
-      activeLoans:Yup.string().required('Please select an option'),
-      loanEMI: Yup.number().positive('Please enter a postive number')
-        .required('Please enter your loan EMI'),
-        loanOutstanding: Yup.number().positive('Please enter a postive number')
-        .required('Please enter your loan outstanding amount'),
-        vehicleEMI: Yup.number().positive('Please enter a postive number')
-        .required('Please enter your vehicle EMI'),
-        vehicleOutstanding: Yup.number().positive('Please enter a postive number')
-        .required('Please enter your vehicle outstanding amount'),
-        children: Yup.number().positive('Please enter a postive number')
-        .required('Please enter about your children'),
-        schoolFee: Yup.number().positive('Please enter a postive number')
-        .required('Please enter your children school fee'),
-        otherExpenditures: Yup.string().matches(/^(Yes|No)$/i,'Please enter either "Yes" or "No"').required('Please enter your other expenditures'),
-        otherAmount: Yup.number().positive('Please enter a postive number')
-        .required('Please enter your other expenditures amount'),
+      activeLoans: Yup.string().required("Please select an option"),
+      loanEMI: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter your loan EMI"),
+      loanOutstanding: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter your loan outstanding amount"),
+      vehicleEMI: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter your vehicle EMI"),
+      vehicleOutstanding: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter your vehicle outstanding amount"),
+      children: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter about your children"),
+      schoolFee: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter your children school fee"),
+      otherExpenditures: Yup.string()
+        .matches(/^(Yes|No)$/i, 'Please enter either "Yes" or "No"')
+        .required("Please enter your other expenditures"),
+      otherAmount: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter your other expenditures amount"),
     }),
     onSubmit: (values) => {
       fetch("http://localhost:8000/expenditures", {
@@ -98,8 +108,6 @@ export default function Expenditures() {
           name="activeLoans"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.touched.activeLoans && formik.errors.activeLoans}
-          helperText={formik.touched.activeLoans && formik.errors.activeLoans}
         >
           <FormControlLabel
             value="Yes"
@@ -112,6 +120,13 @@ export default function Expenditures() {
             label="No"
           />
         </RadioGroup>
+        <FormHelperText
+          error={Boolean(
+            formik.touched.activeLoans && formik.errors.activeLoans
+          )}
+        >
+          {formik.touched.activeLoans && formik.errors.activeLoans}
+        </FormHelperText>
       </FormControl>
       <br />
       {formik.values.activeLoans === "Yes" && (
@@ -125,7 +140,7 @@ export default function Expenditures() {
             value={formik.values.loanEMI}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.loanEMI && formik.errors.loanEMI}
+            error={Boolean(formik.touched.loanEMI && formik.errors.loanEMI)}
             helperText={formik.touched.loanEMI && formik.errors.loanEMI}
           />
           {+formik.values.loanEMI > 0 && (
@@ -142,8 +157,14 @@ export default function Expenditures() {
                 value={formik.values.loanOutstanding}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.touched.loanOutstanding && formik.errors.loanOutstanding}
-            helperText={formik.touched.loanOutstanding && formik.errors.loanOutstanding}
+                error={Boolean(
+                  formik.touched.loanOutstanding &&
+                    formik.errors.loanOutstanding
+                )}
+                helperText={
+                  formik.touched.loanOutstanding &&
+                  formik.errors.loanOutstanding
+                }
               />
             </>
           )}
@@ -189,7 +210,9 @@ export default function Expenditures() {
             value={formik.values.vehicleEMI}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.vehicleEMI && formik.errors.vehicleEMI}
+            error={Boolean(
+              formik.touched.vehicleEMI && formik.errors.vehicleEMI
+            )}
             helperText={formik.touched.vehicleEMI && formik.errors.vehicleEMI}
           />
           {+formik.values.vehicleEMI > 0 && (
@@ -206,8 +229,14 @@ export default function Expenditures() {
                 value={formik.values.vehicleOutstanding}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.touched.vehicleOutstanding && formik.errors.vehicleOutstanding}
-              helperText={formik.touched.vehicleOutstanding && formik.errors.vehicleOutstanding}
+                error={Boolean(
+                  formik.touched.vehicleOutstanding &&
+                    formik.errors.vehicleOutstanding
+                )}
+                helperText={
+                  formik.touched.vehicleOutstanding &&
+                  formik.errors.vehicleOutstanding
+                }
               />
             </>
           )}
@@ -222,8 +251,8 @@ export default function Expenditures() {
         value={formik.values.children}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.children && formik.errors.children}
-            helperText={formik.touched.children && formik.errors.children}
+        error={Boolean(formik.touched.children && formik.errors.children)}
+        helperText={formik.touched.children && formik.errors.children}
       />
       {+formik.values.children > 0 && (
         <>
@@ -236,7 +265,7 @@ export default function Expenditures() {
             value={formik.values.schoolFee}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.schoolFee && formik.errors.schoolFee}
+            error={Boolean(formik.touched.schoolFee && formik.errors.schoolFee)}
             helperText={formik.touched.schoolFee && formik.errors.schoolFee}
           />
         </>
@@ -250,8 +279,12 @@ export default function Expenditures() {
         value={formik.values.otherExpenditures}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.otherExpenditures && formik.errors.otherExpenditures}
-            helperText={formik.touched.otherExpenditures && formik.errors.otherExpenditures}
+        error={Boolean(
+          formik.touched.otherExpenditures && formik.errors.otherExpenditures
+        )}
+        helperText={
+          formik.touched.otherExpenditures && formik.errors.otherExpenditures
+        }
       />
       {formik.values.otherExpenditures === "Yes" && (
         <>
@@ -264,7 +297,9 @@ export default function Expenditures() {
             value={formik.values.otherAmount}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.otherAmount && formik.errors.otherAmount}
+            error={Boolean(
+              formik.touched.otherAmount && formik.errors.otherAmount
+            )}
             helperText={formik.touched.otherAmount && formik.errors.otherAmount}
           />
         </>

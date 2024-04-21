@@ -6,6 +6,8 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  Grid,
+  Stack,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Faq from "../../components/faq/Faq";
@@ -18,42 +20,58 @@ export default function Home() {
       <Container
         style={{ marginTop: "200px", textAlign: "center", color: "white" }}
       >
-        <Typography variant="h2" style={{ marginBottom: "50px" }}>
-          Check Your Loan Eligibilty
-        </Typography>
-        <Typography
-          paragraph
-          style={{ fontSize: "25px", marginBottom: "100px" }}
-        >
-          Congratulations on taking the first step towards your dream home! We
-          believe that everyone deserves the opportunity to own their dream
-          home. Let us help turn your homeownership aspirations into reality.
-          Start your journey with us today!
-        </Typography>
-        <Button
-          component={Link}
-          color="inherit"
-          style={{
-            backgroundColor: "blue",
-            marginRight: "100px",
-            padding: "15px 70px",
-          }}
-          to="/about"
-        >
-          Explore
-        </Button>
-        <Button
-          component={Link}
-          color="inherit"
-          style={{
-            backgroundColor: "blue",
-            marginRight: "100px",
-            padding: "15px 70px",
-          }}
-          to="/register"
-        >
-          Register
-        </Button>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h2">Check Your Loan Eligibilty</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography paragraph sx={{ fontSize: "25px", mt: 4, mb: 5 }}>
+              Congratulations on taking the first step towards your dream home!
+              We believe that everyone deserves the opportunity to own their
+              dream home. Let us help turn your homeownership aspirations into
+              reality. Start your journey with us today!
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            alignContent="center"
+            textAlign="center"
+            width="100%"
+            alignSelf="center"
+            alignItems="center"
+          >
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={13}
+              sx={{
+                mt: 4,
+                justifyContent: "center",
+              }}
+            >
+              <Button
+                type="button"
+                color="primary"
+                component={Link}
+                sx={{ px: 8, py: "12px" }}
+                variant="contained"
+                to="/about"
+              >
+                Explore
+              </Button>
+              <Button
+                type="button"
+                component={Link}
+                color="primary"
+                sx={{ px: 8, py: "12px" }}
+                variant="contained"
+                to="/register"
+              >
+                Register
+              </Button>
+            </Stack>
+          </Grid>
+        </Grid>
       </Container>
 
       <Container

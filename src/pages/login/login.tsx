@@ -5,58 +5,30 @@ import {
   Button,
   Typography,
   IconButton,
+  Box,
 } from "@mui/material";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import * as Yup from "yup";
-
-const style = {
-  width: "550px",
-  height: "450px",
-  backgroundColor: "white",
-  bgcolor: "background.paper",
-  p: 4,
-  textAlign: "center",
-  borderRadius: "20px",
-  marginTop: "180px",
-  marginBottom: "390px",
-  marginLeft: "600px",
-};
+import {
+  loginPageInitialValues,
+  loginPageStyle,
+  loginPageValidation,
+} from "./utils";
+import { LoginValues } from "./types";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../../custom-redux/actions/login";
+import { UnknownAction } from "redux";
 
 export default function Login() {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const navigate = useNavigate();
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: Yup.object().shape({
-      email: Yup.string()
-        .email("Please enter valid email")
-        .required("Please provide email"),
-      password: Yup.string().required("No password provided."),
-    }),
+  const dispatch = useDispatch();
+  const formik = useFormik<LoginValues>({
+    initialValues: loginPageInitialValues(),
+    validationSchema: loginPageValidation(),
     onSubmit: (values) => {
-      fetch("http://localhost:8000/users?email=" + values.email)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          if (!data || data.length !== 1) {
-            console.log("Please Enter valid User Name");
-          } else {
-            if (data[0].password === values.password) {
-              navigate("/home");
-            } else {
-              console.log("Please Enter valid credentials");
-            }
-          }
-        })
-        .catch((err) => {
-          console.log("Failed:" + err.message);
-        });
+      dispatch(loginAction(values, navigate) as unknown as UnknownAction);
     },
   });
 
@@ -65,7 +37,12 @@ export default function Login() {
   };
 
   return (
-    <form style={style} autoComplete="off" onSubmit={formik.handleSubmit}>
+    <Box
+      component="form"
+      sx={loginPageStyle}
+      autoComplete="off"
+      onSubmit={formik.handleSubmit}
+    >
       <Typography
         variant="h5"
         style={{
@@ -84,8 +61,8 @@ export default function Login() {
         style={{ width: "400px", marginBottom: "50px" }}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.email && formik.errors.email}
-            helperText={formik.touched.email && formik.errors.email}
+        error={Boolean(formik.touched.email && formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
       />
       <br />
       <TextField
@@ -95,8 +72,8 @@ export default function Login() {
         style={{ width: "400px", marginBottom: "50px" }}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.password && formik.errors.password}
-            helperText={formik.touched.password && formik.errors.password}
+        error={Boolean(formik.touched.password && formik.errors.password)}
+        helperText={formik.touched.password && formik.errors.password}
         type={showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
@@ -114,7 +91,6 @@ export default function Login() {
         fullWidth
       />
       <Button
-        component={Link}
         type="submit"
         color="inherit"
         style={{
@@ -123,7 +99,6 @@ export default function Login() {
           padding: "10px 40px",
           marginRight: "100px",
         }}
-        to="/home"
       >
         LOGIN
       </Button>
@@ -150,6 +125,6 @@ export default function Login() {
           </Link>
         </strong>
       </Typography>
-    </form>
+    </Box>
   );
 }

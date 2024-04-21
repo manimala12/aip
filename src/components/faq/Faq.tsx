@@ -8,9 +8,8 @@ import { Container, Typography } from "@mui/material";
 export default function Faq() {
   return (
     <Container
-      style={{
+      sx={{
         marginTop: "150px",
-        width: "1200px",
         fontSize: "25px",
         marginBottom: "100px",
       }}

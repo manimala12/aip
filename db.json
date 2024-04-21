@@ -1,18 +1,26 @@
 {
   "users": [
-    
+    {
+      "userName": "sfdsdf",
+      "fullName": "sfassd",
+      "email": "jnaneswari@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "hasAgreed": true,
+      "id": 1
+    },
+    {
+      "userName": "sfdsdf",
+      "fullName": "sfassd",
+      "email": "jaanu@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "hasAgreed": true,
+      "id": 2
+    }
   ],
-  "loan-details": [
-    
-  ],
-  "personal-details": [
-    
-  ],
-  "income-details": [
-    
-  ],
-  "expenditures": [
-    
-    
-  ]
+  "loan-details": [],
+  "personal-details": [],
+  "income-details": [],
+  "expenditures": []
 }

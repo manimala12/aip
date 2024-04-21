@@ -17,7 +17,7 @@ const style = {
 
 export default function DialogModal() {
   return (
-    <Box style={style}>
+    <Box sx={style}>
       <Typography
         variant="h5"
         style={{ color: "blue", fontWeight: "bold", paddingTop: "80px" }}

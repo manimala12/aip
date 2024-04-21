@@ -10,6 +10,7 @@ import {
   FormControlLabel,
   FormLabel,
   RadioGroup,
+  FormHelperText,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
@@ -31,10 +32,13 @@ export default function IncomeDetails() {
       earning: "",
     },
     validationSchema: Yup.object().shape({
-        nameOfTheOccupation:Yup.string().required('Please enter your occupation'),
-        nameOfTheEmployer:Yup.string().required('Please enter your occupation'),
-        earning: Yup.number().positive('Please enter a postive number')
-        .required('Please enter your earnings'),
+      nameOfTheOccupation: Yup.string().required(
+        "Please enter your occupation"
+      ),
+      nameOfTheEmployer: Yup.string().required("Please enter your occupation"),
+      earning: Yup.number()
+        .positive("Please enter a postive number")
+        .required("Please enter your earnings"),
     }),
     onSubmit: (values) => {
       fetch("http://localhost:8000/income-details", {
@@ -85,8 +89,6 @@ export default function IncomeDetails() {
           name="typeOfEmployement"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.touched.typeOfEmployement && formik.errors.typeOfEmployement}
-          helperText={formik.touched.typeOfEmployement && formik.errors.typeOfEmployement}
         >
           <FormControlLabel
             value="Salaried"
@@ -99,6 +101,13 @@ export default function IncomeDetails() {
             label="Self Employed"
           />
         </RadioGroup>
+        <FormHelperText
+          error={Boolean(
+            formik.touched.typeOfEmployement && formik.errors.typeOfEmployement
+          )}
+        >
+          {formik.touched.typeOfEmployement && formik.errors.typeOfEmployement}
+        </FormHelperText>
       </FormControl>
       <br />
 
@@ -118,8 +127,6 @@ export default function IncomeDetails() {
           name="contractType"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.touched.contractType && formik.errors.contractType}
-          helperText={formik.touched.contractType && formik.errors.contractType}
         >
           <FormControlLabel
             value="Full Time"
@@ -132,6 +139,13 @@ export default function IncomeDetails() {
             label="Part Time"
           />
         </RadioGroup>
+        <FormHelperText
+          error={Boolean(
+            formik.touched.contractType && formik.errors.contractType
+          )}
+        >
+          {formik.touched.contractType && formik.errors.contractType}
+        </FormHelperText>
       </FormControl>
 
       <Typography
@@ -189,8 +203,14 @@ export default function IncomeDetails() {
             value={formik.values.nameOfTheOccupation}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={formik.touched.nameOfTheOccupation && formik.errors.nameOfTheOccupation}
-            helperText={formik.touched.nameOfTheOccupation && formik.errors.nameOfTheOccupation}
+            error={Boolean(
+              formik.touched.nameOfTheOccupation &&
+                formik.errors.nameOfTheOccupation
+            )}
+            helperText={
+              formik.touched.nameOfTheOccupation &&
+              formik.errors.nameOfTheOccupation
+            }
           />
         </>
       )}
@@ -204,8 +224,12 @@ export default function IncomeDetails() {
         value={formik.values.nameOfTheEmployer}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.nameOfTheEmployer && formik.errors.nameOfTheEmployer}
-            helperText={formik.touched.nameOfTheEmployer && formik.errors.nameOfTheEmployer}
+        error={Boolean(
+          formik.touched.nameOfTheEmployer && formik.errors.nameOfTheEmployer
+        )}
+        helperText={
+          formik.touched.nameOfTheEmployer && formik.errors.nameOfTheEmployer
+        }
       />
 
       <Typography
@@ -245,8 +269,8 @@ export default function IncomeDetails() {
         value={formik.values.earning}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.earning && formik.errors.earning}
-            helperText={formik.touched.earning && formik.errors.earning}
+        error={Boolean(formik.touched.earning && formik.errors.earning)}
+        helperText={formik.touched.earning && formik.errors.earning}
       />
 
       <Divider

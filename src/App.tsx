@@ -13,16 +13,19 @@ import PersonalDetails from "./pages/personal_details/personal_details";
 import IncomeDetails from "./pages/income_details/income_details";
 import Expenditures from "./pages/expenditures/expenditures";
 import Result from "./pages/result/result";
+import { ToastContainer } from "react-toastify";
+import { AppRoutes } from "./types";
 
 export default function App() {
   return (
     <>
       <ButtonAppBar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="login" element={<Login />} />
+        <Route path={AppRoutes.LOGIN} element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="registered" element={<DialogModal />} />
         <Route path="home" element={<MainHome />} />
