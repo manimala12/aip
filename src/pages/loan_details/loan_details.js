@@ -14,6 +14,7 @@ import FormLabel from "@mui/material/FormLabel";
 import { useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export default function LoanDetails() {
   const navigate = useNavigate();
@@ -25,6 +26,12 @@ export default function LoanDetails() {
       propertyValue: "",
       deposit: "",
     },
+    validationSchema: Yup.object().shape({
+      propertyValue: Yup.number().positive('Please enter a postive number')
+      .required('Please enter your property value'),
+      deposit: Yup.number().positive('Please enter a postive number')
+      .required('Please enter your deposit'),
+  }),
     onSubmit: (values) => {
       fetch("http://localhost:8000/loan-details", {
         method: "POST",
@@ -135,6 +142,9 @@ export default function LoanDetails() {
         name="propertyValue"
         value={formik.values.propertyValue}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.propertyValue && formik.errors.propertyValue}
+            helperText={formik.touched.propertyValue && formik.errors.propertyValue}
       />
 
       <Typography paragraph style={{ fontSize: "25px", marginTop: "60px" }}>
@@ -148,6 +158,9 @@ export default function LoanDetails() {
         name="deposit"
         value={formik.values.deposit}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.deposit && formik.errors.deposit}
+            helperText={formik.touched.deposit && formik.errors.deposit}
       />
       <Divider
         style={{

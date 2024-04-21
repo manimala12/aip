@@ -15,6 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export default function IncomeDetails() {
   const navigate = useNavigate();
@@ -29,6 +30,12 @@ export default function IncomeDetails() {
       oftenYouGetPaid: "",
       earning: "",
     },
+    validationSchema: Yup.object().shape({
+        nameOfTheOccupation:Yup.string().required('Please enter your occupation'),
+        nameOfTheEmployer:Yup.string().required('Please enter your occupation'),
+        earning: Yup.number().positive('Please enter a postive number')
+        .required('Please enter your earnings'),
+    }),
     onSubmit: (values) => {
       fetch("http://localhost:8000/income-details", {
         method: "POST",
@@ -78,6 +85,8 @@ export default function IncomeDetails() {
           name="typeOfEmployement"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          error={formik.touched.typeOfEmployement && formik.errors.typeOfEmployement}
+          helperText={formik.touched.typeOfEmployement && formik.errors.typeOfEmployement}
         >
           <FormControlLabel
             value="Salaried"
@@ -109,6 +118,8 @@ export default function IncomeDetails() {
           name="contractType"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          error={formik.touched.contractType && formik.errors.contractType}
+          helperText={formik.touched.contractType && formik.errors.contractType}
         >
           <FormControlLabel
             value="Full Time"
@@ -177,6 +188,9 @@ export default function IncomeDetails() {
             name="nameOfTheOccupation"
             value={formik.values.nameOfTheOccupation}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.nameOfTheOccupation && formik.errors.nameOfTheOccupation}
+            helperText={formik.touched.nameOfTheOccupation && formik.errors.nameOfTheOccupation}
           />
         </>
       )}
@@ -189,6 +203,9 @@ export default function IncomeDetails() {
         name="nameOfTheEmployer"
         value={formik.values.nameOfTheEmployer}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.nameOfTheEmployer && formik.errors.nameOfTheEmployer}
+            helperText={formik.touched.nameOfTheEmployer && formik.errors.nameOfTheEmployer}
       />
 
       <Typography
@@ -227,6 +244,9 @@ export default function IncomeDetails() {
         name="earning"
         value={formik.values.earning}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.earning && formik.errors.earning}
+            helperText={formik.touched.earning && formik.errors.earning}
       />
 
       <Divider

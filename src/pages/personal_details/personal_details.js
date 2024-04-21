@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
@@ -20,6 +21,13 @@ export default function PersonalDetails() {
       mobileNumber: "",
       address: "",
     },
+    validationSchema: Yup.object().shape({
+      fullName:Yup.string().required('Please enter your full name'),
+      mobileNumber: Yup.number().positive('Please enter a valid mobile number')
+        .required('Please enter your mobile number'),
+        address:Yup.string().required('Please enter your address'),
+        
+    }),
     onSubmit: (values) => {
       fetch("http://localhost:8000/personal-details", {
         method: "POST",
@@ -64,6 +72,9 @@ export default function PersonalDetails() {
         name="fullName"
         value={formik.values.fullName}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.fullName && formik.errors.fullName}
+            helperText={formik.touched.fullName && formik.errors.fullName}
       />
 
       <Typography
@@ -79,6 +90,7 @@ export default function PersonalDetails() {
           name="dateOfBirth"
           value={formik.values.dateOfBirth}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
       </Box>
 
@@ -120,6 +132,9 @@ export default function PersonalDetails() {
         name="mobileNumber"
         value={formik.values.mobileNumber}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.mobileNumber && formik.errors.mobileNumber}
+            helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
       />
       <Typography paragraph style={{ fontSize: "23px", marginTop: "50px" }}>
         Address
@@ -129,6 +144,9 @@ export default function PersonalDetails() {
         name="address"
         value={formik.values.address}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.address && formik.errors.address}
+            helperText={formik.touched.address && formik.errors.address}
       />
 
       <Divider

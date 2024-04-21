@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const style = {
   width: "750px",
@@ -38,6 +39,26 @@ export default function Register() {
       password: "",
       confirmPassword: "",
     },
+    validationSchema: Yup.object().shape({
+      userName: Yup.string()
+        .min(2, "User Name must be 2 characters or more")
+        .max(20, "User Name must be 20 characters or less")
+        .required("User Name is required"),
+      fullName: Yup.string()
+        .min(2, "Full Name must be 2 characters or more")
+        .max(20, "Full Name must be 20 characters or less")
+        .required("Full Name is required"),
+      email: Yup.string()
+        .email("Please enter valid email")
+        .required("Please provide email"),
+      password: Yup.string()
+        .required("No password provided.")
+        .min(8, "Password is too short - should be 8 chars minimum.")
+        .max(25, "Password must be 25 characters or less"),
+      confirmPassword: Yup.string()
+        .required("Password not confirmed")
+        .oneOf([Yup.ref("password")], "Passwords must match"),
+    }),
     onSubmit: (values) => {
       fetch("http://localhost:8000/users", {
         method: "POST",
@@ -81,6 +102,8 @@ export default function Register() {
         style={{ width: "500px", marginBottom: "40px", color: "black" }}
         value={formik.values.userName}
         onChange={formik.handleChange}
+        error={formik.touched.userName && formik.errors.userName}
+            helperText={formik.touched.userName && formik.errors.userName}
       />
       <br />
       <TextField
@@ -89,6 +112,8 @@ export default function Register() {
         style={{ width: "500px", marginBottom: "40px" }}
         value={formik.values.fullName}
         onChange={formik.handleChange}
+        error={formik.touched.fullName && formik.errors.fullName}
+            helperText={formik.touched.fullName && formik.errors.fullName}
       />
       <br />
       <TextField
@@ -97,6 +122,8 @@ export default function Register() {
         style={{ width: "500px", marginBottom: "40px" }}
         value={formik.values.email}
         onChange={formik.handleChange}
+        error={formik.touched.email && formik.errors.email}
+            helperText={formik.touched.email && formik.errors.email}
       />
       <br />
       <TextField
@@ -105,6 +132,9 @@ export default function Register() {
         style={{ width: "500px", marginBottom: "40px" }}
         value={formik.values.password}
         onChange={formik.handleChange}
+        error={formik.touched.password && formik.errors.password}
+            helperText={formik.touched.password && formik.errors.password}
+
         type={showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
@@ -128,6 +158,9 @@ export default function Register() {
         style={{ width: "500px", marginBottom: "20px" }}
         value={formik.values.confirmPassword}
         onChange={formik.handleChange}
+        error={formik.touched.confirmPassword && formik.errors.confirmPassword}
+            helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
+
         type={showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (

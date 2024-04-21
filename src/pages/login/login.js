@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const style = {
   width: "550px",
@@ -28,11 +29,17 @@ export default function Login() {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      userName: "",
+      email: "",
       password: "",
     },
+    validationSchema: Yup.object().shape({
+      email: Yup.string()
+        .email("Please enter valid email")
+        .required("Please provide email"),
+      password: Yup.string().required("No password provided."),
+    }),
     onSubmit: (values) => {
-      fetch("http://localhost:8000/users?userName=" + values.userName)
+      fetch("http://localhost:8000/users?email=" + values.email)
         .then((res) => {
           return res.json();
         })
@@ -71,11 +78,14 @@ export default function Login() {
         Login Here!!
       </Typography>
       <TextField
-        label="User Name"
-        name="userName"
-        value={formik.values.userName}
+        label="Email"
+        name="email"
+        value={formik.values.email}
         style={{ width: "400px", marginBottom: "50px" }}
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={formik.touched.email && formik.errors.email}
+            helperText={formik.touched.email && formik.errors.email}
       />
       <br />
       <TextField
@@ -84,7 +94,9 @@ export default function Login() {
         value={formik.values.password}
         style={{ width: "400px", marginBottom: "50px" }}
         onChange={formik.handleChange}
-        o
+        onBlur={formik.handleBlur}
+        error={formik.touched.password && formik.errors.password}
+            helperText={formik.touched.password && formik.errors.password}
         type={showPassword ? "text" : "password"}
         InputProps={{
           endAdornment: (
