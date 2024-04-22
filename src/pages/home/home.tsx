@@ -75,7 +75,12 @@ export default function Home() {
       </Container>
 
       <Container
-        style={{ marginTop: "350px", textAlign: "center", color: "white" }}
+        style={{
+          marginTop: "350px",
+          textAlign: "center",
+          color: "white",
+          marginBottom: "200px",
+        }}
       >
         <Typography variant="h2" style={{ marginBottom: "50px" }}>
           What is an Agreement In Principle?

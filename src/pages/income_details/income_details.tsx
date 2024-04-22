@@ -286,10 +286,11 @@ export default function IncomeDetails() {
         color="inherit"
         component={Link}
         style={{
-          backgroundColor: "blue",
+          backgroundColor: "#04AA6D",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
+          marginBottom: "30px",
         }}
         to="/personal-details"
       >
@@ -297,15 +298,18 @@ export default function IncomeDetails() {
         Back
       </Button>
       <Button
+        component={Link}
+        to="/expenditures"
         variant="contained"
         color="inherit"
         type="submit"
         style={{
-          backgroundColor: "blue",
+          backgroundColor: "#04AA6D",
           marginLeft: "785px",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
+          marginBottom: "30px",
         }}
         endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
       >

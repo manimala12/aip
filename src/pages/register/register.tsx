@@ -233,7 +233,10 @@ export default function Register() {
         <Typography paragraph sx={{ my: 3 }}>
           Already have an account?{" "}
           <strong style={{ cursor: "pointer" }}>
-            <Link to="/login" style={{ textDecoration: "none" }}>
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "#04AA6D" }}
+            >
               Login Here.
             </Link>
           </strong>

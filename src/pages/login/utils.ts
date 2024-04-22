@@ -3,16 +3,14 @@ import { SxProps, Theme } from "@mui/material";
 import { LoginValues } from "./types";
 
 export const loginPageStyle: SxProps<Theme> = {
-  width: "550px",
-  height: "450px",
-  backgroundColor: "white",
-  bgcolor: "background.paper",
-  p: 4,
+  bgcolor: "white",
+  borderRadius: 5,
   textAlign: "center",
-  borderRadius: "20px",
-  marginTop: "180px",
-  marginBottom: "390px",
-  marginLeft: "600px",
+  py: 1,
+  px: {
+    xs: 4,
+    sm: 8,
+  },
 };
 
 export const loginPageValidation = (): Yup.ObjectSchema<LoginValues> =>

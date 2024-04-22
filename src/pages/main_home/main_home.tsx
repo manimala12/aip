@@ -25,7 +25,7 @@ export default function MainHome() {
         to="/loan-details"
         style={{
           color: "white",
-          backgroundColor: "blue",
+          backgroundColor: "#04AA6D",
           marginTop: "30px",
           padding: "30px 30px",
           fontSize: "18px",

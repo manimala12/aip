@@ -183,11 +183,12 @@ export default function LoanDetails() {
         color="inherit"
         type="submit"
         style={{
-          backgroundColor: "blue",
+          backgroundColor: "#04AA6D",
           marginLeft: "985px",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
+          marginBottom: "30px",
         }}
         endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
       >

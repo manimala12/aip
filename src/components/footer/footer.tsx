@@ -28,7 +28,6 @@ export default function Footer() {
             rowSpacing={{ xs: 10 }}
             columnSpacing={15}
             color="white"
-            marginTop={6}
             paddingTop={6}
             marginBottom={10}
             sx={{ px: 4 }}
@@ -36,9 +35,9 @@ export default function Footer() {
             <Grid item xs={12} sm={4} paddingTop={0}>
               <Typography variant="h5">Agreement In Principle</Typography>
               <Divider
-                style={{
+                sx={{
                   marginTop: "10px",
-                  background: "blue",
+                  bgcolor: "primary.main",
                   borderBottomWidth: 5,
                 }}
               />
@@ -58,7 +57,7 @@ export default function Footer() {
               <Divider
                 sx={{
                   marginTop: "10px",
-                  background: "blue",
+                  bgcolor: "primary.main",
                   borderBottomWidth: 5,
                   mb: 5,
                 }}
@@ -108,7 +107,7 @@ export default function Footer() {
               <Divider
                 sx={{
                   marginTop: "10px",
-                  background: "blue",
+                  bgcolor: "primary.main",
                   borderBottomWidth: 5,
                   mb: 5,
                 }}

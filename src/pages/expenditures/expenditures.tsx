@@ -318,10 +318,11 @@ export default function Expenditures() {
         color="inherit"
         component={Link}
         style={{
-          backgroundColor: "blue",
+          backgroundColor: "#04AA6D",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
+          marginBottom: "30px",
         }}
         to="/income-details"
       >
@@ -333,11 +334,12 @@ export default function Expenditures() {
         variant="contained"
         color="inherit"
         style={{
-          backgroundColor: "blue",
+          backgroundColor: "#04AA6D",
           marginLeft: "785px",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
+          marginBottom: "30px",
         }}
         endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
       >

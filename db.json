@@ -19,8 +19,89 @@
       "id": 2
     }
   ],
-  "loan-details": [],
-  "personal-details": [],
+  "loan-details": [
+    {
+      "noOfPeople": "1",
+      "homeType": "Constructing a new home",
+      "propertyValue": "2555555",
+      "deposit": "10000",
+      "id": 1
+    },
+    {
+      "noOfPeople": "2",
+      "homeType": "Constructing a new home",
+      "propertyValue": "25555",
+      "deposit": "122",
+      "id": 2
+    },
+    {
+      "noOfPeople": "2",
+      "homeType": "Reconstructing an existing home",
+      "propertyValue": "6523",
+      "deposit": "12",
+      "id": 3
+    },
+    {
+      "noOfPeople": "2",
+      "homeType": "Reconstructing an existing home",
+      "propertyValue": "500000",
+      "deposit": "250000",
+      "id": 4
+    }
+  ],
+  "personal-details": [
+    {
+      "fullName": "asdfgh",
+      "dateOfBirth": "12/12/2021",
+      "gender": "Male",
+      "mobileNumber": "9876543210",
+      "address": "c, cgghhgff",
+      "id": 1
+    },
+    {
+      "fullName": "asdfgh",
+      "dateOfBirth": "12/12/2021",
+      "gender": "Female",
+      "mobileNumber": "9876543210",
+      "address": "c, cgghhgff",
+      "id": 2
+    },
+    {
+      "fullName": "asdfgh",
+      "dateOfBirth": "12/12/2021",
+      "gender": "Female",
+      "mobileNumber": "9876543210",
+      "address": "c, cgghhgff",
+      "id": 3
+    }
+  ],
   "income-details": [],
-  "expenditures": []
+  "expenditures": [
+    {
+      "activeLoans": "Yes",
+      "loanEMI": "2556",
+      "loanOutstanding": "5222",
+      "vehicle": "Yes",
+      "vehicleEMI": "555555",
+      "vehicleOutstanding": "5222",
+      "children": "2",
+      "schoolFee": "555222",
+      "otherExpenditures": "Yes",
+      "otherAmount": "5522236",
+      "id": 1
+    },
+    {
+      "activeLoans": "Yes",
+      "loanEMI": "52000",
+      "loanOutstanding": "855555",
+      "vehicle": "Yes",
+      "vehicleEMI": "20000",
+      "vehicleOutstanding": "520000",
+      "children": "1",
+      "schoolFee": "5200",
+      "otherExpenditures": "Yes",
+      "otherAmount": "100000",
+      "id": 2
+    }
+  ]
 }
