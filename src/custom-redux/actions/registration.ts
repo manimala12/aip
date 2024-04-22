@@ -36,6 +36,7 @@ export const registrationAction = (
           type: authConstants.REGISTRATION_SUCCESS,
           payload: {
             message: "Registered successfully",
+            email: currentUser.email,
           },
         });
         navigate(AppRoutes.LOGIN);

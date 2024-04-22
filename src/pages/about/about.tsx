@@ -5,26 +5,26 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  Paper,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@mui/material";
-import data from "./data";
+import { CarouselData, carouselItems } from "./data";
 
 function Slider() {
   return (
     <Carousel>
-      {data.map((data) => (
+      {carouselItems.map((data: CarouselData) => (
         <Item key={data.id} item={data} />
       ))}
     </Carousel>
   );
 }
 
-function Item(props) {
+function Item({ item, key }: { item: CarouselData; key: string }) {
   return (
-    <Paper>
-      <h1>Hii</h1>
+    <Paper key={key}>
+      <h1>{item.heading}</h1>
     </Paper>
   );
 }

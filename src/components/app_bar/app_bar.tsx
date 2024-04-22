@@ -14,7 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { Link } from "@mui/material";
+import { Link, ThemeProvider, createTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "../../custom-redux/store";
 import { logoutAction } from "../../custom-redux/actions/logout";
@@ -25,6 +25,14 @@ interface Props {
   window?: () => Window;
 }
 
+const darkTheme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#04AA6D",
+    },
+  },
+});
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
 
@@ -71,73 +79,75 @@ export default function DrawerAppBar(props: Props) {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Link
-            variant="h6"
-            component={RouterLink}
-            to="/"
+    <ThemeProvider theme={darkTheme}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar component="nav">
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Link
+              variant="h6"
+              component={RouterLink}
+              to="/"
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block" },
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              AGREEMENT IN PRINCIPLE
+            </Link>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {navItems.map((item) => (
+                <Button
+                  component={RouterLink}
+                  to={`/${item.toLowerCase()}`}
+                  key={item}
+                  sx={{ color: "#fff", mx: { xs: 0, md: 1 } }}
+                >
+                  {item}
+                </Button>
+              ))}
+              <Button
+                type="button"
+                onClick={logoutHandler}
+                sx={{ color: "#fff" }}
+              >
+                {isAuthenticated ? "Logout" : "Login"}
+              </Button>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <nav>
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true,
+            }}
             sx={{
-              flexGrow: 1,
-              display: { xs: "none", sm: "block" },
-              color: "white",
-              textDecoration: "none",
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
             }}
           >
-            AGREEMENT IN PRINCIPLE
-          </Link>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button
-                component={RouterLink}
-                to={`/${item.toLowerCase()}`}
-                key={item}
-                sx={{ color: "#fff", mx: { xs: 0, md: 1 } }}
-              >
-                {item}
-              </Button>
-            ))}
-            <Button
-              type="button"
-              onClick={logoutHandler}
-              sx={{ color: "#fff" }}
-            >
-              {isAuthenticated ? "Logout" : "Login"}
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
-    </Box>
+            {drawer}
+          </Drawer>
+        </nav>
+      </Box>
+    </ThemeProvider>
   );
 }

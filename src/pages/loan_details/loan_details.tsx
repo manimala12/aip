@@ -5,6 +5,7 @@ import {
   Button,
   MenuItem,
   Select,
+  FormHelperText,
 } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -14,42 +15,21 @@ import FormLabel from "@mui/material/FormLabel";
 import { useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import { HomeTypeOptions, LoanDetailsValues } from "./types";
+import { loanDetailsInitialValues, loanDetailsValidation } from "./utils";
+import { loanDetailsAction } from "../../custom-redux/actions/loanDetails";
+import { useDispatch } from "react-redux";
+import { UnknownAction } from "redux";
 
 export default function LoanDetails() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const formik = useFormik({
-    initialValues: {
-      noOfPeople: "",
-      homeType: "",
-      propertyValue: "",
-      deposit: "",
-    },
-    validationSchema: Yup.object().shape({
-      noOfPeople: Yup.string()
-        .required("Please enter number of people")
-        .oneOf(["1", "2"]),
-      propertyValue: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your property value"),
-      deposit: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your deposit"),
-    }),
+  const formik = useFormik<LoanDetailsValues>({
+    initialValues: loanDetailsInitialValues(),
+    validationSchema: loanDetailsValidation(),
     onSubmit: (values) => {
-      fetch("http://localhost:8000/loan-details", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
-      })
-        .then(() => {
-          console.log("Posted Successfully");
-          navigate("/personal-details");
-        })
-        .catch((err) => {
-          console.log("Failed:" + err.message);
-        });
+      dispatch(loanDetailsAction(values, navigate) as unknown as UnknownAction);
     },
   });
   return (
@@ -87,6 +67,7 @@ export default function LoanDetails() {
           name="noOfPeople"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          defaultValue={formik.values.noOfPeople}
         >
           <FormControlLabel
             value="1"
@@ -99,6 +80,11 @@ export default function LoanDetails() {
             label="Me and someone else"
           />
         </RadioGroup>
+        <FormHelperText
+          error={Boolean(formik.touched.noOfPeople && formik.errors.noOfPeople)}
+        >
+          {formik.touched.noOfPeople && formik.errors.noOfPeople}
+        </FormHelperText>
       </FormControl>
 
       <Typography
@@ -108,32 +94,40 @@ export default function LoanDetails() {
         Firstly, what would you like to do?
       </Typography>
 
-      <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
+      <FormControl style={{ width: "500px" }}>
         <Select
-          defaultValue={"Select an option"}
+          defaultValue={formik.values.homeType}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="homeType"
         >
-          <MenuItem style={{ fontSize: "20px" }} value={"Select an option"}>
+          <MenuItem style={{ fontSize: "20px" }} value={""}>
             Select an option
           </MenuItem>
           <MenuItem
             style={{ fontSize: "20px" }}
-            value={"Constructing a new home"}
+            value={HomeTypeOptions.NEW_HOME}
           >
-            Constructing a new home
+            {HomeTypeOptions.NEW_HOME}
           </MenuItem>
           <MenuItem
             style={{ fontSize: "20px" }}
-            value={"Reconstructing an existing home"}
+            value={HomeTypeOptions.EXISTING_HOME}
           >
-            Reconstructing an existing home
+            {HomeTypeOptions.EXISTING_HOME}
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Buying a home"}>
-            Buying a home
+          <MenuItem
+            style={{ fontSize: "20px" }}
+            value={HomeTypeOptions.BUYING_HOME}
+          >
+            {HomeTypeOptions.BUYING_HOME}
           </MenuItem>
         </Select>
+        <FormHelperText
+          error={Boolean(formik.touched.homeType && formik.errors.homeType)}
+        >
+          {formik.touched.homeType && formik.errors.homeType}
+        </FormHelperText>
       </FormControl>
 
       <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>

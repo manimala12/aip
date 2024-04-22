@@ -28,6 +28,7 @@ export const loginAction = (
           type: authConstants.LOGIN_SUCCESS,
           payload: {
             message: "Signed in successfully",
+            email: user.email,
           },
         });
         successToast("Signed in successfully");

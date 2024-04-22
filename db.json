@@ -47,6 +47,14 @@
       "propertyValue": "500000",
       "deposit": "250000",
       "id": 4
+    },
+    {
+      "noOfPeople": "1",
+      "homeType": "Buying a home",
+      "propertyValue": "150000",
+      "deposit": "34000",
+      "email": "jaanu@gmail.com",
+      "id": 5
     }
   ],
   "personal-details": [

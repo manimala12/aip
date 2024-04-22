@@ -30,7 +30,10 @@ export default function App() {
         <Route path="registered" element={<DialogModal />} />
         <Route path="home" element={<MainHome />} />
         <Route path="loan-details" element={<LoanDetails />} />
-        <Route path="personal-details" element={<PersonalDetails />} />
+        <Route
+          path={AppRoutes.PERSONAL_DETAILS}
+          element={<PersonalDetails />}
+        />
         <Route path="income-details" element={<IncomeDetails />} />
         <Route path="expenditures" element={<Expenditures />} />
         <Route path="result" element={<Result />} />

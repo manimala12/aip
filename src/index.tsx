@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 
 const darkTheme = createTheme({
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
       main: "#04AA6D",
     },

@@ -55,7 +55,7 @@ export default function Home() {
                 component={Link}
                 sx={{ px: 8, py: "12px" }}
                 variant="contained"
-                to="/about"
+                to="/home"
               >
                 Explore
               </Button>
