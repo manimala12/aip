@@ -17,6 +17,7 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { AppRoutes } from "../../types";
 
 export default function IncomeDetails() {
   const navigate = useNavigate();
@@ -301,7 +302,7 @@ export default function IncomeDetails() {
           fontWeight: "bold",
           marginBottom: "30px",
         }}
-        to="/personal-details"
+        to={AppRoutes.PERSONAL_DETAILS}
       >
         <ArrowLeftIcon style={{ fontSize: "30px" }} />
         Back

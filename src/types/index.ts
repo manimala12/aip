@@ -1,5 +1,6 @@
 import { Action } from "redux";
 import { LoanDetailsValues } from "../pages/loan_details/types";
+import { PersonalDetailsValues } from "../pages/personal_details/types";
 
 export interface AuthState {
   loading: boolean;
@@ -11,6 +12,7 @@ export interface AuthState {
 
 export interface AppData {
   loanDetails?: LoanDetailsValues;
+  personalDetails?: PersonalDetailsValues;
   loading: boolean;
   message?: string;
   error?: string;

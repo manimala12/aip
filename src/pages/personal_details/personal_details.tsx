@@ -16,11 +16,16 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { PersonalDetailsValues } from "./types";
+import { savePersonalDetailsAction } from "../../custom-redux/actions/personalDetails/save";
+import { UnknownAction } from "redux";
+import { useDispatch } from "react-redux";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const formik = useFormik({
+  const formik = useFormik<PersonalDetailsValues>({
     initialValues: {
       fullName: "",
       dateOfBirth: "",
@@ -39,20 +44,24 @@ export default function PersonalDetails() {
       address: Yup.string().required("Please enter your address"),
     }),
     onSubmit: (values) => {
-      fetch("http://localhost:8000/personal-details", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
-      })
-        .then(() => {
-          console.log("Posted Successfully");
-          navigate("/income-details");
-        })
-        .catch((err) => {
-          console.log("Failed:" + err.message);
-        });
+      dispatch(
+        savePersonalDetailsAction(values, navigate) as unknown as UnknownAction
+      );
     },
   });
+
+  // useEffect(() => {
+  //   dispatch(getLoanDetailsAction() as unknown as UnknownAction);
+  // }, []);
+
+  // useEffect(() => {
+  //   const initialLoanDetails = loanDetailsInitialValues(loanDetails);
+  //   formik.setFieldValue("deposit", initialLoanDetails.deposit);
+  //   formik.setFieldValue("homeType", initialLoanDetails.homeType);
+  //   formik.setFieldValue("loanDuration", initialLoanDetails.loanDuration);
+  //   formik.setFieldValue("noOfPeople", initialLoanDetails.noOfPeople);
+  //   formik.setFieldValue("propertyValue", initialLoanDetails.propertyValue);
+  // }, [loanDetails]);
   return (
     <form
       style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
