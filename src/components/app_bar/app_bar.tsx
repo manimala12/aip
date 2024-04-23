@@ -20,10 +20,7 @@ import { AppState } from "../../custom-redux/store";
 import { logoutAction } from "../../custom-redux/actions/logout";
 import { UnknownAction } from "redux";
 import { AppRoutes } from "../../types";
-
-interface Props {
-  window?: () => Window;
-}
+import { NavItem, Props } from "./types";
 
 const darkTheme = createTheme({
   palette: {
@@ -34,11 +31,16 @@ const darkTheme = createTheme({
   },
 });
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems: NavItem[] = [
+  { lable: "Home", routeTo: "/" },
+  { lable: "About", routeTo: "/about" },
+  { lable: "Contact", routeTo: "/contact" },
+];
 
-export default function DrawerAppBar(props: Props) {
+export default function DrawerAppBar(props: Readonly<Props>) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -51,10 +53,13 @@ export default function DrawerAppBar(props: Props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+        {navItems.map((item: NavItem) => (
+          <ListItem key={item.lable} disablePadding>
+            <ListItemButton
+              onClick={() => navigate(item.routeTo)}
+              sx={{ textAlign: "center" }}
+            >
+              <ListItemText primary={item.lable} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -65,7 +70,6 @@ export default function DrawerAppBar(props: Props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthenticated = useSelector<AppState, boolean>(
     (state) => state.auth.isAuthenticated
@@ -110,11 +114,11 @@ export default function DrawerAppBar(props: Props) {
               {navItems.map((item) => (
                 <Button
                   component={RouterLink}
-                  to={`/${item.toLowerCase()}`}
-                  key={item}
+                  to={item.routeTo}
+                  key={item.lable}
                   sx={{ color: "#ffc107", mx: { xs: 0, md: 1 } }}
                 >
-                  {item}
+                  {item.lable}
                 </Button>
               ))}
               <Button

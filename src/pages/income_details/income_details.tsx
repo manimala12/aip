@@ -32,10 +32,17 @@ export default function IncomeDetails() {
       earning: "",
     },
     validationSchema: Yup.object().shape({
-      nameOfTheOccupation: Yup.string().required(
-        "Please enter your occupation"
-      ),
+      typeOfEmployement: Yup.string()
+        .required("Please enter your type of employment")
+        .oneOf(["Salaried", "Self Employed"]),
+      contractType: Yup.string()
+        .required("Please enter your type of contract")
+        .oneOf(["Full Time", "Part Time"]),
+      oftenYouGetPaid: Yup.string()
+        .required("Please enter your type of contract")
+        .oneOf(["Weekly", "Fortnightly", "Monthly"]),
       nameOfTheEmployer: Yup.string().required("Please enter your occupation"),
+      occupation: Yup.string().required("Please enter your occupation"),
       earning: Yup.number()
         .positive("Please enter a postive number")
         .required("Please enter your earnings"),
@@ -55,6 +62,8 @@ export default function IncomeDetails() {
         });
     },
   });
+  console.log(formik.errors);
+
   return (
     <form
       style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
@@ -298,8 +307,6 @@ export default function IncomeDetails() {
         Back
       </Button>
       <Button
-        component={Link}
-        to="/expenditures"
         variant="contained"
         color="inherit"
         type="submit"

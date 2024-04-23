@@ -23,70 +23,11 @@
     {
       "noOfPeople": "1",
       "homeType": "Constructing a new home",
-      "propertyValue": "2555555",
-      "deposit": "10000",
+      "propertyValue": "150000",
+      "deposit": "34000",
+      "loanDuration": 16,
+      "email": "jnaneswari@gmail.com",
       "id": 1
-    },
-    {
-      "noOfPeople": "2",
-      "homeType": "Constructing a new home",
-      "propertyValue": "25555",
-      "deposit": "122",
-      "id": 2
-    },
-    {
-      "noOfPeople": "2",
-      "homeType": "Reconstructing an existing home",
-      "propertyValue": "6523",
-      "deposit": "12",
-      "id": 3
-    },
-    {
-      "noOfPeople": "2",
-      "homeType": "Reconstructing an existing home",
-      "propertyValue": "500000",
-      "deposit": "250000",
-      "id": 4
-    },
-    {
-      "noOfPeople": "1",
-      "homeType": "Buying a home",
-      "propertyValue": "150000",
-      "deposit": "34000",
-      "email": "jaanu@gmail.com",
-      "id": 5
-    },
-    {
-      "noOfPeople": "1",
-      "homeType": "Buying a home",
-      "propertyValue": "150000",
-      "deposit": "34000",
-      "email": "jnaneswari@gmail.com",
-      "id": 6
-    },
-    {
-      "noOfPeople": "1",
-      "homeType": "Buying a home",
-      "propertyValue": "150000",
-      "deposit": "34000",
-      "email": "jnaneswari@gmail.com",
-      "id": 7
-    },
-    {
-      "noOfPeople": "1",
-      "homeType": "Buying a home",
-      "propertyValue": "150000",
-      "deposit": "34000",
-      "email": "jnaneswari@gmail.com",
-      "id": 8
-    },
-    {
-      "noOfPeople": "1",
-      "homeType": "Buying a home",
-      "propertyValue": "150000",
-      "deposit": "34000",
-      "email": "jnaneswari@gmail.com",
-      "id": 9
     }
   ],
   "personal-details": [
@@ -115,7 +56,18 @@
       "id": 3
     }
   ],
-  "income-details": [],
+  "income-details": [
+    {
+      "typeOfEmployement": "Salaried",
+      "contractType": "Full Time",
+      "occupation": "Government Employee",
+      "nameOfTheOccupation": "",
+      "nameOfTheEmployer": "TCS",
+      "oftenYouGetPaid": "Monthly",
+      "earning": "2000",
+      "id": 1
+    }
+  ],
   "expenditures": [
     {
       "activeLoans": "Yes",
@@ -142,6 +94,29 @@
       "otherExpenditures": "Yes",
       "otherAmount": "100000",
       "id": 2
+    },
+    {
+      "activeLoans": "Yes",
+      "loanEMI": "343",
+      "loanOutstanding": "35",
+      "vehicle": "Yes",
+      "vehicleEMI": "4000",
+      "vehicleOutstanding": "43",
+      "children": "2",
+      "schoolFee": "345",
+      "otherExpenditures": "Yes",
+      "otherAmount": "55",
+      "id": 3
+    }
+  ],
+  "credit-check": [
+    {
+      "PAN": "BAJPC4350S",
+      "creditScore": 798
+    },
+    {
+      "PAN": "BAJPC4350F",
+      "creditScore": 648
     }
   ]
 }

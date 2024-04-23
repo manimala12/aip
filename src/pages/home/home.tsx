@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import { LightThemeProvider } from "../../components/theme-providers";
 import HomePageCards from "../../components/home_page_cards/home_page_cards";
 import FlipCard from "../../components/flip-cards/flip";
+import FeaturedPost from "../../components/featuredPost";
+import MainFeaturedPost from "../../components/mainFeature";
 
 export default function Home() {
   return (
@@ -58,7 +60,7 @@ export default function Home() {
                 component={Link}
                 sx={{ px: 8, py: "12px" }}
                 variant="contained"
-                to="/home"
+                to="/about"
               >
                 Explore
               </Button>
@@ -76,6 +78,8 @@ export default function Home() {
           </Grid>
         </Grid>
       </Container>
+      <FeaturedPost />
+      <MainFeaturedPost />
       <HomePageCards />
       <FlipCard />
       <Container

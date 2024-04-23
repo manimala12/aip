@@ -6,6 +6,7 @@ import {
   MenuItem,
   Select,
   FormHelperText,
+  Slider,
 } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -17,21 +18,43 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { useFormik } from "formik";
 import { HomeTypeOptions, LoanDetailsValues } from "./types";
 import { loanDetailsInitialValues, loanDetailsValidation } from "./utils";
-import { loanDetailsAction } from "../../custom-redux/actions/loanDetails";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { UnknownAction } from "redux";
+import { useEffect } from "react";
+import { saveLoanDetailsAction } from "../../custom-redux/actions/loanDetails/save";
+import { getLoanDetailsAction } from "../../custom-redux/actions/loanDetails/get";
+import { AppState } from "../../custom-redux/store";
 
 export default function LoanDetails() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const loanDetails = useSelector<AppState, LoanDetailsValues | undefined>(
+    (state) => state.appData.loanDetails
+  );
 
   const formik = useFormik<LoanDetailsValues>({
-    initialValues: loanDetailsInitialValues(),
+    initialValues: loanDetailsInitialValues(loanDetails),
     validationSchema: loanDetailsValidation(),
     onSubmit: (values) => {
-      dispatch(loanDetailsAction(values, navigate) as unknown as UnknownAction);
+      dispatch(
+        saveLoanDetailsAction(values, navigate) as unknown as UnknownAction
+      );
     },
   });
+
+  useEffect(() => {
+    dispatch(getLoanDetailsAction() as unknown as UnknownAction);
+  }, []);
+
+  useEffect(() => {
+    const initialLoanDetails = loanDetailsInitialValues(loanDetails);
+    formik.setFieldValue("deposit", initialLoanDetails.deposit);
+    formik.setFieldValue("homeType", initialLoanDetails.homeType);
+    formik.setFieldValue("loanDuration", initialLoanDetails.loanDuration);
+    formik.setFieldValue("noOfPeople", initialLoanDetails.noOfPeople);
+    formik.setFieldValue("propertyValue", initialLoanDetails.propertyValue);
+  }, [loanDetails]);
+
   return (
     <form
       style={{ marginTop: "200px", marginLeft: "100px", color: "white" }}
@@ -67,7 +90,7 @@ export default function LoanDetails() {
           name="noOfPeople"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          defaultValue={formik.values.noOfPeople}
+          value={formik.values.noOfPeople}
         >
           <FormControlLabel
             value="1"
@@ -96,7 +119,7 @@ export default function LoanDetails() {
 
       <FormControl style={{ width: "500px" }}>
         <Select
-          defaultValue={formik.values.homeType}
+          value={formik.values.homeType}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="homeType"
@@ -162,6 +185,36 @@ export default function LoanDetails() {
         onBlur={formik.handleBlur}
         error={Boolean(formik.touched.deposit && formik.errors.deposit)}
         helperText={formik.touched.deposit && formik.errors.deposit}
+      />
+      <Typography paragraph style={{ fontSize: "25px", marginTop: "60px" }}>
+        Desired loan duration
+      </Typography>
+
+      <Slider
+        aria-label="loanDuration"
+        name="loanDuration"
+        value={+formik.values.loanDuration}
+        valueLabelDisplay="auto"
+        shiftStep={5}
+        step={1}
+        marks
+        min={5}
+        max={30}
+        sx={{ color: "white", width: "480px", px: 1 }}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      <br />
+      <TextField
+        sx={{ borderColor: "white", width: "500px" }}
+        name="loanDuration"
+        value={formik.values.loanDuration}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        error={Boolean(
+          formik.touched.loanDuration && formik.errors.loanDuration
+        )}
+        helperText={formik.touched.loanDuration && formik.errors.loanDuration}
       />
       <Divider
         style={{

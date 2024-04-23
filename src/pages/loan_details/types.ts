@@ -3,7 +3,9 @@ export interface LoanDetailsValues {
   homeType: string;
   propertyValue: string;
   deposit: string;
+  loanDuration: string;
   email?: string;
+  id?: string;
 }
 
 export enum HomeTypeOptions {

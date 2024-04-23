@@ -1,4 +1,5 @@
 import { Action } from "redux";
+import { LoanDetailsValues } from "../pages/loan_details/types";
 
 export interface AuthState {
   loading: boolean;
@@ -8,8 +9,19 @@ export interface AuthState {
   error?: string;
 }
 
+export interface AppData {
+  loanDetails?: LoanDetailsValues;
+  loading: boolean;
+  message?: string;
+  error?: string;
+}
+
 export interface AuthAction extends Action {
   payload?: Partial<AuthState>;
+}
+
+export interface AppDataAction extends Action {
+  payload?: Partial<AppData>;
 }
 
 export enum AppRoutes {
