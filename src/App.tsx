@@ -15,28 +15,57 @@ import Expenditures from "./pages/expenditures/expenditures";
 import Result from "./pages/result/result";
 import { ToastContainer } from "react-toastify";
 import { AppRoutes } from "./types";
+import { LightThemeProvider } from "./components/theme-providers";
+import { useSelector } from "react-redux";
+import { AppState } from "./custom-redux/store";
 
 export default function App() {
+  const isAuthenticated = useSelector<AppState, boolean>(
+    (state) => state.auth.isAuthenticated
+  );
   return (
     <>
       <ButtonAppBar />
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path={AppRoutes.LOGIN} element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="registered" element={<DialogModal />} />
-        <Route path="home" element={<MainHome />} />
-        <Route path="loan-details" element={<LoanDetails />} />
+        <Route
+          path={AppRoutes.HOME}
+          element={isAuthenticated ? <MainHome /> : <Home />}
+        />
+        <Route path={AppRoutes.ABOUT} element={<About />} />
+        <Route
+          path={AppRoutes.CONTACT}
+          element={
+            <LightThemeProvider>
+              <Contact />
+            </LightThemeProvider>
+          }
+        />
+        <Route
+          path={AppRoutes.LOGIN}
+          element={
+            <LightThemeProvider>
+              <Login />
+            </LightThemeProvider>
+          }
+        />
+        <Route
+          path={AppRoutes.REGISTER}
+          element={
+            <LightThemeProvider>
+              <Register />
+            </LightThemeProvider>
+          }
+        />
+        <Route path={AppRoutes.REGISTERED} element={<DialogModal />} />
+        <Route path={AppRoutes.LOAN_DETAILS} element={<LoanDetails />} />
         <Route
           path={AppRoutes.PERSONAL_DETAILS}
           element={<PersonalDetails />}
         />
-        <Route path="income-details" element={<IncomeDetails />} />
-        <Route path="expenditures" element={<Expenditures />} />
-        <Route path="result" element={<Result />} />
+        <Route path={AppRoutes.INCOME_DETAILS} element={<IncomeDetails />} />
+        <Route path={AppRoutes.EXPENDITURES} element={<Expenditures />} />
+        <Route path={AppRoutes.RESULT} element={<Result />} />
       </Routes>
       <Footer />
     </>

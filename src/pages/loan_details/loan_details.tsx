@@ -177,7 +177,7 @@ export default function LoanDetails() {
         color="inherit"
         type="submit"
         style={{
-          backgroundColor: "#04AA6D",
+          backgroundColor: "#ffc107",
           marginLeft: "985px",
           padding: "15px 60px",
           marginTop: "40px",

@@ -55,6 +55,38 @@
       "deposit": "34000",
       "email": "jaanu@gmail.com",
       "id": 5
+    },
+    {
+      "noOfPeople": "1",
+      "homeType": "Buying a home",
+      "propertyValue": "150000",
+      "deposit": "34000",
+      "email": "jnaneswari@gmail.com",
+      "id": 6
+    },
+    {
+      "noOfPeople": "1",
+      "homeType": "Buying a home",
+      "propertyValue": "150000",
+      "deposit": "34000",
+      "email": "jnaneswari@gmail.com",
+      "id": 7
+    },
+    {
+      "noOfPeople": "1",
+      "homeType": "Buying a home",
+      "propertyValue": "150000",
+      "deposit": "34000",
+      "email": "jnaneswari@gmail.com",
+      "id": 8
+    },
+    {
+      "noOfPeople": "1",
+      "homeType": "Buying a home",
+      "propertyValue": "150000",
+      "deposit": "34000",
+      "email": "jnaneswari@gmail.com",
+      "id": 9
     }
   ],
   "personal-details": [

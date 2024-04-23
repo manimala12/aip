@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 export default function MainHome() {
   return (
     <Container
-      style={{
-        marginTop: "200px",
+      sx={{
         color: "white",
-        width: "1000px",
-        marginLeft: "400px",
-        textAlign: "center",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Typography variant="h2" style={{ marginBottom: "30px" }}>
@@ -25,11 +26,10 @@ export default function MainHome() {
         to="/loan-details"
         style={{
           color: "white",
-          backgroundColor: "#04AA6D",
+          backgroundColor: "#ffc107",
           marginTop: "30px",
           padding: "30px 30px",
           fontSize: "18px",
-          marginBottom: "400px",
           fontWeight: "bold",
         }}
       >

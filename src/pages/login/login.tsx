@@ -50,7 +50,7 @@ export default function Login() {
           style={{
             fontWeight: "bold",
             marginBottom: "50px",
-            color: "#04AA6D",
+            color: "#ffc107",
             paddingTop: "30px",
           }}
         >
@@ -97,7 +97,7 @@ export default function Login() {
           color="inherit"
           style={{
             color: "white",
-            backgroundColor: "#04AA6D",
+            backgroundColor: "#ffc107",
             padding: "10px 40px",
             marginRight: "100px",
           }}
@@ -109,7 +109,7 @@ export default function Login() {
           color="inherit"
           style={{
             color: "white",
-            backgroundColor: "#04AA6D",
+            backgroundColor: "#ffc107",
             padding: "10px 40px",
           }}
           to="/"
@@ -118,10 +118,10 @@ export default function Login() {
         </Button>
         <Typography paragraph style={{ marginTop: "30px" }}>
           Don't have an account?{" "}
-          <strong style={{ color: "#04AA6D", cursor: "pointer" }}>
+          <strong style={{ color: "#ffc107", cursor: "pointer" }}>
             <Link
               to="/register"
-              style={{ textDecoration: "none", color: "#04AA6D" }}
+              style={{ textDecoration: "none", color: "#ffc107" }}
             >
               Register Here
             </Link>

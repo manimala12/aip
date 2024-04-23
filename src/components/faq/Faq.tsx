@@ -10,15 +10,9 @@ export default function Faq() {
     <Container
       sx={{
         fontSize: "25px",
-        bgcolor: "rgb(70, 70, 42)",
-        opacity: "0.5",
-        // backgroundImage:
-        //   "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(assets/HomeLoan.jpg)",
+        bgcolor: "grey",
         pt: 8,
         pb: 10,
-        // backgroundPosition: "center",
-        // backgroundRepeat: "no-repeat",
-        // backgroundSize: "cover",
         width: "100%",
         minWidth: "100%",
       }}

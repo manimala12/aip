@@ -318,7 +318,7 @@ export default function Expenditures() {
         color="inherit"
         component={Link}
         style={{
-          backgroundColor: "#04AA6D",
+          backgroundColor: "#ffc107",
           padding: "15px 60px",
           marginTop: "40px",
           fontWeight: "bold",
@@ -334,7 +334,7 @@ export default function Expenditures() {
         variant="contained"
         color="inherit"
         style={{
-          backgroundColor: "#04AA6D",
+          backgroundColor: "#ffc107",
           marginLeft: "785px",
           padding: "15px 60px",
           marginTop: "40px",

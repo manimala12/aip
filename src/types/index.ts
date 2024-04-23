@@ -13,6 +13,15 @@ export interface AuthAction extends Action {
 }
 
 export enum AppRoutes {
+  HOME = "/",
+  ABOUT = "/about",
   LOGIN = "/login",
   PERSONAL_DETAILS = "/personal-details",
+  CONTACT = "/contact",
+  REGISTER = "register",
+  REGISTERED = "/registered",
+  LOAN_DETAILS = "/loan-details",
+  INCOME_DETAILS = "income-details",
+  EXPENDITURES = "/expenditures",
+  RESULT = "/result",
 }

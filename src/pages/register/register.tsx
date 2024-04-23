@@ -235,7 +235,7 @@ export default function Register() {
           <strong style={{ cursor: "pointer" }}>
             <Link
               to="/login"
-              style={{ textDecoration: "none", color: "#04AA6D" }}
+              style={{ textDecoration: "none", color: "#ffc107" }}
             >
               Login Here.
             </Link>

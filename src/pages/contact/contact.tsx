@@ -24,7 +24,7 @@ export default function Contact() {
         <Typography variant="h2">
           Have any questions? We'd love to hear from you.
         </Typography>
-        <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+        <Typography paragraph style={{ fontSize: "20px", marginTop: "30px" }}>
           Whether you have a question about loans, fees or anything else, our
           team is ready to answer all your questions.
         </Typography>
@@ -68,21 +68,20 @@ export default function Contact() {
           color="inherit"
           style={{
             color: "white",
-            backgroundColor: "blue",
+            backgroundColor: "#ffc107",
             padding: "10px 40px",
             width: "400px",
             marginLeft: "40px",
           }}
         >
-          {" "}
           CONTACT US
         </Button>
         <Typography
           paragraph
           style={{
             color: "grey",
-            fontSize: "22px",
-            marginTop: "20px",
+            fontSize: "18px",
+            marginTop: "10px",
             marginBottom: "20px",
             marginLeft: "150px",
           }}

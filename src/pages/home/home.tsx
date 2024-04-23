@@ -13,6 +13,9 @@ import CircleIcon from "@mui/icons-material/Circle";
 import Faq from "../../components/faq/Faq";
 
 import { Link } from "react-router-dom";
+import { LightThemeProvider } from "../../components/theme-providers";
+import HomePageCards from "../../components/home_page_cards/home_page_cards";
+import FlipCard from "../../components/flip-cards/flip";
 
 export default function Home() {
   return (
@@ -73,7 +76,8 @@ export default function Home() {
           </Grid>
         </Grid>
       </Container>
-
+      <HomePageCards />
+      <FlipCard />
       <Container
         style={{
           marginTop: "350px",
@@ -131,8 +135,9 @@ export default function Home() {
           </List>
         </Container>
       </Container>
-
-      <Faq />
+      <LightThemeProvider>
+        <Faq />
+      </LightThemeProvider>
     </>
   );
 }

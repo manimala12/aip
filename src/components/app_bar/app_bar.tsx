@@ -29,7 +29,7 @@ const darkTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#04AA6D",
+      main: "#212529;",
     },
   },
 });
@@ -100,7 +100,7 @@ export default function DrawerAppBar(props: Props) {
               sx={{
                 flexGrow: 1,
                 display: { xs: "none", sm: "block" },
-                color: "white",
+                color: "#ffc107",
                 textDecoration: "none",
               }}
             >
@@ -112,7 +112,7 @@ export default function DrawerAppBar(props: Props) {
                   component={RouterLink}
                   to={`/${item.toLowerCase()}`}
                   key={item}
-                  sx={{ color: "#fff", mx: { xs: 0, md: 1 } }}
+                  sx={{ color: "#ffc107", mx: { xs: 0, md: 1 } }}
                 >
                   {item}
                 </Button>
@@ -120,7 +120,7 @@ export default function DrawerAppBar(props: Props) {
               <Button
                 type="button"
                 onClick={logoutHandler}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#ffc107" }}
               >
                 {isAuthenticated ? "Logout" : "Login"}
               </Button>
