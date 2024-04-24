@@ -4,14 +4,20 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 
 import Carousel from "react-material-ui-carousel";
 
 export default function FeaturedPost() {
   return (
-    <Grid container sx={{ my: 10 }} maxWidth="md" mx="auto">
-      <Grid item component={Carousel} sx={{ width: "100%" }}>
+    <Grid
+      container
+      id="scroll-to"
+      sx={{ my: 10 }}
+      maxWidth="xl"
+      minHeight="lg"
+      mx="auto"
+    >
+      <Grid item maxWidth="xl" component={Carousel} sx={{ width: "100%" }}>
         {items.map((item, index) => {
           return <Project item={item} key={index} />;
         })}
@@ -23,7 +29,6 @@ export default function FeaturedPost() {
 type Item = {
   name: string;
   description: string;
-  color: string;
   href: string;
 };
 
@@ -35,27 +40,25 @@ function Project({ item }: ProjectProps) {
   return (
     // <Grid item xs={12} md={12} key={"post.title"}>
     <CardActionArea component="a" href="#">
-      <Card sx={{ display: "flex" }}>
+      <Card
+        sx={{
+          display: "flex",
+          backgroundImage: `url(${item.href})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          px: 10,
+          py: 20,
+        }}
+      >
         <CardContent sx={{ flex: 1 }}>
-          <Typography component="h2" variant="h5">
-            post.title
+          <Typography variant="h2" style={{ marginBottom: "50px" }}>
+            {item.name}
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary">
-            post.date
-          </Typography>
-          <Typography variant="subtitle1" paragraph>
-            post.description
-          </Typography>
-          <Typography variant="subtitle1" color="primary">
-            Continue reading...
+          <Typography paragraph style={{ fontSize: "25px" }}>
+            {item.description}
           </Typography>
         </CardContent>
-        <CardMedia
-          component="img"
-          sx={{ width: 160, display: { xs: "none", sm: "block" } }}
-          image={"assets/image.png"}
-          alt={"post.imageLabel"}
-        />
       </Card>
     </CardActionArea>
     // </Grid>
@@ -64,28 +67,43 @@ function Project({ item }: ProjectProps) {
 
 const items: Item[] = [
   {
-    name: "Lear Music Reader",
-    description: "A PDF Reader specially designed for musicians.",
-    color: "#64ACC8",
-    href: "https://github.com/Learus/Lear-Music-Reader",
+    href: "assets/image.png",
+    name: "What is an Agreement In Principle?",
+    description: `An Agreement in Principle (AIP) is the first step to getting a
+    mortgage. It’s sometimes called a Mortgage Promise or a Decision in
+    Principle, and lets you know how much you could borrow before you
+    apply for a mortgage. Once you've got your AIP, you can make a full
+    mortgage application when you’re ready. It's quick and easy to apply
+    for an AIP.`,
   },
   {
-    name: "Hash Code 2019",
-    description:
-      "My Solution on the 2019 Hash Code by Google Slideshow problem.",
-    color: "#7D85B1",
-    href: "https://github.com/Learus/HashCode2019",
+    href: "assets/image.png",
+    name: "What is an Agreement In Principle?",
+    description: `An Agreement in Principle (AIP) is the first step to getting a
+    mortgage. It’s sometimes called a Mortgage Promise or a Decision in
+    Principle, and lets you know how much you could borrow before you
+    apply for a mortgage. Once you've got your AIP, you can make a full
+    mortgage application when you’re ready. It's quick and easy to apply
+    for an AIP.`,
   },
   {
-    name: "Terrio",
-    description: "A exciting mobile game game made in the Unity Engine.",
-    color: "#CE7E78",
-    href: "https://play.google.com/store/apps/details?id=com.Brewery.Terrio",
+    href: "assets/image.png",
+    name: "What is an Agreement In Principle?",
+    description: `An Agreement in Principle (AIP) is the first step to getting a
+    mortgage. It’s sometimes called a Mortgage Promise or a Decision in
+    Principle, and lets you know how much you could borrow before you
+    apply for a mortgage. Once you've got your AIP, you can make a full
+    mortgage application when you’re ready. It's quick and easy to apply
+    for an AIP.`,
   },
   {
-    name: "React Carousel",
-    description: "A Generic carousel UI component for React using material ui.",
-    color: "#C9A27E",
-    href: "https://github.com/Learus/react-material-ui-carousel",
+    href: "assets/image.png",
+    name: "What is an Agreement In Principle?",
+    description: `An Agreement in Principle (AIP) is the first step to getting a
+    mortgage. It’s sometimes called a Mortgage Promise or a Decision in
+    Principle, and lets you know how much you could borrow before you
+    apply for a mortgage. Once you've got your AIP, you can make a full
+    mortgage application when you’re ready. It's quick and easy to apply
+    for an AIP.`,
   },
 ];

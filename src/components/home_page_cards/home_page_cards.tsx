@@ -12,9 +12,13 @@ export default function HomePageCards() {
   return (
     <Grid
       container
-      spacing={2}
+      // spacing={2}
       sx={{
         my: 7,
+        display: "flex",
+        width: "100%",
+        alignItems: "self-end",
+        justifyContent: "space-between",
       }}
     >
       {cardItems.map((card: CardData) => (

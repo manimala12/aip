@@ -13,6 +13,7 @@ import { AppState } from "../../store";
 import { GetDecisionConstants } from "../../constants";
 import { LoanDetailsValues } from "../../../pages/loan_details/types";
 import { IncomeDetailsValues } from "../../../pages/income_details/types";
+import { ExpenditureDetailsValues } from "../../../pages/expenditures/types";
 
 export const saveExpenditureDetailsAction = (
   result: string,
@@ -45,6 +46,20 @@ export const saveExpenditureDetailsAction = (
 
         const { oftenYouGetPaid, earning } = state.appData
           .incomeDetails as IncomeDetailsValues;
+        const income = oftenYouGetPaid * +earning;
+        const { loanEMI, vehicleEMI, schoolFee, otherAmount } = state.appData
+          .expenditureDetails as ExpenditureDetailsValues;
+        const outgoings =
+          +(loanEMI as string) +
+          +(vehicleEMI as string) +
+          +(schoolFee as string) / 12 +
+          +(otherAmount as string);
+        const savings = income - outgoings;
+        if (savings >= monthlyEmi) {
+          decision = DecisionTypes.SUCCESS;
+        } else {
+          decision = DecisionTypes.PARTIAL;
+        }
       }
 
       const decisionResp = await axios.get<Decision[]>(

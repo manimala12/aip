@@ -8,6 +8,7 @@ import {
   ListItemIcon,
   Grid,
   Stack,
+  Paper,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import Faq from "../../components/faq/Faq";
@@ -22,10 +23,23 @@ import MainFeaturedPost from "../../components/mainFeature";
 export default function Home() {
   return (
     <>
-      <Container
-        style={{ marginTop: "200px", textAlign: "center", color: "white" }}
+      <Paper
+        sx={{
+          minHeight: "100vh",
+          textAlign: "center",
+          color: "white",
+          background:
+            "linear-gradient(#212529e7, #212529e7), url(assets/HomeLoan.jpg)",
+          backgroundPosition: "top",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ margin: "auto", maxWidth: "lg" }}>
           <Grid item xs={12}>
             <Typography variant="h2">Check Your Loan Eligibilty</Typography>
           </Grid>
@@ -57,10 +71,10 @@ export default function Home() {
               <Button
                 type="button"
                 color="primary"
-                component={Link}
+                component={"a"}
                 sx={{ px: 8, py: "12px" }}
                 variant="contained"
-                to="/about"
+                href="#scroll-to"
               >
                 Explore
               </Button>
@@ -77,9 +91,9 @@ export default function Home() {
             </Stack>
           </Grid>
         </Grid>
-      </Container>
+      </Paper>
       <FeaturedPost />
-      <MainFeaturedPost />
+      {/* <MainFeaturedPost /> */}
       <HomePageCards />
       <FlipCard />
       <Container
