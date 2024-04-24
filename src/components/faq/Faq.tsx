@@ -10,7 +10,7 @@ export default function Faq() {
     <Container
       sx={{
         fontSize: "25px",
-        bgcolor: "grey",
+        bgcolor: "white",
         pt: 8,
         pb: 10,
         width: "100%",
@@ -20,9 +20,14 @@ export default function Faq() {
       <Box maxWidth="lg" sx={{ mx: "auto" }}>
         <Typography
           variant="h3"
-          sx={{ color: "white", marginBottom: "50px", textAlign: "center" }}
+          sx={{
+            color: "primary.main",
+            marginBottom: "50px",
+            textAlign: "center",
+          }}
         >
           FAQs
+          <hr className="w-25 mx-auto border border-warning" />
         </Typography>
         <Accordion style={{ color: "#212529;" }}>
           <AccordionSummary

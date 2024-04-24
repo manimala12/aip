@@ -6,21 +6,21 @@ export interface CardData {
 
 export const cardItems: CardData[] = [
   {
-    heading: "HDFC",
+    heading: "Personal Loan",
     description:
-      "Turn your dream home into reality with HDFC Home Loans – paving the way to homeownership with ease and flexibility!",
-    link: "assets/hdfc.webp",
+      "Unlock your dreams with our flexible personal loans - tailored to fit your needs, empowering you to achieve your aspirations with ease",
+    link: "assets/personal.webp",
   },
   {
-    heading: "SBI",
+    heading: "Home Loan",
     description:
-      "Unlock the door to your dream home with SBI Home Loans - Where your aspirations meet affordability.",
-    link: "assets/sbi.png",
+      "Unlock the door to your dream home with our bank Home Loans - Where your aspirations meet affordability.",
+    link: "assets/home.jpg",
   },
   {
-    heading: "AXIS",
+    heading: "Education Loan",
     description:
-      "Embark on the journey to your dream home with Axis Bank Home Loans - Your trusted partner in making homeownership a reality.",
-    link: "assets/axis.png",
+      "Invest in your future with our educational loans - paving the way to academic success and brighter tomorrows.",
+    link: "assets/student.jpg",
   },
 ];

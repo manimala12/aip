@@ -16,7 +16,7 @@ export default function Result() {
     } else if (result === DecisionTypes.PARTIAL) {
       return "Partial";
     } else if (result === DecisionTypes.FAILURE) {
-      return "Partial";
+      return "Failure";
     }
   };
 

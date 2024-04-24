@@ -52,7 +52,10 @@ function Project({ item }: ProjectProps) {
         }}
       >
         <CardContent sx={{ flex: 1 }}>
-          <Typography variant="h2" style={{ marginBottom: "50px" }}>
+          <Typography
+            variant="h2"
+            sx={{ marginBottom: "50px", color: "primary.main" }}
+          >
             {item.name}
           </Typography>
           <Typography paragraph style={{ fontSize: "25px" }}>
