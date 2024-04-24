@@ -30,7 +30,7 @@ export const registrationAction = (
       const currentUser = userData[0];
 
       if (res.status === 201) {
-        localStorage.setItem("USER_ID", currentUser.id);
+        localStorage.setItem("email", currentUser.email);
         successToast("Registered successfully");
         dispatch({
           type: authConstants.REGISTRATION_SUCCESS,

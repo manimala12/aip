@@ -16,7 +16,7 @@
       "homeType": "Constructing a new home",
       "propertyValue": "150000",
       "deposit": "34000",
-      "loanDuration": 22,
+      "loanDuration": 21,
       "email": "jnaneswari@gmail.com",
       "id": 1
     }
@@ -39,7 +39,7 @@
       "occupation": "Doctor",
       "nameOfTheOccupation": "",
       "nameOfTheEmployer": "Jnaneswari",
-      "oftenYouGetPaid": "Fortnightly",
+      "oftenYouGetPaid": 2,
       "earning": "240000",
       "email": "jnaneswari@gmail.com",
       "id": 1

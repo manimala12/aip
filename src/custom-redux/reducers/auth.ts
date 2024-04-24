@@ -16,6 +16,8 @@ export const authReducer = (
   switch (action.type) {
     case authConstants.REGISTRATION_REQUEST:
     case authConstants.LOGIN_REQUEST:
+    case authConstants.VERIFY_TOKEN_REQUEST:
+    case authConstants.LOGOUT_REQUEST:
       return {
         ...state,
         loading: true,
@@ -25,6 +27,8 @@ export const authReducer = (
 
     case authConstants.REGISTRATION_SUCCESS:
     case authConstants.LOGIN_SUCCESS:
+    case authConstants.VERIFY_TOKEN_SUCCESS:
+    case authConstants.LOGOUT_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -35,24 +39,7 @@ export const authReducer = (
 
     case authConstants.REGISTRATION_FAILURE:
     case authConstants.LOGIN_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload?.error,
-      };
-
-    case authConstants.LOGOUT_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        message: undefined,
-        error: undefined,
-      };
-    case authConstants.LOGOUT_SUCCESS:
-      return {
-        ...initState,
-        message: action.payload?.message,
-      };
+    case authConstants.VERIFY_TOKEN_FAILURE:
     case authConstants.LOGOUT_FAILURE:
       return {
         ...state,

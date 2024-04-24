@@ -15,10 +15,7 @@ import { LoanDetailsValues } from "../../../pages/loan_details/types";
 import { IncomeDetailsValues } from "../../../pages/income_details/types";
 import { ExpenditureDetailsValues } from "../../../pages/expenditures/types";
 
-export const saveExpenditureDetailsAction = (
-  result: string,
-  navigate: NavigateFunction
-) => {
+export const saveDecisionAction = (navigate: NavigateFunction) => {
   return async (
     dispatch: Dispatch<AppDataAction>,
     getState: () => AppState
@@ -52,7 +49,7 @@ export const saveExpenditureDetailsAction = (
         const outgoings =
           +(loanEMI as string) +
           +(vehicleEMI as string) +
-          +(schoolFee as string) / 12 +
+          +schoolFee / 12 +
           +(otherAmount as string);
         const savings = income - outgoings;
         if (savings >= monthlyEmi) {
@@ -72,30 +69,30 @@ export const saveExpenditureDetailsAction = (
       ) {
         await axios.patch<Decision>(
           `http://localhost:8000/decision/${decisionResp.data[0].id}`,
-          { result }
+          { result: decision }
         );
         dispatch({
           type: GetDecisionConstants.SAVE_DECISION_SUCCESS,
           payload: {
             message: "Decision generated successfully",
-            result,
+            result: decision,
           },
         });
         navigate(AppRoutes.RESULT);
         return;
       }
 
-      const res = await axios.post<Decision>(
-        `http://localhost:8000/expenditures`,
-        { result, email: userEmail }
-      );
+      const res = await axios.post<Decision>(`http://localhost:8000/decision`, {
+        result: decision,
+        email: userEmail,
+      });
 
       if (res.status === 201) {
         dispatch({
           type: GetDecisionConstants.SAVE_DECISION_SUCCESS,
           payload: {
             message: "Decision generated successfully",
-            result,
+            result: decision,
           },
         });
         navigate(AppRoutes.RESULT);

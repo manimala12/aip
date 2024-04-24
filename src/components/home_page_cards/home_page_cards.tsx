@@ -22,7 +22,7 @@ export default function HomePageCards() {
       }}
     >
       {cardItems.map((card: CardData) => (
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} key={card.heading}>
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               sx={{
@@ -46,7 +46,9 @@ export default function HomePageCards() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button sx={{ color: "black", bgcolor: "primary.main" }}>
+              <Button
+                sx={{ color: "black", bgcolor: "primary.main", mx: "auto" }}
+              >
                 APPLY
               </Button>
             </CardActions>

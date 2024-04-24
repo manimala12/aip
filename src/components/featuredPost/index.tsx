@@ -13,8 +13,8 @@ export default function FeaturedPost() {
       container
       id="scroll-to"
       sx={{ my: 10 }}
-      maxWidth="xl"
-      minHeight="lg"
+      maxWidth="lg"
+      minHeight="sm"
       mx="auto"
     >
       <Grid item maxWidth="xl" component={Carousel} sx={{ width: "100%" }}>
@@ -48,7 +48,7 @@ function Project({ item }: ProjectProps) {
           backgroundSize: "cover",
           backgroundPosition: "center",
           px: 10,
-          py: 20,
+          py: 15,
         }}
       >
         <CardContent sx={{ flex: 1 }}>

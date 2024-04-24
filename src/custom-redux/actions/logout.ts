@@ -8,7 +8,7 @@ export const logoutAction = () => {
     try {
       dispatch({ type: authConstants.LOGOUT_REQUEST });
 
-      localStorage.removeItem("USER_ID");
+      localStorage.removeItem("email");
 
       successToast("Signed out successfully");
       dispatch({ type: authConstants.LOGOUT_SUCCESS });

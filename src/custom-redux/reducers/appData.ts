@@ -1,5 +1,6 @@
 import {
   ExpenditureDetailsConstants,
+  GetDecisionConstants,
   IncomeDetailsConstants,
   LoanDetailsConstants,
   PersonalDetailsConstants,
@@ -26,6 +27,7 @@ export const appDataReducer = (
     case IncomeDetailsConstants.SAVE_INCOME_DETAILS_REQUEST:
     case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_REQUEST:
     case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_REQUEST:
+    case GetDecisionConstants.SAVE_DECISION_REQUEST:
       return {
         ...state,
         loading: true,
@@ -41,6 +43,7 @@ export const appDataReducer = (
     case IncomeDetailsConstants.SAVE_INCOME_DETAILS_SUCCESS:
     case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_SUCCESS:
     case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_SUCCESS:
+    case GetDecisionConstants.SAVE_DECISION_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -55,6 +58,7 @@ export const appDataReducer = (
     case IncomeDetailsConstants.SAVE_INCOME_DETAILS_FAILURE:
     case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_FAILURE:
     case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_FAILURE:
+    case GetDecisionConstants.SAVE_DECISION_FAILURE:
       return {
         ...state,
         loading: false,

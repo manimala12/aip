@@ -23,7 +23,7 @@ export const loginAction = (
       }
       const currentUser = userResponse.data[0];
       if (currentUser.password === user.password) {
-        localStorage.setItem("USER_ID", currentUser.id);
+        localStorage.setItem("email", currentUser.email);
         dispatch({
           type: authConstants.LOGIN_SUCCESS,
           payload: {
