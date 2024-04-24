@@ -29,7 +29,7 @@ export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(verifyTokenAction() as unknown as UnknownAction);
-  }, [isAuthenticated]);
+  }, []);
 
   return (
     <>
