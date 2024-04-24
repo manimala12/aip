@@ -1,4 +1,9 @@
-import { LoanDetailsConstants, PersonalDetailsConstants } from "../constants";
+import {
+  ExpenditureDetailsConstants,
+  IncomeDetailsConstants,
+  LoanDetailsConstants,
+  PersonalDetailsConstants,
+} from "../constants";
 import { AppData, AppDataAction } from "../../types";
 
 const initState: AppData = {
@@ -17,6 +22,10 @@ export const appDataReducer = (
     case LoanDetailsConstants.SAVE_LOAN_DETAILS_REQUEST:
     case PersonalDetailsConstants.GET_PERSONAL_DETAILS_REQUEST:
     case PersonalDetailsConstants.SAVE_PERSONAL_DETAILS_REQUEST:
+    case IncomeDetailsConstants.GET_INCOME_DETAILS_REQUEST:
+    case IncomeDetailsConstants.SAVE_INCOME_DETAILS_REQUEST:
+    case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_REQUEST:
+    case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_REQUEST:
       return {
         ...state,
         loading: true,
@@ -28,6 +37,10 @@ export const appDataReducer = (
     case LoanDetailsConstants.GET_LOAN_DETAILS_SUCCESS:
     case PersonalDetailsConstants.SAVE_PERSONAL_DETAILS_SUCCESS:
     case PersonalDetailsConstants.GET_PERSONAL_DETAILS_SUCCESS:
+    case IncomeDetailsConstants.GET_INCOME_DETAILS_SUCCESS:
+    case IncomeDetailsConstants.SAVE_INCOME_DETAILS_SUCCESS:
+    case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_SUCCESS:
+    case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -38,6 +51,10 @@ export const appDataReducer = (
     case LoanDetailsConstants.GET_LOAN_DETAILS_FAILURE:
     case PersonalDetailsConstants.GET_PERSONAL_DETAILS_FAILURE:
     case PersonalDetailsConstants.SAVE_PERSONAL_DETAILS_FAILURE:
+    case IncomeDetailsConstants.GET_INCOME_DETAILS_FAILURE:
+    case IncomeDetailsConstants.SAVE_INCOME_DETAILS_FAILURE:
+    case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_FAILURE:
+    case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_FAILURE:
       return {
         ...state,
         loading: false,

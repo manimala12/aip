@@ -12,8 +12,14 @@ export const getLoanDetailsAction = () => {
     getState: () => AppState
   ) => {
     try {
+      const state = getState();
+      const userEmail = state.auth.email;
+      const loanDetails = state.appData.loanDetails;
+      if (loanDetails) {
+        return;
+      }
+
       dispatch({ type: LoanDetailsConstants.GET_LOAN_DETAILS_REQUEST });
-      const userEmail = getState().auth.email;
 
       const res = await axios.get<LoanDetailsValues[]>(
         `http://localhost:8000/loan-details?email=${userEmail}`

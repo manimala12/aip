@@ -37,7 +37,7 @@ export const savePersonalDetailsAction = (
             personalDetails: personalData,
           },
         });
-        navigate(AppRoutes.PERSONAL_DETAILS);
+        navigate(AppRoutes.INCOME_DETAILS);
         return;
       }
 

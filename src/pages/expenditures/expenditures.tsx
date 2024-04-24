@@ -15,12 +15,28 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import {
+  expenditureDetailsInitialValues,
+  expenditureDetailsValidation,
+} from "./utils";
+import { ExpenditureDetailsValues } from "./types";
+import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "../../custom-redux/store";
+import { saveExpenditureDetailsAction } from "../../custom-redux/actions/expenditureDetails/save";
+import { getExpenditureDetailsAction } from "../../custom-redux/actions/expenditureDetails/get";
+import { UnknownAction } from "redux";
+import { useEffect } from "react";
 
 export default function Expenditures() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const formik = useFormik({
+  const expenditureDetails = useSelector<
+    AppState,
+    ExpenditureDetailsValues | undefined
+  >((state) => state.appData.expenditureDetails);
+
+  const formik = useFormik<ExpenditureDetailsValues>({
     initialValues: {
       activeLoans: "",
       loanEMI: "",
@@ -33,48 +49,45 @@ export default function Expenditures() {
       otherExpenditures: "",
       otherAmount: "",
     },
-    validationSchema: Yup.object().shape({
-      activeLoans: Yup.string().required("Please select an option"),
-      loanEMI: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your loan EMI"),
-      loanOutstanding: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your loan outstanding amount"),
-      vehicleEMI: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your vehicle EMI"),
-      vehicleOutstanding: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your vehicle outstanding amount"),
-      children: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter about your children"),
-      schoolFee: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your children school fee"),
-      otherExpenditures: Yup.string()
-        .matches(/^(Yes|No)$/i, 'Please enter either "Yes" or "No"')
-        .required("Please enter your other expenditures"),
-      otherAmount: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your other expenditures amount"),
-    }),
+    validationSchema: expenditureDetailsValidation(),
     onSubmit: (values) => {
-      fetch("http://localhost:8000/expenditures", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
-      })
-        .then(() => {
-          console.log("Posted Successfully");
-          navigate("/result");
-        })
-        .catch((err) => {
-          console.log("Failed:" + err.message);
-        });
+      dispatch(
+        saveExpenditureDetailsAction(
+          values,
+          navigate
+        ) as unknown as UnknownAction
+      );
     },
   });
+
+  useEffect(() => {
+    dispatch(getExpenditureDetailsAction() as unknown as UnknownAction);
+  }, []);
+
+  useEffect(() => {
+    const initialExpenditureDetails =
+      expenditureDetailsInitialValues(expenditureDetails);
+    formik.setFieldValue("activeLoans", initialExpenditureDetails.activeLoans);
+    formik.setFieldValue("children", initialExpenditureDetails.children);
+    formik.setFieldValue("loanEMI", initialExpenditureDetails.loanEMI);
+    formik.setFieldValue(
+      "loanOutstanding",
+      initialExpenditureDetails.loanOutstanding
+    );
+    formik.setFieldValue("otherAmount", initialExpenditureDetails.otherAmount);
+    formik.setFieldValue(
+      "otherExpenditures",
+      initialExpenditureDetails.otherExpenditures
+    );
+    formik.setFieldValue("schoolFee", initialExpenditureDetails.schoolFee);
+    formik.setFieldValue("vehicle", initialExpenditureDetails.vehicle);
+    formik.setFieldValue("vehicleEMI", initialExpenditureDetails.vehicleEMI);
+    formik.setFieldValue(
+      "vehicleOutstanding",
+      initialExpenditureDetails.vehicleOutstanding
+    );
+  }, [expenditureDetails]);
+
   return (
     <form
       style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
@@ -111,6 +124,7 @@ export default function Expenditures() {
               name="activeLoans"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              value={formik.values.activeLoans}
             >
               <FormControlLabel
                 value="Yes"
@@ -152,7 +166,7 @@ export default function Expenditures() {
             />
           </Grid>
         )}
-        {+formik.values.loanEMI > 0 && (
+        {formik.values.loanEMI && +formik.values.loanEMI > 0 && (
           <Grid item xs={12}>
             <Typography
               paragraph
@@ -192,6 +206,7 @@ export default function Expenditures() {
               name="vehicle"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              value={formik.values.vehicle}
             >
               <FormControlLabel
                 value="Yes"
@@ -227,7 +242,7 @@ export default function Expenditures() {
             />
           </Grid>
         )}
-        {+formik.values.vehicleEMI > 0 && (
+        {formik.values.vehicleEMI && +formik.values.vehicleEMI > 0 && (
           <Grid item xs={12}>
             <Typography
               paragraph
@@ -304,6 +319,7 @@ export default function Expenditures() {
               name="otherExpenditures"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              value={formik.values.otherExpenditures}
             >
               <FormControlLabel
                 value="Yes"

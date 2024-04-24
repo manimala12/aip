@@ -1,12 +1,12 @@
-import { PersonalDetailsConstants } from "../../constants";
+import { ExpenditureDetailsConstants } from "../../constants";
 import { Dispatch } from "redux";
 import axios from "axios";
 import { errorToast } from "../../../components/toasts";
 import { AppDataAction } from "../../../types";
 import { AppState } from "../../store";
-import { PersonalDetailsValues } from "../../../pages/personal_details/types";
+import { ExpenditureDetailsValues } from "../../../pages/expenditures/types";
 
-export const getPersonalDetailsAction = () => {
+export const getExpenditureDetailsAction = () => {
   return async (
     dispatch: Dispatch<AppDataAction>,
     getState: () => AppState
@@ -14,22 +14,24 @@ export const getPersonalDetailsAction = () => {
     try {
       const state = getState();
       const userEmail = state.auth.email;
-      const personalDetails = state.appData.personalDetails;
-      if (personalDetails) {
+      const expenditureDetails = state.appData.expenditureDetails;
+      if (expenditureDetails) {
         return;
       }
 
-      dispatch({ type: PersonalDetailsConstants.GET_PERSONAL_DETAILS_REQUEST });
-      const res = await axios.get<PersonalDetailsValues[]>(
-        `http://localhost:8000/personal-details?email=${userEmail}`
+      dispatch({
+        type: ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_REQUEST,
+      });
+      const res = await axios.get<ExpenditureDetailsValues[]>(
+        `http://localhost:8000/expenditures?email=${userEmail}`
       );
 
       if (res.status === 200) {
         dispatch({
-          type: PersonalDetailsConstants.GET_PERSONAL_DETAILS_SUCCESS,
+          type: ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_SUCCESS,
           payload: {
-            message: "Personal details fetched successfully",
-            personalDetails: res.data[0],
+            message: "Expenditure details fetched successfully",
+            expenditureDetails: res.data[0],
           },
         });
         return;
@@ -40,7 +42,7 @@ export const getPersonalDetailsAction = () => {
       const errorMessage = err.message;
       errorToast(errorMessage);
       dispatch({
-        type: PersonalDetailsConstants.GET_PERSONAL_DETAILS_FAILURE,
+        type: ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_FAILURE,
         payload: { error: errorMessage },
       });
     }

@@ -1,6 +1,8 @@
 import { Action } from "redux";
 import { LoanDetailsValues } from "../pages/loan_details/types";
 import { PersonalDetailsValues } from "../pages/personal_details/types";
+import { IncomeDetailsValues } from "../pages/income_details/types";
+import { ExpenditureDetailsValues } from "../pages/expenditures/types";
 
 export interface AuthState {
   loading: boolean;
@@ -13,6 +15,8 @@ export interface AuthState {
 export interface AppData {
   loanDetails?: LoanDetailsValues;
   personalDetails?: PersonalDetailsValues;
+  incomeDetails?: IncomeDetailsValues;
+  expenditureDetails?: ExpenditureDetailsValues;
   loading: boolean;
   message?: string;
   error?: string;
@@ -35,7 +39,7 @@ export enum AppRoutes {
   REGISTER = "register",
   REGISTERED = "/registered",
   LOAN_DETAILS = "/loan-details",
-  INCOME_DETAILS = "income-details",
+  INCOME_DETAILS = "/income-details",
   EXPENDITURES = "/expenditures",
   RESULT = "/result",
 }

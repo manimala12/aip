@@ -18,52 +18,59 @@ import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AppRoutes } from "../../types";
+import { incomeDetailsInitialValues, incomeDetailsValidation } from "./utils";
+import { IncomeDetailsValues } from "./types";
+import { AppState } from "../../custom-redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { saveIncomeDetailsAction } from "../../custom-redux/actions/incomeDetails/save";
+import { getIncomeDetailsAction } from "../../custom-redux/actions/incomeDetails/get";
+import { useEffect } from "react";
+import { UnknownAction } from "redux";
 
 export default function IncomeDetails() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const incomeDetails = useSelector<AppState, IncomeDetailsValues | undefined>(
+    (state) => state.appData.incomeDetails
+  );
 
   const formik = useFormik({
-    initialValues: {
-      typeOfEmployement: "",
-      contractType: "",
-      occupation: "",
-      nameOfTheOccupation: "",
-      nameOfTheEmployer: "",
-      oftenYouGetPaid: "",
-      earning: "",
-    },
-    validationSchema: Yup.object().shape({
-      typeOfEmployement: Yup.string()
-        .required("Please enter your type of employment")
-        .oneOf(["Salaried", "Self Employed"]),
-      contractType: Yup.string()
-        .required("Please enter your type of contract")
-        .oneOf(["Full Time", "Part Time"]),
-      oftenYouGetPaid: Yup.string()
-        .required("Please enter your type of contract")
-        .oneOf(["Weekly", "Fortnightly", "Monthly"]),
-      nameOfTheEmployer: Yup.string().required("Please enter your occupation"),
-      occupation: Yup.string().required("Please enter your occupation"),
-      earning: Yup.number()
-        .positive("Please enter a postive number")
-        .required("Please enter your earnings"),
-    }),
+    initialValues: incomeDetailsInitialValues(incomeDetails),
+    validationSchema: incomeDetailsValidation(),
     onSubmit: (values) => {
-      fetch("http://localhost:8000/income-details", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
-      })
-        .then(() => {
-          console.log("Posted Successfully");
-          navigate("/expenditures");
-        })
-        .catch((err) => {
-          console.log("Failed:" + err.message);
-        });
+      dispatch(
+        saveIncomeDetailsAction(values, navigate) as unknown as UnknownAction
+      );
     },
   });
-  console.log(formik.errors);
+
+  useEffect(() => {
+    dispatch(getIncomeDetailsAction() as unknown as UnknownAction);
+  }, []);
+
+  useEffect(() => {
+    const initialIncomeDetails = incomeDetailsInitialValues(incomeDetails);
+    formik.setFieldValue("contractType", initialIncomeDetails.contractType);
+    formik.setFieldValue("earning", initialIncomeDetails.earning);
+    formik.setFieldValue(
+      "nameOfTheEmployer",
+      initialIncomeDetails.nameOfTheEmployer
+    );
+    formik.setFieldValue(
+      "nameOfTheOccupation",
+      initialIncomeDetails.nameOfTheOccupation
+    );
+    formik.setFieldValue("occupation", initialIncomeDetails.occupation);
+    formik.setFieldValue(
+      "oftenYouGetPaid",
+      initialIncomeDetails.oftenYouGetPaid
+    );
+    formik.setFieldValue(
+      "typeOfEmployement",
+      initialIncomeDetails.typeOfEmployement
+    );
+  }, [incomeDetails]);
 
   return (
     <form
@@ -99,6 +106,7 @@ export default function IncomeDetails() {
           name="typeOfEmployement"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          value={formik.values.typeOfEmployement}
         >
           <FormControlLabel
             value="Salaried"
@@ -137,6 +145,7 @@ export default function IncomeDetails() {
           name="contractType"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          value={formik.values.contractType}
         >
           <FormControlLabel
             value="Full Time"
@@ -167,12 +176,12 @@ export default function IncomeDetails() {
 
       <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
         <Select
-          defaultValue={"Select an option"}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="occupation"
+          value={formik.values.occupation}
         >
-          <MenuItem style={{ fontSize: "20px" }} value={"Select an option"}>
+          <MenuItem style={{ fontSize: "20px" }} value={""} disabled>
             Select an option
           </MenuItem>
           <MenuItem style={{ fontSize: "20px" }} value={"Teacher"}>
@@ -250,12 +259,12 @@ export default function IncomeDetails() {
       </Typography>
       <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
         <Select
-          defaultValue={"Select an option"}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="oftenYouGetPaid"
+          value={formik.values.oftenYouGetPaid}
         >
-          <MenuItem style={{ fontSize: "20px" }} value={"Select an option"}>
+          <MenuItem style={{ fontSize: "20px" }} value={""} disabled>
             Select an option
           </MenuItem>
           <MenuItem style={{ fontSize: "20px" }} value={"Weekly"}>

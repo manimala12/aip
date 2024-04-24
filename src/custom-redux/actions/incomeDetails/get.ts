@@ -1,12 +1,12 @@
-import { PersonalDetailsConstants } from "../../constants";
+import { IncomeDetailsConstants } from "../../constants";
 import { Dispatch } from "redux";
 import axios from "axios";
 import { errorToast } from "../../../components/toasts";
 import { AppDataAction } from "../../../types";
 import { AppState } from "../../store";
-import { PersonalDetailsValues } from "../../../pages/personal_details/types";
+import { IncomeDetailsValues } from "../../../pages/income_details/types";
 
-export const getPersonalDetailsAction = () => {
+export const getIncomeDetailsAction = () => {
   return async (
     dispatch: Dispatch<AppDataAction>,
     getState: () => AppState
@@ -14,22 +14,22 @@ export const getPersonalDetailsAction = () => {
     try {
       const state = getState();
       const userEmail = state.auth.email;
-      const personalDetails = state.appData.personalDetails;
-      if (personalDetails) {
+      const incomeDetails = state.appData.incomeDetails;
+      if (incomeDetails) {
         return;
       }
 
-      dispatch({ type: PersonalDetailsConstants.GET_PERSONAL_DETAILS_REQUEST });
-      const res = await axios.get<PersonalDetailsValues[]>(
-        `http://localhost:8000/personal-details?email=${userEmail}`
+      dispatch({ type: IncomeDetailsConstants.GET_INCOME_DETAILS_REQUEST });
+      const res = await axios.get<IncomeDetailsValues[]>(
+        `http://localhost:8000/income-details?email=${userEmail}`
       );
 
       if (res.status === 200) {
         dispatch({
-          type: PersonalDetailsConstants.GET_PERSONAL_DETAILS_SUCCESS,
+          type: IncomeDetailsConstants.GET_INCOME_DETAILS_SUCCESS,
           payload: {
-            message: "Personal details fetched successfully",
-            personalDetails: res.data[0],
+            message: "Income details fetched successfully",
+            incomeDetails: res.data[0],
           },
         });
         return;
@@ -40,7 +40,7 @@ export const getPersonalDetailsAction = () => {
       const errorMessage = err.message;
       errorToast(errorMessage);
       dispatch({
-        type: PersonalDetailsConstants.GET_PERSONAL_DETAILS_FAILURE,
+        type: IncomeDetailsConstants.GET_INCOME_DETAILS_FAILURE,
         payload: { error: errorMessage },
       });
     }

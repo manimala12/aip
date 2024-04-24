@@ -8,15 +8,6 @@
       "confirmPassword": "12345678",
       "hasAgreed": true,
       "id": 1
-    },
-    {
-      "userName": "sfdsdf",
-      "fullName": "sfassd",
-      "email": "jaanu@gmail.com",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "hasAgreed": true,
-      "id": 2
     }
   ],
   "loan-details": [
@@ -33,80 +24,41 @@
   "personal-details": [
     {
       "fullName": "Jnaneswari",
-      "dateOfBirth": "13/11/df",
-      "gender": "Male",
+      "dateOfBirth": "13/01/1998",
+      "gender": "Female",
       "mobileNumber": "09023984794",
       "address": "ss, skfsdl",
+      "email": "jnaneswari@gmail.com",
       "id": 1
-    },
-    {
-      "fullName": "asdfgh",
-      "dateOfBirth": "12/12/2021",
-      "gender": "Female",
-      "mobileNumber": "9876543210",
-      "address": "c, cgghhgff",
-      "id": 2
-    },
-    {
-      "fullName": "asdfgh",
-      "dateOfBirth": "12/12/2021",
-      "gender": "Female",
-      "mobileNumber": "9876543210",
-      "address": "c, cgghhgff",
-      "id": 3
     }
   ],
   "income-details": [
     {
       "typeOfEmployement": "Salaried",
       "contractType": "Full Time",
-      "occupation": "Government Employee",
+      "occupation": "Doctor",
       "nameOfTheOccupation": "",
-      "nameOfTheEmployer": "TCS",
-      "oftenYouGetPaid": "Monthly",
-      "earning": "2000",
+      "nameOfTheEmployer": "Jnaneswari",
+      "oftenYouGetPaid": "Weekly",
+      "earning": "240000",
+      "email": "jnaneswari@gmail.com",
       "id": 1
     }
   ],
   "expenditures": [
     {
-      "activeLoans": "Yes",
-      "loanEMI": "2556",
-      "loanOutstanding": "5222",
-      "vehicle": "Yes",
-      "vehicleEMI": "555555",
-      "vehicleOutstanding": "5222",
-      "children": "2",
-      "schoolFee": "555222",
-      "otherExpenditures": "Yes",
-      "otherAmount": "5522236",
-      "id": 1
-    },
-    {
-      "activeLoans": "Yes",
-      "loanEMI": "52000",
-      "loanOutstanding": "855555",
-      "vehicle": "Yes",
-      "vehicleEMI": "20000",
-      "vehicleOutstanding": "520000",
+      "activeLoans": "No",
+      "loanEMI": "",
+      "loanOutstanding": "",
+      "vehicle": "No",
+      "vehicleEMI": "",
+      "vehicleOutstanding": "",
       "children": "1",
-      "schoolFee": "5200",
+      "schoolFee": "15000",
       "otherExpenditures": "Yes",
-      "otherAmount": "100000",
-      "id": 2
-    },
-    {
-      "activeLoans": "Yes",
-      "loanEMI": "343",
-      "loanOutstanding": "35",
-      "vehicle": "Yes",
-      "vehicleEMI": "4000",
-      "vehicleOutstanding": "43",
-      "children": "2",
-      "schoolFee": "345",
-      "otherExpenditures": "Yes",
-      "otherAmount": "55",
-      "id": 3
+      "otherAmount": "",
+      "email": "jnaneswari@gmail.com",
+      "id": 1
     }
   ],
   "credit-check": [

@@ -15,34 +15,35 @@ import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import { PersonalDetailsValues } from "./types";
 import { savePersonalDetailsAction } from "../../custom-redux/actions/personalDetails/save";
 import { UnknownAction } from "redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getPersonalDetailsAction } from "../../custom-redux/actions/personalDetails/get";
+import {
+  personalDetailsInitialValues,
+  personalDetailsValidation,
+} from "./utils";
+import { AppState } from "../../custom-redux/store";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const personalDetails = useSelector<
+    AppState,
+    PersonalDetailsValues | undefined
+  >((state) => state.appData.personalDetails);
 
   const formik = useFormik<PersonalDetailsValues>({
     initialValues: {
-      fullName: "",
-      dateOfBirth: "",
+      fullName: "d",
+      dateOfBirth: "d",
       gender: "",
-      mobileNumber: "",
-      address: "",
+      mobileNumber: "90",
+      address: "d",
     },
-    validationSchema: Yup.object().shape({
-      fullName: Yup.string().required("Please enter your full name"),
-      mobileNumber: Yup.number()
-        .positive("Please enter a valid mobile number")
-        .required("Please enter your mobile number"),
-      gender: Yup.string()
-        .required("Please enter your gender")
-        .oneOf(["Male", "Female"]),
-      address: Yup.string().required("Please enter your address"),
-    }),
+    validationSchema: personalDetailsValidation(),
     onSubmit: (values) => {
       dispatch(
         savePersonalDetailsAction(values, navigate) as unknown as UnknownAction
@@ -50,18 +51,20 @@ export default function PersonalDetails() {
     },
   });
 
-  // useEffect(() => {
-  //   dispatch(getLoanDetailsAction() as unknown as UnknownAction);
-  // }, []);
+  useEffect(() => {
+    dispatch(getPersonalDetailsAction() as unknown as UnknownAction);
+  }, []);
 
-  // useEffect(() => {
-  //   const initialLoanDetails = loanDetailsInitialValues(loanDetails);
-  //   formik.setFieldValue("deposit", initialLoanDetails.deposit);
-  //   formik.setFieldValue("homeType", initialLoanDetails.homeType);
-  //   formik.setFieldValue("loanDuration", initialLoanDetails.loanDuration);
-  //   formik.setFieldValue("noOfPeople", initialLoanDetails.noOfPeople);
-  //   formik.setFieldValue("propertyValue", initialLoanDetails.propertyValue);
-  // }, [loanDetails]);
+  useEffect(() => {
+    const initialPersonalDetails =
+      personalDetailsInitialValues(personalDetails);
+    formik.setFieldValue("fullName", initialPersonalDetails.fullName);
+    formik.setFieldValue("dateOfBirth", initialPersonalDetails.dateOfBirth);
+    formik.setFieldValue("gender", initialPersonalDetails.gender);
+    formik.setFieldValue("mobileNumber", initialPersonalDetails.mobileNumber);
+    formik.setFieldValue("address", initialPersonalDetails.address);
+  }, [personalDetails]);
+
   return (
     <form
       style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
@@ -129,6 +132,7 @@ export default function PersonalDetails() {
           name="gender"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          value={formik.values.gender}
         >
           <FormControlLabel
             value="Male"
