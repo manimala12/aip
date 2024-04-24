@@ -43,7 +43,7 @@ function Project({ item }: ProjectProps) {
       <Card
         sx={{
           display: "flex",
-          backgroundImage: `url(${item.href})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(${item.href})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -70,7 +70,7 @@ function Project({ item }: ProjectProps) {
 
 const items: Item[] = [
   {
-    href: "assets/image.png",
+    href: "assets/carousel1.avif",
     name: "What is an Agreement In Principle?",
     description: `An Agreement in Principle (AIP) is the first step to getting a
     mortgage. It’s sometimes called a Mortgage Promise or a Decision in
@@ -80,7 +80,7 @@ const items: Item[] = [
     for an AIP.`,
   },
   {
-    href: "assets/image.png",
+    href: "assets/carousel1.avif",
     name: "What is an Agreement In Principle?",
     description: `An Agreement in Principle (AIP) is the first step to getting a
     mortgage. It’s sometimes called a Mortgage Promise or a Decision in
@@ -90,7 +90,8 @@ const items: Item[] = [
     for an AIP.`,
   },
   {
-    href: "assets/image.png",
+    // href: "assets/image.png",
+    href: "assets/carousel2.jpg",
     name: "What is an Agreement In Principle?",
     description: `An Agreement in Principle (AIP) is the first step to getting a
     mortgage. It’s sometimes called a Mortgage Promise or a Decision in

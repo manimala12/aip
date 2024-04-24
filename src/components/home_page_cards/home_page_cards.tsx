@@ -40,21 +40,31 @@ export default function HomePageCards() {
                   sx={{
                     height: 180,
                     transition: "transform .7s",
-                    "&:hover": { transform: "scale(1.5)" },
+                    "&:hover": { transform: "scale(1.2)" },
                   }}
                   image={card.link}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography
+                    gutterBottom
+                    variant="h6"
+                    component="div"
+                    sx={{ color: "primary.main", textAlign: "center" }}
+                  >
                     {card.heading}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     {card.description}
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
+                <CardActions
+                  sx={{ alignItems: "center", justifyContent: "center" }}
+                >
+                  <Button
+                    sx={{ backgroundColor: "primary.main", color: "black" }}
+                  >
+                    Apply
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>

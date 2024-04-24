@@ -5,6 +5,7 @@ import {
   TextField,
   Button,
   FormHelperText,
+  Grid,
 } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -180,38 +181,39 @@ export default function PersonalDetails() {
           marginTop: "50px",
         }}
       />
-      <Button
-        variant="contained"
-        color="inherit"
-        component={Link}
-        style={{
-          backgroundColor: "#ffc107",
-          padding: "15px 60px",
-          marginTop: "40px",
-          fontWeight: "bold",
-          marginBottom: "30px",
-        }}
-        to="/loan-details"
-      >
-        <ArrowLeftIcon style={{ fontSize: "30px" }} />
-        Back
-      </Button>
-      <Button
-        variant="contained"
-        color="inherit"
-        type="submit"
-        style={{
-          backgroundColor: "#ffc107",
-          marginLeft: "785px",
-          padding: "15px 60px",
-          marginTop: "40px",
-          fontWeight: "bold",
-          marginBottom: "30px",
-        }}
-        endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
-      >
-        Continue
-      </Button>
+      <Grid sx={{ display: "flex", gap: "750px" }}>
+        <Button
+          variant="contained"
+          color="inherit"
+          component={Link}
+          style={{
+            backgroundColor: "#ffc107",
+            padding: "15px 60px",
+            marginTop: "40px",
+            fontWeight: "bold",
+            marginBottom: "30px",
+          }}
+          to="/loan-details"
+        >
+          <ArrowLeftIcon style={{ fontSize: "30px" }} />
+          Back
+        </Button>
+        <Button
+          variant="contained"
+          color="inherit"
+          type="submit"
+          style={{
+            backgroundColor: "#ffc107",
+            padding: "15px 60px",
+            marginTop: "40px",
+            fontWeight: "bold",
+            marginBottom: "30px",
+          }}
+          endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+        >
+          Continue
+        </Button>
+      </Grid>
     </form>
   );
 }

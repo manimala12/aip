@@ -11,6 +11,7 @@ import {
   FormLabel,
   RadioGroup,
   FormHelperText,
+  Grid,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
@@ -300,38 +301,39 @@ export default function IncomeDetails() {
           marginTop: "50px",
         }}
       />
-      <Button
-        variant="contained"
-        color="inherit"
-        component={Link}
-        style={{
-          backgroundColor: "#ffc107",
-          padding: "15px 60px",
-          marginTop: "40px",
-          fontWeight: "bold",
-          marginBottom: "30px",
-        }}
-        to={AppRoutes.PERSONAL_DETAILS}
-      >
-        <ArrowLeftIcon style={{ fontSize: "30px" }} />
-        Back
-      </Button>
-      <Button
-        variant="contained"
-        color="inherit"
-        type="submit"
-        style={{
-          backgroundColor: "#ffc107",
-          marginLeft: "785px",
-          padding: "15px 60px",
-          marginTop: "40px",
-          fontWeight: "bold",
-          marginBottom: "30px",
-        }}
-        endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
-      >
-        Continue
-      </Button>
+      <Grid sx={{ display: "flex", gap: "750px" }}>
+        <Button
+          variant="contained"
+          color="inherit"
+          component={Link}
+          style={{
+            backgroundColor: "#ffc107",
+            padding: "15px 60px",
+            marginTop: "40px",
+            fontWeight: "bold",
+            marginBottom: "30px",
+          }}
+          to={AppRoutes.PERSONAL_DETAILS}
+        >
+          <ArrowLeftIcon style={{ fontSize: "30px" }} />
+          Back
+        </Button>
+        <Button
+          variant="contained"
+          color="inherit"
+          type="submit"
+          style={{
+            backgroundColor: "#ffc107",
+            padding: "15px 60px",
+            marginTop: "40px",
+            fontWeight: "bold",
+            marginBottom: "30px",
+          }}
+          endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+        >
+          Continue
+        </Button>
+      </Grid>
     </form>
   );
 }

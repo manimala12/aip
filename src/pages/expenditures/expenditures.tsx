@@ -377,38 +377,40 @@ export default function Expenditures() {
             marginTop: "50px",
           }}
         />
-        <Button
-          variant="contained"
-          color="inherit"
-          component={Link}
-          style={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          to="/income-details"
-        >
-          <ArrowLeftIcon style={{ fontSize: "30px" }} />
-          Back
-        </Button>
-        <Button
-          type="submit"
-          variant="contained"
-          color="inherit"
-          style={{
-            backgroundColor: "#ffc107",
-            marginLeft: "785px",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
-        >
-          Submit
-        </Button>
+        <Grid sx={{ display: "flex", gap: "800px" }}>
+          <Button
+            variant="contained"
+            color="inherit"
+            component={Link}
+            style={{
+              backgroundColor: "#ffc107",
+              padding: "15px 60px",
+              marginTop: "40px",
+              fontWeight: "bold",
+              marginBottom: "30px",
+            }}
+            to="/income-details"
+          >
+            <ArrowLeftIcon style={{ fontSize: "30px" }} />
+            Back
+          </Button>
+          <Button
+            type="submit"
+            variant="contained"
+            color="inherit"
+            style={{
+              backgroundColor: "#ffc107",
+              // marginLeft: "585px",
+              padding: "15px 60px",
+              marginTop: "40px",
+              fontWeight: "bold",
+              marginBottom: "30px",
+            }}
+            endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+          >
+            Submit
+          </Button>
+        </Grid>
       </Grid>
     </form>
   );
