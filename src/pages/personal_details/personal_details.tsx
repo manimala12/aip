@@ -36,13 +36,7 @@ export default function PersonalDetails() {
   >((state) => state.appData.personalDetails);
 
   const formik = useFormik<PersonalDetailsValues>({
-    initialValues: {
-      fullName: "d",
-      dateOfBirth: "d",
-      gender: "",
-      mobileNumber: "90",
-      address: "d",
-    },
+    initialValues: personalDetailsInitialValues(personalDetails),
     validationSchema: personalDetailsValidation(),
     onSubmit: (values) => {
       dispatch(
@@ -59,7 +53,7 @@ export default function PersonalDetails() {
     const initialPersonalDetails =
       personalDetailsInitialValues(personalDetails);
     formik.setFieldValue("fullName", initialPersonalDetails.fullName);
-    formik.setFieldValue("dateOfBirth", initialPersonalDetails.dateOfBirth);
+    formik.setFieldValue("panNumber", initialPersonalDetails.panNumber);
     formik.setFieldValue("gender", initialPersonalDetails.gender);
     formik.setFieldValue("mobileNumber", initialPersonalDetails.mobileNumber);
     formik.setFieldValue("address", initialPersonalDetails.address);
@@ -103,14 +97,13 @@ export default function PersonalDetails() {
         paragraph
         style={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
       >
-        Date of Birth
+        PAN Card number
       </Typography>
       <Box style={{ display: "flex", gap: "20px" }}>
         <TextField
-          style={{ width: "150px", color: "white" }}
-          placeholder="DD/MM/YYYY"
-          name="dateOfBirth"
-          value={formik.values.dateOfBirth}
+          style={{ color: "white" }}
+          name="panNumber"
+          value={formik.values.panNumber}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />

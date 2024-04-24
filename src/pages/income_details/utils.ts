@@ -10,9 +10,9 @@ export const incomeDetailsValidation =
       contractType: Yup.string()
         .required("Please enter your type of contract")
         .oneOf(["Full Time", "Part Time"]),
-      oftenYouGetPaid: Yup.string()
+      oftenYouGetPaid: Yup.number()
         .required("Please enter your type of contract")
-        .oneOf(["Weekly", "Fortnightly", "Monthly"]),
+        .oneOf([1, 2, 4]),
       nameOfTheEmployer: Yup.string().required("Please enter your occupation"),
       occupation: Yup.string().required("Please enter your occupation"),
       nameOfTheOccupation: Yup.string().optional(),
@@ -31,7 +31,7 @@ export const incomeDetailsInitialValues = (
       occupation: "",
       nameOfTheOccupation: "",
       nameOfTheEmployer: "",
-      oftenYouGetPaid: "",
+      oftenYouGetPaid: 0,
       earning: "",
     };
   }

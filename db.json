@@ -16,7 +16,7 @@
       "homeType": "Constructing a new home",
       "propertyValue": "150000",
       "deposit": "34000",
-      "loanDuration": 16,
+      "loanDuration": 22,
       "email": "jnaneswari@gmail.com",
       "id": 1
     }
@@ -24,10 +24,10 @@
   "personal-details": [
     {
       "fullName": "Jnaneswari",
-      "dateOfBirth": "13/01/1998",
+      "panNumber": "BAJPC4350S",
       "gender": "Female",
       "mobileNumber": "09023984794",
-      "address": "ss, skfsdl",
+      "address": "ss, skfsdl, sdf",
       "email": "jnaneswari@gmail.com",
       "id": 1
     }
@@ -39,7 +39,7 @@
       "occupation": "Doctor",
       "nameOfTheOccupation": "",
       "nameOfTheEmployer": "Jnaneswari",
-      "oftenYouGetPaid": "Weekly",
+      "oftenYouGetPaid": "Fortnightly",
       "earning": "240000",
       "email": "jnaneswari@gmail.com",
       "id": 1
@@ -56,7 +56,14 @@
       "children": "1",
       "schoolFee": "15000",
       "otherExpenditures": "Yes",
-      "otherAmount": "",
+      "otherAmount": "50000",
+      "email": "jnaneswari@gmail.com",
+      "id": 1
+    }
+  ],
+  "decision": [
+    {
+      "result": "S",
       "email": "jnaneswari@gmail.com",
       "id": 1
     }
@@ -64,11 +71,13 @@
   "credit-check": [
     {
       "PAN": "BAJPC4350S",
-      "creditScore": 798
+      "creditScore": 798,
+      "id": 1
     },
     {
       "PAN": "BAJPC4350F",
-      "creditScore": 648
+      "creditScore": 648,
+      "id": 2
     }
   ]
 }

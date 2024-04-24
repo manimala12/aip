@@ -264,16 +264,16 @@ export default function IncomeDetails() {
           name="oftenYouGetPaid"
           value={formik.values.oftenYouGetPaid}
         >
-          <MenuItem style={{ fontSize: "20px" }} value={""} disabled>
+          <MenuItem style={{ fontSize: "20px" }} value={0} disabled>
             Select an option
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Weekly"}>
+          <MenuItem style={{ fontSize: "20px" }} value={4}>
             Weekly
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Fortnightly"}>
+          <MenuItem style={{ fontSize: "20px" }} value={2}>
             Fortnightly
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Monthly"}>
+          <MenuItem style={{ fontSize: "20px" }} value={1}>
             Monthly
           </MenuItem>
         </Select>

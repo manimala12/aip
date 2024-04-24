@@ -1,6 +1,6 @@
 export interface PersonalDetailsValues {
   fullName: string;
-  dateOfBirth: string;
+  panNumber: string;
   gender: string;
   mobileNumber: string;
   address: string;

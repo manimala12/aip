@@ -15,9 +15,6 @@ export default function HomePageCards() {
       spacing={2}
       sx={{
         my: 7,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
       {cardItems.map((card: CardData) => (
@@ -27,13 +24,17 @@ export default function HomePageCards() {
               sx={{
                 height: 180,
                 transition: "transform .7s",
-                "&:hover": { transform: "scale(1.5)" },
+                "&:hover": { transform: "scale(1.3)" },
               }}
               image={card.link}
-              title="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{ color: "primary.main", textAlign: "center" }}
+              >
                 {card.heading}
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -41,8 +42,9 @@ export default function HomePageCards() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
+              <Button sx={{ color: "black", bgcolor: "primary.main" }}>
+                APPLY
+              </Button>
             </CardActions>
           </Card>
         </Grid>

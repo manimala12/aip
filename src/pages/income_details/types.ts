@@ -4,7 +4,7 @@ export interface IncomeDetailsValues {
   occupation: string;
   nameOfTheOccupation?: string;
   nameOfTheEmployer: string;
-  oftenYouGetPaid: string;
+  oftenYouGetPaid: number;
   earning: string;
   email?: string;
   id?: string;

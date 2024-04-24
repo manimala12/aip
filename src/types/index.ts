@@ -17,6 +17,7 @@ export interface AppData {
   personalDetails?: PersonalDetailsValues;
   incomeDetails?: IncomeDetailsValues;
   expenditureDetails?: ExpenditureDetailsValues;
+  result?: string;
   loading: boolean;
   message?: string;
   error?: string;
@@ -42,4 +43,22 @@ export enum AppRoutes {
   INCOME_DETAILS = "/income-details",
   EXPENDITURES = "/expenditures",
   RESULT = "/result",
+}
+
+export enum DecisionTypes {
+  SUCCESS = "S",
+  FAILURE = "F",
+  PARTIAL = "P",
+}
+
+export interface Decision {
+  result: string;
+  email: string;
+  id: string;
+}
+
+export interface CreditScore {
+  creditScore: number;
+  PAN: string;
+  id: string;
 }

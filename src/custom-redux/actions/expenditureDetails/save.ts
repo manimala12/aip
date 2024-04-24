@@ -37,7 +37,6 @@ export const saveExpenditureDetailsAction = (
             expenditureDetails,
           },
         });
-        navigate(AppRoutes.RESULT);
         return;
       }
 
@@ -55,7 +54,6 @@ export const saveExpenditureDetailsAction = (
             expenditureDetails,
           },
         });
-        navigate(AppRoutes.EXPENDITURES);
         return;
       }
       throw new Error("Something went wrong");

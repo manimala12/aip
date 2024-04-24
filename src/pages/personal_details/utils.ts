@@ -6,7 +6,10 @@ export const personalDetailsValidation =
     Yup.object<PersonalDetailsValues>().shape({
       fullName: Yup.string().required("Please enter your full name"),
       mobileNumber: Yup.string().required("Please enter your mobile number"),
-      dateOfBirth: Yup.string().required("Please enter your date of birth"),
+      panNumber: Yup.string()
+        .required("Please enter your pan number")
+        .min(10)
+        .max(10),
       gender: Yup.string()
         .required("Please enter your gender")
         .oneOf(["Male", "Female"]),
@@ -21,7 +24,7 @@ export const personalDetailsInitialValues = (
   if (!personalDetails) {
     return {
       fullName: "",
-      dateOfBirth: "",
+      panNumber: "",
       gender: "",
       mobileNumber: "",
       address: "",
@@ -29,7 +32,7 @@ export const personalDetailsInitialValues = (
   }
   return {
     fullName: personalDetails.fullName,
-    dateOfBirth: personalDetails.dateOfBirth,
+    panNumber: personalDetails.panNumber,
     gender: personalDetails.gender,
     mobileNumber: personalDetails.mobileNumber,
     address: personalDetails.address,

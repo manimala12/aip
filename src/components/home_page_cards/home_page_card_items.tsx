@@ -6,21 +6,21 @@ export interface CardData {
 
 export const cardItems: CardData[] = [
   {
-    heading: "Lizard",
+    heading: "HDFC",
     description:
-      "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    link: "assets/homeLoan.avif",
+      "Turn your dream home into reality with HDFC Home Loans – paving the way to homeownership with ease and flexibility!",
+    link: "assets/hdfc.webp",
   },
   {
-    heading: "Lizard 2",
+    heading: "SBI",
     description:
-      "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    link: "assets/background.jpg",
+      "Unlock the door to your dream home with SBI Home Loans - Where your aspirations meet affordability.",
+    link: "assets/sbi.png",
   },
   {
-    heading: "Lizard 3",
+    heading: "AXIS",
     description:
-      "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    link: "assets/HomeLoan.jpg",
+      "Embark on the journey to your dream home with Axis Bank Home Loans - Your trusted partner in making homeownership a reality.",
+    link: "assets/axis.png",
   },
 ];

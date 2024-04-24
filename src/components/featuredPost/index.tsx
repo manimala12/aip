@@ -5,10 +5,8 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { FeaturedPostProps } from "./types";
-import { posts } from "./utils";
+
 import Carousel from "react-material-ui-carousel";
-import { Button, Paper } from "@mui/material";
 
 export default function FeaturedPost() {
   return (
