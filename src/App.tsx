@@ -66,16 +66,42 @@ export default function App() {
           }
         />
         <Route path={AppRoutes.REGISTERED} element={<DialogModal />} />
-        <Route path={AppRoutes.LOAN_DETAILS} element={<LoanDetails />} />
+        <Route
+          path={AppRoutes.LOAN_DETAILS}
+          element={<ProtectedRoute component={<LoanDetails />} />}
+        />
         <Route
           path={AppRoutes.PERSONAL_DETAILS}
-          element={<PersonalDetails />}
+          element={<ProtectedRoute component={<PersonalDetails />} />}
         />
-        <Route path={AppRoutes.INCOME_DETAILS} element={<IncomeDetails />} />
-        <Route path={AppRoutes.EXPENDITURES} element={<Expenditures />} />
-        <Route path={AppRoutes.RESULT} element={<Result />} />
+        <Route
+          path={AppRoutes.INCOME_DETAILS}
+          element={<ProtectedRoute component={<IncomeDetails />} />}
+        />
+        <Route
+          path={AppRoutes.EXPENDITURES}
+          element={<ProtectedRoute component={<Expenditures />} />}
+        />
+        <Route
+          path={AppRoutes.RESULT}
+          element={<ProtectedRoute component={<Result />} />}
+        />
       </Routes>
       <Footer />
     </>
   );
 }
+
+const ProtectedRoute = ({
+  component = <Home />,
+  redirectTo = (
+    <LightThemeProvider>
+      <Login />
+    </LightThemeProvider>
+  ),
+}) => {
+  const isAuthenticated = useSelector<AppState, boolean>(
+    (state) => state.auth.isAuthenticated
+  );
+  return isAuthenticated ? component : redirectTo;
+};

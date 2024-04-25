@@ -11,7 +11,10 @@ export const logoutAction = () => {
       localStorage.removeItem("email");
 
       successToast("Signed out successfully");
-      dispatch({ type: authConstants.LOGOUT_SUCCESS });
+      dispatch({
+        type: authConstants.LOGOUT_SUCCESS,
+        payload: { isAuthenticated: false },
+      });
     } catch (error) {
       const err = error as Error;
       const errorMessage = err.message;

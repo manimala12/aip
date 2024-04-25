@@ -17,7 +17,13 @@ export default function FeaturedPost() {
       minHeight="sm"
       mx="auto"
     >
-      <Grid item maxWidth="xl" component={Carousel} sx={{ width: "100%" }}>
+      <Grid
+        item
+        maxWidth="xl"
+        component={Carousel}
+        sx={{ width: "100%" }}
+        interval={3000}
+      >
         {items.map((item, index) => {
           return <Project item={item} key={index} />;
         })}
@@ -90,7 +96,6 @@ const items: Item[] = [
     for an AIP.`,
   },
   {
-    // href: "assets/image.png",
     href: "assets/carousel2.jpg",
     name: "What is an Agreement In Principle?",
     description: `An Agreement in Principle (AIP) is the first step to getting a

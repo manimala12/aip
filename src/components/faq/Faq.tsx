@@ -6,6 +6,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box, Container, Typography } from "@mui/material";
 
 export default function Faq() {
+  const [expanded, setExpanded] = React.useState<string | false>(false);
+
+  const handleChange =
+    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
   return (
     <Container
       sx={{
@@ -24,16 +30,21 @@ export default function Faq() {
             color: "primary.main",
             marginBottom: "50px",
             textAlign: "center",
+            fontSize: "40px",
           }}
         >
           FAQs
           <hr className="w-25 mx-auto border border-warning" />
         </Typography>
-        <Accordion style={{ color: "#212529;" }}>
+        <Accordion
+          expanded={expanded === "panel1"}
+          onChange={handleChange("panel1")}
+          sx={{ fontSize: "18px", fontFamily: "Montserrat, sans-serif" }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1-content"
-            id="panel1-header"
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
           >
             What is an Agreement in Principle and do I need one?
           </AccordionSummary>
@@ -68,8 +79,16 @@ export default function Faq() {
             application online by yourself.
           </AccordionDetails>
         </Accordion>
-        <Accordion style={{ color: "#212529;" }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Accordion
+          expanded={expanded === "panel2"}
+          onChange={handleChange("panel2")}
+          sx={{ fontSize: "18px", fontFamily: "Montserrat, sans-serif" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2bh-content"
+            id="panel2bh-header"
+          >
             What can I do to secure a mortgage rate with you?
           </AccordionSummary>
           <AccordionDetails>
@@ -98,16 +117,32 @@ export default function Faq() {
             mortgage application to secure your rate with us.
           </AccordionDetails>
         </Accordion>
-        <Accordion style={{ color: "#212529;" }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Accordion
+          expanded={expanded === "panel3"}
+          onChange={handleChange("panel3")}
+          sx={{ fontSize: "18px", fontFamily: "Montserrat, sans-serif" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3bh-content"
+            id="panel3bh-header"
+          >
             Can I transfer my agreement to someone else?
           </AccordionSummary>
           <AccordionDetails>
             No, you cannot transfer an agreement to someone else.
           </AccordionDetails>
         </Accordion>
-        <Accordion style={{ color: "#212529;" }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Accordion
+          expanded={expanded === "panel4"}
+          onChange={handleChange("panel4")}
+          sx={{ fontSize: "18px", fontFamily: "Montserrat, sans-serif" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel4bh-content"
+            id="panel4bh-header"
+          >
             Are there specific terms and conditions for each offer I activate?
           </AccordionSummary>
           <AccordionDetails>

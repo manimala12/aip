@@ -28,7 +28,6 @@ export const authReducer = (
     case authConstants.REGISTRATION_SUCCESS:
     case authConstants.LOGIN_SUCCESS:
     case authConstants.VERIFY_TOKEN_SUCCESS:
-    case authConstants.LOGOUT_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -45,6 +44,15 @@ export const authReducer = (
         ...state,
         loading: false,
         error: action.payload?.error,
+      };
+
+    case authConstants.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        message: action.payload?.message,
+        email: action.payload?.email,
+        isAuthenticated: false,
       };
 
     default:

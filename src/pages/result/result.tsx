@@ -1,5 +1,4 @@
 import { Typography, Container } from "@mui/material";
-import CelebrationIcon from "@mui/icons-material/Celebration";
 import { useSelector } from "react-redux";
 import { AppState } from "../../custom-redux/store";
 import { DecisionTypes } from "../../types";
@@ -10,16 +9,26 @@ export default function Result() {
     (state) => state.appData.result
   );
 
-  const getDecisionMessage = () => {
-    if (result === DecisionTypes.SUCCESS) {
-      return "You're eligible for your home loan.";
-    } else if (result === DecisionTypes.PARTIAL) {
-      return "Partial";
-    } else if (result === DecisionTypes.FAILURE) {
-      return "Failure";
+  const GetDecisionMessage = () => {
+    switch (result) {
+      case DecisionTypes.SUCCESS:
+        return <Success />;
+
+      case DecisionTypes.PARTIAL:
+        return <Partial />;
+
+      case DecisionTypes.FAILURE:
+        return <Failure />;
+
+      default:
+        return <Failure />;
     }
   };
 
+  return <GetDecisionMessage />;
+}
+
+function Success() {
   return (
     <Container
       style={{ marginTop: "300px", textAlign: "center", color: "white" }}
@@ -28,14 +37,50 @@ export default function Result() {
         <ConfettiExplosion style={{ margin: "auto" }} />
         Congratulations!!!
       </Typography>
-      <CelebrationIcon style={{ fontSize: "40px", color: "white" }} />
-      <CelebrationIcon style={{ fontSize: "40px", color: "white" }} />
-      <CelebrationIcon style={{ fontSize: "40px", color: "white" }} />
+
       <Typography
         paragraph
         style={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
       >
-        {getDecisionMessage()}
+        You are eligible for your home loan.
+      </Typography>
+    </Container>
+  );
+}
+
+function Failure() {
+  return (
+    <Container
+      style={{ marginTop: "300px", textAlign: "center", color: "white" }}
+    >
+      <Typography variant="h2" style={{ marginBottom: "20px" }}>
+        Congratulations!!!
+      </Typography>
+
+      <Typography
+        paragraph
+        style={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
+      >
+        You are eligible for your home loan.
+      </Typography>
+    </Container>
+  );
+}
+
+function Partial() {
+  return (
+    <Container
+      style={{ marginTop: "300px", textAlign: "center", color: "white" }}
+    >
+      <Typography variant="h2" style={{ marginBottom: "20px" }}>
+        Congratulations!!!
+      </Typography>
+
+      <Typography
+        paragraph
+        style={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
+      >
+        You are eligible for your home loan.
       </Typography>
     </Container>
   );

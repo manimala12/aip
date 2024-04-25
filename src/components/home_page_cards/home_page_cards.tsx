@@ -18,6 +18,7 @@ export default function HomePageCards() {
             color: "primary.main",
             marginBottom: "50px",
             textAlign: "center",
+            fontSize: "40px",
           }}
         >
           Promotions
@@ -38,7 +39,7 @@ export default function HomePageCards() {
               <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                   sx={{
-                    height: 180,
+                    height: 210,
                     transition: "transform .7s",
                     "&:hover": { transform: "scale(1.2)" },
                   }}

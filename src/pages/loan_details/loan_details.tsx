@@ -31,6 +31,9 @@ export default function LoanDetails() {
   const loanDetails = useSelector<AppState, LoanDetailsValues | undefined>(
     (state) => state.appData.loanDetails
   );
+  const isAuthenticated = useSelector<AppState, boolean | undefined>(
+    (state) => state.auth.isAuthenticated
+  );
 
   const formik = useFormik<LoanDetailsValues>({
     initialValues: loanDetailsInitialValues(loanDetails),
@@ -45,6 +48,15 @@ export default function LoanDetails() {
   useEffect(() => {
     dispatch(getLoanDetailsAction() as unknown as UnknownAction);
   }, []);
+  useEffect(() => {
+    dispatch(getLoanDetailsAction() as unknown as UnknownAction);
+    const initialLoanDetails = loanDetailsInitialValues(loanDetails);
+    formik.setFieldValue("deposit", initialLoanDetails.deposit);
+    formik.setFieldValue("homeType", initialLoanDetails.homeType);
+    formik.setFieldValue("loanDuration", initialLoanDetails.loanDuration);
+    formik.setFieldValue("noOfPeople", initialLoanDetails.noOfPeople);
+    formik.setFieldValue("propertyValue", initialLoanDetails.propertyValue);
+  }, [isAuthenticated]);
 
   useEffect(() => {
     const initialLoanDetails = loanDetailsInitialValues(loanDetails);

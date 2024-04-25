@@ -38,7 +38,11 @@ export default function Login() {
   };
 
   return (
-    <Container component="main" maxWidth="sm" sx={{ my: 13 }}>
+    <Container
+      component="main"
+      maxWidth="sm"
+      sx={{ minHeight: "100vh", m: "auto", alignContent: "center" }}
+    >
       <Box
         component="form"
         sx={loginPageStyle}
