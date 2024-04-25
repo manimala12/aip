@@ -1,4 +1,5 @@
 import {
+  ClearAppDataConstants,
   ExpenditureDetailsConstants,
   GetDecisionConstants,
   IncomeDetailsConstants,
@@ -9,6 +10,9 @@ import { AppData, AppDataAction } from "../../types";
 
 const initState: AppData = {
   loanDetails: undefined,
+  personalDetails: undefined,
+  incomeDetails: undefined,
+  expenditureDetails: undefined,
   loading: false,
   message: undefined,
   error: undefined,
@@ -28,6 +32,7 @@ export const appDataReducer = (
     case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_REQUEST:
     case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_REQUEST:
     case GetDecisionConstants.SAVE_DECISION_REQUEST:
+    case ClearAppDataConstants.CLEAR_APP_DATA_REQUEST:
       return {
         ...state,
         loading: true,
@@ -64,6 +69,9 @@ export const appDataReducer = (
         loading: false,
         error: action.payload?.error,
       };
+
+    case ClearAppDataConstants.CLEAR_APP_DATA_SUCCESS:
+      return { ...initState };
 
     default:
       return state;

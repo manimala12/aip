@@ -1,4 +1,4 @@
-import { authConstants } from "../constants";
+import { ClearAppDataConstants, authConstants } from "../constants";
 import { AuthAction } from "../../types";
 import { Dispatch } from "redux";
 import { errorToast, successToast } from "../../components/toasts";
@@ -14,6 +14,10 @@ export const logoutAction = () => {
       dispatch({
         type: authConstants.LOGOUT_SUCCESS,
         payload: { isAuthenticated: false },
+      });
+      dispatch({ type: ClearAppDataConstants.CLEAR_APP_DATA_REQUEST });
+      dispatch({
+        type: ClearAppDataConstants.CLEAR_APP_DATA_SUCCESS,
       });
     } catch (error) {
       const err = error as Error;
