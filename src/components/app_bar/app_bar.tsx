@@ -108,7 +108,7 @@ export default function DrawerAppBar(props: Readonly<Props>) {
                 textDecoration: "none",
               }}
             >
-              AGREEMENT IN PRINCIPLE
+              JBS Bank
             </Link>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (

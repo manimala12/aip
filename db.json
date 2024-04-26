@@ -16,7 +16,7 @@
       "homeType": "Constructing a new home",
       "propertyValue": "150000",
       "deposit": "34000",
-      "loanDuration": 21,
+      "loanDuration": 23,
       "email": "jnaneswari@gmail.com",
       "id": 1
     }
@@ -26,7 +26,7 @@
       "fullName": "Jnaneswari",
       "panNumber": "BAJPC4350S",
       "gender": "Female",
-      "mobileNumber": "09023984794",
+      "mobileNumber": "9876543210",
       "address": "ss, skfsdl, sdf",
       "email": "jnaneswari@gmail.com",
       "id": 1
@@ -53,7 +53,7 @@
       "vehicle": "No",
       "vehicleEMI": "",
       "vehicleOutstanding": "",
-      "children": "1",
+      "children": "0",
       "schoolFee": "15000",
       "otherExpenditures": "Yes",
       "otherAmount": "50000",

@@ -150,46 +150,48 @@ export default function Expenditures() {
         </Grid>
         <br />
         {formik.values.activeLoans === "Yes" && (
-          <Grid item xs={12}>
-            <Typography
-              paragraph
-              style={{ fontSize: "25px", marginTop: "50px" }}
-            >
-              How much amount will you pay for EMI every month?
-            </Typography>
-            <TextField
-              style={{ borderColor: "white", width: "500px" }}
-              name="loanEMI"
-              value={formik.values.loanEMI}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={Boolean(formik.touched.loanEMI && formik.errors.loanEMI)}
-              helperText={formik.touched.loanEMI && formik.errors.loanEMI}
-            />
-          </Grid>
-        )}
-        {formik.values.loanEMI && +formik.values.loanEMI > 0 && (
-          <Grid item xs={12}>
-            <Typography
-              paragraph
-              style={{ fontSize: "25px", marginTop: "50px" }}
-            >
-              Outstanding amount
-            </Typography>
-            <TextField
-              style={{ borderColor: "white", width: "500px" }}
-              name="loanOutstanding"
-              value={formik.values.loanOutstanding}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={Boolean(
-                formik.touched.loanOutstanding && formik.errors.loanOutstanding
-              )}
-              helperText={
-                formik.touched.loanOutstanding && formik.errors.loanOutstanding
-              }
-            />
-          </Grid>
+          <>
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                style={{ fontSize: "25px", marginTop: "50px" }}
+              >
+                How much amount will you pay for EMI every month?
+              </Typography>
+              <TextField
+                style={{ borderColor: "white", width: "500px" }}
+                name="loanEMI"
+                value={formik.values.loanEMI}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(formik.touched.loanEMI && formik.errors.loanEMI)}
+                helperText={formik.touched.loanEMI && formik.errors.loanEMI}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                style={{ fontSize: "25px", marginTop: "50px" }}
+              >
+                Outstanding amount
+              </Typography>
+              <TextField
+                style={{ borderColor: "white", width: "500px" }}
+                name="loanOutstanding"
+                value={formik.values.loanOutstanding}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(
+                  formik.touched.loanOutstanding &&
+                    formik.errors.loanOutstanding
+                )}
+                helperText={
+                  formik.touched.loanOutstanding &&
+                  formik.errors.loanOutstanding
+                }
+              />
+            </Grid>
+          </>
         )}
         <Grid item xs={12}>
           <FormControl>
@@ -201,7 +203,7 @@ export default function Expenditures() {
                 marginBottom: "10px",
               }}
             >
-              Do you have any vehicle?
+              Do you have any vehicle loans?
             </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
@@ -224,54 +226,56 @@ export default function Expenditures() {
           </FormControl>
         </Grid>
         {formik.values.vehicle === "Yes" && (
-          <Grid item xs={12}>
-            <Typography
-              paragraph
-              style={{ fontSize: "25px", marginTop: "50px" }}
-            >
-              How much amount will you pay for your vehicle EMI?
-            </Typography>
-            <TextField
-              style={{ borderColor: "white", width: "500px" }}
-              name="vehicleEMI"
-              value={formik.values.vehicleEMI}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={Boolean(
-                formik.touched.vehicleEMI && formik.errors.vehicleEMI
-              )}
-              helperText={formik.touched.vehicleEMI && formik.errors.vehicleEMI}
-            />
-          </Grid>
-        )}
-        {formik.values.vehicleEMI && +formik.values.vehicleEMI > 0 && (
-          <Grid item xs={12}>
-            <Typography
-              paragraph
-              style={{ fontSize: "25px", marginTop: "50px" }}
-            >
-              Outstanding amount of your vehicle
-            </Typography>
-            <TextField
-              style={{ borderColor: "white", width: "500px" }}
-              name="vehicleOutstanding"
-              value={formik.values.vehicleOutstanding}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={Boolean(
-                formik.touched.vehicleOutstanding &&
+          <>
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                style={{ fontSize: "25px", marginTop: "50px" }}
+              >
+                How much amount will you pay for your vehicle EMI?
+              </Typography>
+              <TextField
+                style={{ borderColor: "white", width: "500px" }}
+                name="vehicleEMI"
+                value={formik.values.vehicleEMI}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(
+                  formik.touched.vehicleEMI && formik.errors.vehicleEMI
+                )}
+                helperText={
+                  formik.touched.vehicleEMI && formik.errors.vehicleEMI
+                }
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                style={{ fontSize: "25px", marginTop: "50px" }}
+              >
+                Outstanding amount of your vehicle
+              </Typography>
+              <TextField
+                style={{ borderColor: "white", width: "500px" }}
+                name="vehicleOutstanding"
+                value={formik.values.vehicleOutstanding}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(
+                  formik.touched.vehicleOutstanding &&
+                    formik.errors.vehicleOutstanding
+                )}
+                helperText={
+                  formik.touched.vehicleOutstanding &&
                   formik.errors.vehicleOutstanding
-              )}
-              helperText={
-                formik.touched.vehicleOutstanding &&
-                formik.errors.vehicleOutstanding
-              }
-            />
-          </Grid>
+                }
+              />
+            </Grid>
+          </>
         )}
         <Grid item xs={12}>
           <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
-            How many children you have?
+            Number of children
           </Typography>
           <TextField
             style={{ borderColor: "white", width: "500px" }}

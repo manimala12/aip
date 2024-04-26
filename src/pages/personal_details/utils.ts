@@ -5,7 +5,10 @@ export const personalDetailsValidation =
   (): Yup.ObjectSchema<PersonalDetailsValues> =>
     Yup.object<PersonalDetailsValues>().shape({
       fullName: Yup.string().required("Please enter your full name"),
-      mobileNumber: Yup.string().required("Please enter your mobile number"),
+      mobileNumber: Yup.string()
+        .required("Please enter your mobile number")
+        .min(10)
+        .max(10),
       panNumber: Yup.string()
         .required("Please enter your pan number")
         .min(10)

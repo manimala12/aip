@@ -5,6 +5,7 @@ import { LightThemeProvider } from "../../components/theme-providers";
 import HomePageCards from "../../components/home_page_cards/home_page_cards";
 import FlipCard from "../../components/flip-cards/flip";
 import FeaturedPost from "../../components/featuredPost";
+import MortgageCalculator from "../../components/mortgage-calculators/mortgage-calculator";
 
 export default function Home() {
   return (
@@ -81,6 +82,7 @@ export default function Home() {
         </Grid>
       </Paper>
       <FeaturedPost />
+      <MortgageCalculator />
       <HomePageCards />
       <FlipCard />
       <LightThemeProvider>

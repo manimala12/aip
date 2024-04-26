@@ -43,6 +43,7 @@ export enum AppRoutes {
   INCOME_DETAILS = "/income-details",
   EXPENDITURES = "/expenditures",
   RESULT = "/result",
+  REVIEW = "/review",
 }
 
 export enum DecisionTypes {

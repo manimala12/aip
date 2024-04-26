@@ -21,6 +21,7 @@ import { AppState } from "./custom-redux/store";
 import { useEffect } from "react";
 import { verifyTokenAction } from "./custom-redux/actions/verifyToken";
 import { UnknownAction } from "redux";
+import Review from "./pages/review";
 
 export default function App() {
   const isAuthenticated = useSelector<AppState, boolean>(
@@ -81,6 +82,10 @@ export default function App() {
         <Route
           path={AppRoutes.EXPENDITURES}
           element={<ProtectedRoute component={<Expenditures />} />}
+        />
+        <Route
+          path={AppRoutes.REVIEW}
+          element={<ProtectedRoute component={<Review />} />}
         />
         <Route
           path={AppRoutes.RESULT}

@@ -14,8 +14,9 @@ export const expenditureDetailsValidation = () =>
     vehicleEMI: Yup.string().optional(),
     vehicleOutstanding: Yup.string().optional(),
     children: Yup.number()
-      .positive("Please enter a postive number")
-      .required("Please enter about your children"),
+      .required("Please enter about your children")
+      .max(10)
+      .min(0),
     schoolFee: Yup.number()
       .positive("Please enter a postive number")
       .required("Please enter your children school fee"),

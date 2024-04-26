@@ -20,6 +20,7 @@ export default function Footer() {
         sx={{
           border: "2px solid white",
           backgroundColor: "#212529;",
+          mt: 7,
         }}
       >
         <Container>
