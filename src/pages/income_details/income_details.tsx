@@ -79,12 +79,12 @@ export default function IncomeDetails() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <Typography variant="h5" style={{ marginBottom: "20px" }}>
+      <Typography variant="h5" sx={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
       <Typography variant="h2"> Your Earnings</Typography>
       <Divider
-        style={{
+        sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
@@ -93,7 +93,7 @@ export default function IncomeDetails() {
       />
       <FormControl>
         <FormLabel
-          style={{
+          sx={{
             color: "white",
             marginTop: "50px",
             fontSize: "25px",
@@ -111,12 +111,12 @@ export default function IncomeDetails() {
         >
           <FormControlLabel
             value="Salaried"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Salaried"
           />
           <FormControlLabel
             value="Self Employed"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Self Employed"
           />
         </RadioGroup>
@@ -132,7 +132,7 @@ export default function IncomeDetails() {
 
       <FormControl>
         <FormLabel
-          style={{
+          sx={{
             color: "white",
             marginTop: "50px",
             fontSize: "25px",
@@ -150,12 +150,12 @@ export default function IncomeDetails() {
         >
           <FormControlLabel
             value="Full Time"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Full Time"
           />
           <FormControlLabel
             value="Part Time"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Part Time"
           />
         </RadioGroup>
@@ -170,43 +170,43 @@ export default function IncomeDetails() {
 
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
+        sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
       >
         Occupation
       </Typography>
 
-      <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
+      <FormControl sx={{ width: "500px", backgroundColor: "grey" }}>
         <Select
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="occupation"
           value={formik.values.occupation}
         >
-          <MenuItem style={{ fontSize: "20px" }} value={""} disabled>
+          <MenuItem sx={{ fontSize: "20px" }} value={""} disabled>
             Select an option
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Teacher"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"Teacher"}>
             Teacher
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Government Employee"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"Government Employee"}>
             Government Employee
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Doctor"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"Doctor"}>
             Doctor
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Actor"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"Actor"}>
             Actor
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Chartered Accountant"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"Chartered Accountant"}>
             Chartered Accountant
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Lawyer"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"Lawyer"}>
             Lawyer
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"IT Employee"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"IT Employee"}>
             IT Employee
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={"Others"}>
+          <MenuItem sx={{ fontSize: "20px" }} value={"Others"}>
             Others
           </MenuItem>
         </Select>
@@ -214,11 +214,11 @@ export default function IncomeDetails() {
 
       {formik.values.occupation === "Others" && (
         <>
-          <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+          <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
             Name of the Occupation
           </Typography>
           <TextField
-            style={{ borderColor: "white", width: "500px" }}
+            sx={{ borderColor: "white", width: "500px" }}
             name="nameOfTheOccupation"
             value={formik.values.nameOfTheOccupation}
             onChange={formik.handleChange}
@@ -235,11 +235,11 @@ export default function IncomeDetails() {
         </>
       )}
 
-      <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+      <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
         Name of the Employer
       </Typography>
       <TextField
-        style={{ borderColor: "white", width: "500px" }}
+        sx={{ borderColor: "white", width: "500px" }}
         name="nameOfTheEmployer"
         value={formik.values.nameOfTheEmployer}
         onChange={formik.handleChange}
@@ -254,37 +254,37 @@ export default function IncomeDetails() {
 
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
+        sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
       >
         How Often do you get paid
       </Typography>
-      <FormControl style={{ width: "500px", backgroundColor: "grey" }}>
+      <FormControl sx={{ width: "500px", backgroundColor: "grey" }}>
         <Select
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="oftenYouGetPaid"
           value={formik.values.oftenYouGetPaid}
         >
-          <MenuItem style={{ fontSize: "20px" }} value={0} disabled>
+          <MenuItem sx={{ fontSize: "20px" }} value={0} disabled>
             Select an option
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={4}>
+          <MenuItem sx={{ fontSize: "20px" }} value={4}>
             Weekly
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={2}>
+          <MenuItem sx={{ fontSize: "20px" }} value={2}>
             Fortnightly
           </MenuItem>
-          <MenuItem style={{ fontSize: "20px" }} value={1}>
+          <MenuItem sx={{ fontSize: "20px" }} value={1}>
             Monthly
           </MenuItem>
         </Select>
       </FormControl>
 
-      <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+      <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
         How much will you earn
       </Typography>
       <TextField
-        style={{ borderColor: "white", width: "500px" }}
+        sx={{ borderColor: "white", width: "500px" }}
         name="earning"
         value={formik.values.earning}
         onChange={formik.handleChange}
@@ -294,7 +294,7 @@ export default function IncomeDetails() {
       />
 
       <Divider
-        style={{
+        sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
@@ -306,7 +306,7 @@ export default function IncomeDetails() {
           variant="contained"
           color="inherit"
           component={Link}
-          style={{
+          sx={{
             backgroundColor: "#ffc107",
             padding: "15px 60px",
             marginTop: "40px",
@@ -315,21 +315,21 @@ export default function IncomeDetails() {
           }}
           to={AppRoutes.PERSONAL_DETAILS}
         >
-          <ArrowLeftIcon style={{ fontSize: "30px" }} />
+          <ArrowLeftIcon sx={{ fontSize: "30px" }} />
           Back
         </Button>
         <Button
           variant="contained"
           color="inherit"
           type="submit"
-          style={{
+          sx={{
             backgroundColor: "#ffc107",
             padding: "15px 60px",
             marginTop: "40px",
             fontWeight: "bold",
             marginBottom: "30px",
           }}
-          endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+          endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
         >
           Continue
         </Button>

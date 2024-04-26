@@ -9,7 +9,7 @@ import { Container } from "@mui/material";
 
 export default function MainFeaturedPost() {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <Paper
         sx={{
           position: "relative",
@@ -20,6 +20,7 @@ export default function MainFeaturedPost() {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundImage: `url(${mainFeaturedPost.image})`,
+          mt: 12,
         }}
       >
         {/* Increase the priority of the hero background image */}
@@ -60,9 +61,6 @@ export default function MainFeaturedPost() {
               <Typography variant="h5" color="inherit" paragraph>
                 {mainFeaturedPost.description}
               </Typography>
-              <Link variant="subtitle1" href="#">
-                {mainFeaturedPost.linkText}
-              </Link>
             </Box>
           </Grid>
         </Grid>

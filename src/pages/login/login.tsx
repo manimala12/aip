@@ -51,7 +51,7 @@ export default function Login() {
       >
         <Typography
           variant="h5"
-          style={{
+          sx={{
             fontWeight: "bold",
             marginBottom: "50px",
             color: "#ffc107",
@@ -64,7 +64,7 @@ export default function Login() {
           label="Email"
           name="email"
           value={formik.values.email}
-          style={{ width: "400px", marginBottom: "50px" }}
+          sx={{ width: "400px", marginBottom: "50px" }}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={Boolean(formik.touched.email && formik.errors.email)}
@@ -75,7 +75,7 @@ export default function Login() {
           label="Password"
           name="password"
           value={formik.values.password}
-          style={{ width: "400px", marginBottom: "50px" }}
+          sx={{ width: "400px", marginBottom: "50px" }}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={Boolean(formik.touched.password && formik.errors.password)}
@@ -99,7 +99,7 @@ export default function Login() {
         <Button
           type="submit"
           color="inherit"
-          style={{
+          sx={{
             color: "white",
             backgroundColor: "#ffc107",
             padding: "10px 40px",
@@ -111,7 +111,7 @@ export default function Login() {
         <Button
           component={Link}
           color="inherit"
-          style={{
+          sx={{
             color: "white",
             backgroundColor: "#ffc107",
             padding: "10px 40px",
@@ -120,7 +120,7 @@ export default function Login() {
         >
           CANCEL
         </Button>
-        <Typography paragraph style={{ marginTop: "30px" }}>
+        <Typography paragraph sx={{ marginTop: "30px" }}>
           Don't have an account?{" "}
           <strong style={{ color: "#ffc107", cursor: "pointer" }}>
             <Link

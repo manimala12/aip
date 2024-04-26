@@ -39,7 +39,15 @@ export default function MortgageCalculator() {
         >
           {cardItems.map((card: CardData) => (
             <Grid item xs={12} sm={6} md={4}>
-              <Card sx={{ maxWidth: 345 }}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  pb: 2,
+                  // minHeight: 270,
+                  borderColor: "primary.main",
+                  border: 1,
+                }}
+              >
                 <CardContent>
                   <Typography
                     gutterBottom
@@ -49,7 +57,11 @@ export default function MortgageCalculator() {
                   >
                     {card.heading}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    textAlign="justify"
+                  >
                     {card.description}
                   </Typography>
                 </CardContent>

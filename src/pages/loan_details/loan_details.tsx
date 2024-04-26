@@ -73,12 +73,12 @@ export default function LoanDetails() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <Typography variant="h5" style={{ marginBottom: "20px" }}>
+      <Typography variant="h5" sx={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
       <Typography variant="h2"> Your Loan Details</Typography>
       <Divider
-        style={{
+        sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
@@ -88,7 +88,7 @@ export default function LoanDetails() {
 
       <FormControl>
         <FormLabel
-          style={{
+          sx={{
             color: "white",
             marginTop: "100px",
             fontSize: "25px",
@@ -106,12 +106,12 @@ export default function LoanDetails() {
         >
           <FormControlLabel
             value="1"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Just me"
           />
           <FormControlLabel
             value="2"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Me and someone else"
           />
         </RadioGroup>
@@ -124,35 +124,32 @@ export default function LoanDetails() {
 
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
+        sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
       >
         Firstly, what would you like to do?
       </Typography>
 
-      <FormControl style={{ width: "500px" }}>
+      <FormControl sx={{ width: "500px" }}>
         <Select
           value={formik.values.homeType}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           name="homeType"
         >
-          <MenuItem style={{ fontSize: "20px" }} value={""}>
+          <MenuItem sx={{ fontSize: "20px" }} value={""}>
             Select an option
           </MenuItem>
-          <MenuItem
-            style={{ fontSize: "20px" }}
-            value={HomeTypeOptions.NEW_HOME}
-          >
+          <MenuItem sx={{ fontSize: "20px" }} value={HomeTypeOptions.NEW_HOME}>
             {HomeTypeOptions.NEW_HOME}
           </MenuItem>
           <MenuItem
-            style={{ fontSize: "20px" }}
+            sx={{ fontSize: "20px" }}
             value={HomeTypeOptions.EXISTING_HOME}
           >
             {HomeTypeOptions.EXISTING_HOME}
           </MenuItem>
           <MenuItem
-            style={{ fontSize: "20px" }}
+            sx={{ fontSize: "20px" }}
             value={HomeTypeOptions.BUYING_HOME}
           >
             {HomeTypeOptions.BUYING_HOME}
@@ -165,14 +162,14 @@ export default function LoanDetails() {
         </FormHelperText>
       </FormControl>
 
-      <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+      <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
         Property Value
       </Typography>
-      <Typography paragraph style={{ fontSize: "18px", marginTop: "20px" }}>
+      <Typography paragraph sx={{ fontSize: "18px", marginTop: "20px" }}>
         This doesn't need to be the exact amount right now.
       </Typography>
       <TextField
-        style={{ borderColor: "white", width: "500px" }}
+        sx={{ borderColor: "white", width: "500px" }}
         name="propertyValue"
         value={formik.values.propertyValue}
         onChange={formik.handleChange}
@@ -183,14 +180,14 @@ export default function LoanDetails() {
         helperText={formik.touched.propertyValue && formik.errors.propertyValue}
       />
 
-      <Typography paragraph style={{ fontSize: "25px", marginTop: "60px" }}>
+      <Typography paragraph sx={{ fontSize: "25px", marginTop: "60px" }}>
         Deposit
       </Typography>
-      <Typography paragraph style={{ fontSize: "18px", marginTop: "20px" }}>
+      <Typography paragraph sx={{ fontSize: "18px", marginTop: "20px" }}>
         Tell us roughly how much your deposit wil be.
       </Typography>
       <TextField
-        style={{ borderColor: "white", width: "500px" }}
+        sx={{ borderColor: "white", width: "500px" }}
         name="deposit"
         value={formik.values.deposit}
         onChange={formik.handleChange}
@@ -198,7 +195,7 @@ export default function LoanDetails() {
         error={Boolean(formik.touched.deposit && formik.errors.deposit)}
         helperText={formik.touched.deposit && formik.errors.deposit}
       />
-      <Typography paragraph style={{ fontSize: "25px", marginTop: "60px" }}>
+      <Typography paragraph sx={{ fontSize: "25px", marginTop: "60px" }}>
         Desired loan duration
       </Typography>
 
@@ -229,7 +226,7 @@ export default function LoanDetails() {
         helperText={formik.touched.loanDuration && formik.errors.loanDuration}
       />
       <Divider
-        style={{
+        sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
@@ -241,7 +238,7 @@ export default function LoanDetails() {
         variant="contained"
         color="inherit"
         type="submit"
-        style={{
+        sx={{
           backgroundColor: "#ffc107",
           marginLeft: "985px",
           padding: "15px 60px",
@@ -249,7 +246,7 @@ export default function LoanDetails() {
           fontWeight: "bold",
           marginBottom: "30px",
         }}
-        endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+        endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
       >
         Continue
       </Button>

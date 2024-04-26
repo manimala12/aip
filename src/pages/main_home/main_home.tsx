@@ -13,10 +13,10 @@ export default function MainHome() {
         alignItems: "center",
       }}
     >
-      <Typography variant="h2" style={{ marginBottom: "30px" }}>
+      <Typography variant="h2" sx={{ marginBottom: "30px" }}>
         Welcome!!
       </Typography>
-      <Typography paragraph style={{ fontSize: "25px", textAlign: "center" }}>
+      <Typography paragraph sx={{ fontSize: "25px", textAlign: "center" }}>
         Congratulations on taking the first step towards your dream home!. Let
         us help turn your homeownership aspirations into reality. Start your
         journey with us today!
@@ -24,7 +24,7 @@ export default function MainHome() {
       <Button
         component={Link}
         to="/loan-details"
-        style={{
+        sx={{
           color: "white",
           backgroundColor: "#ffc107",
           marginTop: "30px",

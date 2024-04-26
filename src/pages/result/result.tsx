@@ -30,17 +30,15 @@ export default function Result() {
 
 function Success() {
   return (
-    <Container
-      style={{ marginTop: "300px", textAlign: "center", color: "white" }}
-    >
-      <Typography variant="h2" style={{ marginBottom: "20px" }}>
+    <Container sx={{ marginTop: "300px", textAlign: "center", color: "white" }}>
+      <Typography variant="h2" sx={{ marginBottom: "20px" }}>
         <ConfettiExplosion style={{ margin: "auto" }} />
         Congratulations!!!
       </Typography>
 
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
+        sx={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
       >
         You are eligible for your home loan.
       </Typography>
@@ -50,16 +48,14 @@ function Success() {
 
 function Failure() {
   return (
-    <Container
-      style={{ marginTop: "300px", textAlign: "center", color: "white" }}
-    >
-      <Typography variant="h2" style={{ marginBottom: "20px" }}>
+    <Container sx={{ marginTop: "300px", textAlign: "center", color: "white" }}>
+      <Typography variant="h2" sx={{ marginBottom: "20px" }}>
         Congratulations!!!
       </Typography>
 
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
+        sx={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
       >
         You are eligible for your home loan.
       </Typography>
@@ -69,16 +65,14 @@ function Failure() {
 
 function Partial() {
   return (
-    <Container
-      style={{ marginTop: "300px", textAlign: "center", color: "white" }}
-    >
-      <Typography variant="h2" style={{ marginBottom: "20px" }}>
+    <Container sx={{ marginTop: "300px", textAlign: "center", color: "white" }}>
+      <Typography variant="h2" sx={{ marginBottom: "20px" }}>
         Congratulations!!!
       </Typography>
 
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
+        sx={{ fontSize: "25px", marginBottom: "500px", marginTop: "50px" }}
       >
         You are eligible for your home loan.
       </Typography>

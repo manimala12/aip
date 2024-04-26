@@ -7,7 +7,7 @@ export const cardItems: CardData[] = [
   {
     heading: "First time buyer calculator",
     description:
-      "Looking to buy your first property and haven’t been named on a mortgage before? A first-time buyer mortgage could be the right option for you. For joint applications, you can apply if at least one of you is a first-time buyer. Use our first-time buyer calculator to start the journey to your first home.",
+      "Looking to buy your first property and haven’t been named on a mortgage before? A first-time buyer mortgage could be the right option for you. For joint applications, you can apply if at least one of you is a first-time buyer. Use our first-time buyer calculator",
   },
   {
     heading: "Home mover calculator",

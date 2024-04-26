@@ -12,9 +12,9 @@ const style = {
 };
 export default function Contact() {
   return (
-    <Container style={{ display: "flex", gap: "300px", width: "1800px" }}>
+    <Container sx={{ display: "flex", gap: "300px", width: "1800px" }}>
       <Container
-        style={{
+        sx={{
           marginTop: "200px",
           color: "white",
           width: "400px",
@@ -24,13 +24,13 @@ export default function Contact() {
         <Typography variant="h2">
           Have any questions? We'd love to hear from you.
         </Typography>
-        <Typography paragraph style={{ fontSize: "20px", marginTop: "30px" }}>
+        <Typography paragraph sx={{ fontSize: "20px", marginTop: "30px" }}>
           Whether you have a question about loans, fees or anything else, our
           team is ready to answer all your questions.
         </Typography>
       </Container>
       <Box
-        style={{
+        sx={{
           width: "500px",
           height: "650px",
           backgroundColor: "white",
@@ -41,7 +41,7 @@ export default function Contact() {
       >
         <TextField
           placeholder="Full Name"
-          style={{
+          sx={{
             width: "400px",
             marginBottom: "50px",
             marginTop: "50px",
@@ -51,22 +51,22 @@ export default function Contact() {
         <br />
         <TextField
           placeholder="Email"
-          style={{ width: "400px", marginBottom: "50px", marginLeft: "40px" }}
+          sx={{ width: "400px", marginBottom: "50px", marginLeft: "40px" }}
         />
         <br />
         <TextField
           placeholder="Subject"
-          style={{ width: "400px", marginBottom: "50px", marginLeft: "40px" }}
+          sx={{ width: "400px", marginBottom: "50px", marginLeft: "40px" }}
         />
         <br />
         <TextField
           placeholder="Message"
           type="textarea"
-          style={{ width: "400px", marginLeft: "40px", marginBottom: "50px" }}
+          sx={{ width: "400px", marginLeft: "40px", marginBottom: "50px" }}
         />
         <Button
           color="inherit"
-          style={{
+          sx={{
             color: "white",
             backgroundColor: "#ffc107",
             padding: "10px 40px",
@@ -78,7 +78,7 @@ export default function Contact() {
         </Button>
         <Typography
           paragraph
-          style={{
+          sx={{
             color: "grey",
             fontSize: "18px",
             marginTop: "10px",
@@ -88,7 +88,7 @@ export default function Contact() {
         >
           or connect through:
         </Typography>
-        <Box style={{ display: "flex", justifyContent: "center", gap: "40px" }}>
+        <Box sx={{ display: "flex", justifyContent: "center", gap: "40px" }}>
           <LinkedInIcon sx={style} />
           <YouTubeIcon sx={style} />
           <GitHubIcon sx={style} />

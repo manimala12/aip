@@ -1,12 +1,4 @@
-import {
-  Typography,
-  Container,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
-} from "@mui/material";
-import CircleIcon from "@mui/icons-material/Circle";
+import { Typography, Container } from "@mui/material";
 import MainFeaturedPost from "../../components/mainFeature";
 
 export default function About() {
@@ -14,7 +6,7 @@ export default function About() {
     <>
       <MainFeaturedPost />
       <Container
-        style={{
+        sx={{
           marginTop: "200px",
           textAlign: "center",
           color: "white",
@@ -22,16 +14,13 @@ export default function About() {
       >
         <Typography
           variant="h4"
-          style={{ marginBottom: "50px", color: "#ffc107" }}
+          sx={{ marginBottom: "50px", color: "#ffc107" }}
         >
           Who we are
         </Typography>
-        <Typography
-          paragraph
-          style={{ fontSize: "20px", paddingBottom: "100px" }}
-        >
-          At Halifax, it always has been and always will be, all about people.
-          We know that a mortgage isn’t just a mortgage, it’s about you and your
+        <Typography paragraph sx={{ fontSize: "20px", paddingBottom: "100px" }}>
+          At JBS, it always has been and always will be, all about people. We
+          know that a mortgage isn’t just a mortgage, it’s about you and your
           family living in your dream house. We know that savings are for the
           good things like your daughter’s wedding, and the annoying things like
           a new boiler. And we know that a bank account is just a way to make
@@ -44,11 +33,11 @@ export default function About() {
         </Typography>
         <Typography
           variant="h4"
-          style={{ marginBottom: "50px", color: "#ffc107" }}
+          sx={{ marginBottom: "50px", color: "#ffc107" }}
         >
           Everyone should have a place to call home
         </Typography>
-        <Typography paragraph style={{ fontSize: "20px" }}>
+        <Typography paragraph sx={{ fontSize: "20px" }}>
           Having a safe and settled home is the foundation on which people can
           build a decent life and help to build successful communities. Together
           with Crisis, we are working towards ending homelessness through a

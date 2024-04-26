@@ -115,24 +115,24 @@ export default function Footer() {
               />
               <Typography
                 paragraph
-                style={{
+                sx={{
                   fontSize: "20px",
                 }}
               >
-                <LocalPhoneIcon style={{ marginRight: "20px" }} />
+                <LocalPhoneIcon sx={{ marginRight: "20px" }} />
                 +919876543210
               </Typography>
-              <Typography paragraph style={{ fontSize: "20px" }}>
-                <MailIcon style={{ marginRight: "20px" }} />
+              <Typography paragraph sx={{ fontSize: "20px" }}>
+                <MailIcon sx={{ marginRight: "20px" }} />
                 support@aip.co
               </Typography>
             </Grid>
           </Grid>
         </Container>
-        <Divider style={{ background: "white" }} />
+        <Divider sx={{ background: "white" }} />
         <Typography
           paragraph
-          style={{
+          sx={{
             fontSize: "25px",
             textAlign: "center",
             color: "white",

@@ -106,6 +106,8 @@ export default function DrawerAppBar(props: Readonly<Props>) {
                 display: { xs: "none", sm: "block" },
                 color: "#ffc107",
                 textDecoration: "none",
+                fontWeight: 800,
+                fontSize: 24,
               }}
             >
               JBS Bank

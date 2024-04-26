@@ -96,12 +96,12 @@ export default function Expenditures() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <Typography variant="h5" style={{ marginBottom: "20px" }}>
+      <Typography variant="h5" sx={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
       <Typography variant="h2">Your Spendings</Typography>
       <Divider
-        style={{
+        sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
@@ -112,7 +112,7 @@ export default function Expenditures() {
         <Grid item xs={12}>
           <FormControl>
             <FormLabel
-              style={{
+              sx={{
                 color: "white",
                 marginTop: "50px",
                 fontSize: "25px",
@@ -130,12 +130,12 @@ export default function Expenditures() {
             >
               <FormControlLabel
                 value="Yes"
-                control={<Radio style={{ color: "white" }} />}
+                control={<Radio sx={{ color: "white" }} />}
                 label="Yes"
               />
               <FormControlLabel
                 value="No"
-                control={<Radio style={{ color: "white" }} />}
+                control={<Radio sx={{ color: "white" }} />}
                 label="No"
               />
             </RadioGroup>
@@ -154,12 +154,12 @@ export default function Expenditures() {
             <Grid item xs={12}>
               <Typography
                 paragraph
-                style={{ fontSize: "25px", marginTop: "50px" }}
+                sx={{ fontSize: "25px", marginTop: "50px" }}
               >
                 How much amount will you pay for EMI every month?
               </Typography>
               <TextField
-                style={{ borderColor: "white", width: "500px" }}
+                sx={{ borderColor: "white", width: "500px" }}
                 name="loanEMI"
                 value={formik.values.loanEMI}
                 onChange={formik.handleChange}
@@ -171,12 +171,12 @@ export default function Expenditures() {
             <Grid item xs={12}>
               <Typography
                 paragraph
-                style={{ fontSize: "25px", marginTop: "50px" }}
+                sx={{ fontSize: "25px", marginTop: "50px" }}
               >
                 Outstanding amount
               </Typography>
               <TextField
-                style={{ borderColor: "white", width: "500px" }}
+                sx={{ borderColor: "white", width: "500px" }}
                 name="loanOutstanding"
                 value={formik.values.loanOutstanding}
                 onChange={formik.handleChange}
@@ -196,7 +196,7 @@ export default function Expenditures() {
         <Grid item xs={12}>
           <FormControl>
             <FormLabel
-              style={{
+              sx={{
                 color: "white",
                 marginTop: "50px",
                 fontSize: "25px",
@@ -214,12 +214,12 @@ export default function Expenditures() {
             >
               <FormControlLabel
                 value="Yes"
-                control={<Radio style={{ color: "white" }} />}
+                control={<Radio sx={{ color: "white" }} />}
                 label="Yes"
               />
               <FormControlLabel
                 value="No"
-                control={<Radio style={{ color: "white" }} />}
+                control={<Radio sx={{ color: "white" }} />}
                 label="No"
               />
             </RadioGroup>
@@ -230,12 +230,12 @@ export default function Expenditures() {
             <Grid item xs={12}>
               <Typography
                 paragraph
-                style={{ fontSize: "25px", marginTop: "50px" }}
+                sx={{ fontSize: "25px", marginTop: "50px" }}
               >
                 How much amount will you pay for your vehicle EMI?
               </Typography>
               <TextField
-                style={{ borderColor: "white", width: "500px" }}
+                sx={{ borderColor: "white", width: "500px" }}
                 name="vehicleEMI"
                 value={formik.values.vehicleEMI}
                 onChange={formik.handleChange}
@@ -251,12 +251,12 @@ export default function Expenditures() {
             <Grid item xs={12}>
               <Typography
                 paragraph
-                style={{ fontSize: "25px", marginTop: "50px" }}
+                sx={{ fontSize: "25px", marginTop: "50px" }}
               >
                 Outstanding amount of your vehicle
               </Typography>
               <TextField
-                style={{ borderColor: "white", width: "500px" }}
+                sx={{ borderColor: "white", width: "500px" }}
                 name="vehicleOutstanding"
                 value={formik.values.vehicleOutstanding}
                 onChange={formik.handleChange}
@@ -274,11 +274,11 @@ export default function Expenditures() {
           </>
         )}
         <Grid item xs={12}>
-          <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+          <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
             Number of children
           </Typography>
           <TextField
-            style={{ borderColor: "white", width: "500px" }}
+            sx={{ borderColor: "white", width: "500px" }}
             name="children"
             value={formik.values.children}
             onChange={formik.handleChange}
@@ -289,14 +289,11 @@ export default function Expenditures() {
         </Grid>
         {+formik.values.children > 0 && (
           <Grid item xs={12}>
-            <Typography
-              paragraph
-              style={{ fontSize: "25px", marginTop: "50px" }}
-            >
+            <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
               How much amount will you pay for their school fee yearly?
             </Typography>
             <TextField
-              style={{ borderColor: "white", width: "500px" }}
+              sx={{ borderColor: "white", width: "500px" }}
               name="schoolFee"
               value={formik.values.schoolFee}
               onChange={formik.handleChange}
@@ -311,7 +308,7 @@ export default function Expenditures() {
         <Grid item xs={12}>
           <FormControl>
             <FormLabel
-              style={{
+              sx={{
                 color: "white",
                 marginTop: "50px",
                 fontSize: "25px",
@@ -329,12 +326,12 @@ export default function Expenditures() {
             >
               <FormControlLabel
                 value="Yes"
-                control={<Radio style={{ color: "white" }} />}
+                control={<Radio sx={{ color: "white" }} />}
                 label="Yes"
               />
               <FormControlLabel
                 value="No"
-                control={<Radio style={{ color: "white" }} />}
+                control={<Radio sx={{ color: "white" }} />}
                 label="No"
               />
             </RadioGroup>
@@ -351,14 +348,11 @@ export default function Expenditures() {
         </Grid>
         {formik.values.otherExpenditures.match(/yes/i) && (
           <Grid item xs={12}>
-            <Typography
-              paragraph
-              style={{ fontSize: "25px", marginTop: "50px" }}
-            >
+            <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
               How much amount will you spend on them every month?
             </Typography>
             <TextField
-              style={{ borderColor: "white", width: "500px" }}
+              sx={{ borderColor: "white", width: "500px" }}
               name="otherAmount"
               value={formik.values.otherAmount}
               onChange={formik.handleChange}
@@ -374,7 +368,7 @@ export default function Expenditures() {
         )}
 
         <Divider
-          style={{
+          sx={{
             backgroundColor: "white",
             borderBottomWidth: 3,
             width: "1200px",
@@ -386,7 +380,7 @@ export default function Expenditures() {
             variant="contained"
             color="inherit"
             component={Link}
-            style={{
+            sx={{
               backgroundColor: "#ffc107",
               padding: "15px 60px",
               marginTop: "40px",
@@ -395,14 +389,14 @@ export default function Expenditures() {
             }}
             to="/income-details"
           >
-            <ArrowLeftIcon style={{ fontSize: "30px" }} />
+            <ArrowLeftIcon sx={{ fontSize: "30px" }} />
             Back
           </Button>
           <Button
             type="submit"
             variant="contained"
             color="inherit"
-            style={{
+            sx={{
               backgroundColor: "#ffc107",
               // marginLeft: "585px",
               padding: "15px 60px",
@@ -410,7 +404,7 @@ export default function Expenditures() {
               fontWeight: "bold",
               marginBottom: "30px",
             }}
-            endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+            endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
           >
             Submit
           </Button>

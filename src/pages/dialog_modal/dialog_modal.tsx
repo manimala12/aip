@@ -20,17 +20,17 @@ export default function DialogModal() {
     <Box sx={style}>
       <Typography
         variant="h5"
-        style={{ color: "blue", fontWeight: "bold", paddingTop: "80px" }}
+        sx={{ color: "blue", fontWeight: "bold", paddingTop: "80px" }}
       >
         Registered Successfully!!!
       </Typography>
       <br />
-      <CelebrationIcon style={{ fontSize: "40px", color: "blue" }} />
+      <CelebrationIcon sx={{ fontSize: "40px", color: "blue" }} />
       <br />
       <br />
       <Button
         component={Link}
-        style={{
+        sx={{
           backgroundColor: "blue",
           color: "white",
           padding: "10px 50px",

@@ -55,16 +55,33 @@ function Project({ item }: ProjectProps) {
           backgroundPosition: "center",
           px: 10,
           py: 15,
+          height: {
+            xs: 1200,
+            sm: 1000,
+            md: 800,
+            lg: 600,
+          },
         }}
       >
         <CardContent sx={{ flex: 1 }}>
           <Typography
             variant="h3"
-            sx={{ marginBottom: "50px", color: "primary.main" }}
+            sx={{
+              marginBottom: "50px",
+              color: "primary.main",
+            }}
           >
             {item.name}
           </Typography>
-          <Typography paragraph style={{ fontSize: "25px" }}>
+          <Typography
+            paragraph
+            sx={{
+              fontSize: {
+                xs: 18,
+                md: "25px",
+              },
+            }}
+          >
             {item.description}
           </Typography>
         </CardContent>

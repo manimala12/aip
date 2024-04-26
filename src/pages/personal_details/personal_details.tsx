@@ -66,12 +66,12 @@ export default function PersonalDetails() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <Typography variant="h5" style={{ marginBottom: "20px" }}>
+      <Typography variant="h5" sx={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
       <Typography variant="h2">Personal Details</Typography>
       <Divider
-        style={{
+        sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
@@ -80,12 +80,12 @@ export default function PersonalDetails() {
       />
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
+        sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
       >
         Full Name
       </Typography>
       <TextField
-        style={{ borderColor: "white", width: "500px" }}
+        sx={{ borderColor: "white", width: "500px" }}
         name="fullName"
         value={formik.values.fullName}
         onChange={formik.handleChange}
@@ -96,13 +96,13 @@ export default function PersonalDetails() {
 
       <Typography
         paragraph
-        style={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
+        sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
       >
         PAN Card number
       </Typography>
-      <Box style={{ display: "flex", gap: "20px" }}>
+      <Box sx={{ display: "flex", gap: "20px" }}>
         <TextField
-          style={{ color: "white" }}
+          sx={{ color: "white" }}
           name="panNumber"
           value={formik.values.panNumber}
           onChange={formik.handleChange}
@@ -112,7 +112,7 @@ export default function PersonalDetails() {
 
       <FormControl>
         <FormLabel
-          style={{
+          sx={{
             color: "white",
             marginTop: "50px",
             fontSize: "25px",
@@ -130,12 +130,12 @@ export default function PersonalDetails() {
         >
           <FormControlLabel
             value="Male"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Male"
           />
           <FormControlLabel
             value="Female"
-            control={<Radio style={{ color: "white" }} />}
+            control={<Radio sx={{ color: "white" }} />}
             label="Female"
           />
         </RadioGroup>
@@ -146,11 +146,11 @@ export default function PersonalDetails() {
         </FormHelperText>
       </FormControl>
 
-      <Typography paragraph style={{ fontSize: "25px", marginTop: "50px" }}>
+      <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
         Mobile Number
       </Typography>
       <TextField
-        style={{ borderColor: "white", width: "500px" }}
+        sx={{ borderColor: "white", width: "500px" }}
         name="mobileNumber"
         value={formik.values.mobileNumber}
         onChange={formik.handleChange}
@@ -160,11 +160,11 @@ export default function PersonalDetails() {
         )}
         helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
       />
-      <Typography paragraph style={{ fontSize: "23px", marginTop: "50px" }}>
+      <Typography paragraph sx={{ fontSize: "23px", marginTop: "50px" }}>
         Address
       </Typography>
       <TextField
-        style={{ borderColor: "white", width: "500px" }}
+        sx={{ borderColor: "white", width: "500px" }}
         name="address"
         value={formik.values.address}
         onChange={formik.handleChange}
@@ -174,7 +174,7 @@ export default function PersonalDetails() {
       />
 
       <Divider
-        style={{
+        sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
@@ -186,7 +186,7 @@ export default function PersonalDetails() {
           variant="contained"
           color="inherit"
           component={Link}
-          style={{
+          sx={{
             backgroundColor: "#ffc107",
             padding: "15px 60px",
             marginTop: "40px",
@@ -195,21 +195,21 @@ export default function PersonalDetails() {
           }}
           to="/loan-details"
         >
-          <ArrowLeftIcon style={{ fontSize: "30px" }} />
+          <ArrowLeftIcon sx={{ fontSize: "30px" }} />
           Back
         </Button>
         <Button
           variant="contained"
           color="inherit"
           type="submit"
-          style={{
+          sx={{
             backgroundColor: "#ffc107",
             padding: "15px 60px",
             marginTop: "40px",
             fontWeight: "bold",
             marginBottom: "30px",
           }}
-          endIcon={<ArrowRightIcon style={{ fontSize: "30px" }} />}
+          endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
         >
           Continue
         </Button>
