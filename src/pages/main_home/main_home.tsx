@@ -16,7 +16,7 @@ export default function MainHome() {
       <Typography variant="h2" style={{ marginBottom: "30px" }}>
         Welcome!!
       </Typography>
-      <Typography paragraph style={{ fontSize: "25px" }}>
+      <Typography paragraph style={{ fontSize: "25px", textAlign: "center" }}>
         Congratulations on taking the first step towards your dream home!. Let
         us help turn your homeownership aspirations into reality. Start your
         journey with us today!

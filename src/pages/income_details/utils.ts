@@ -21,7 +21,9 @@ export const incomeDetailsValidation =
       id: Yup.string().optional(),
     });
 
-export const incomeDetailsInitialValues = (
+export const incomeDetailsInitialValues: (
+  incomeDetails: IncomeDetailsValues | undefined
+) => IncomeDetailsValues = (
   incomeDetails: IncomeDetailsValues | undefined
 ): IncomeDetailsValues => {
   if (!incomeDetails) {
