@@ -5,49 +5,51 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Container, Grid } from "@mui/material";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  ></Box>
-);
+import { Container, Grid, Divider } from "@mui/material";
 
 export default function Review() {
   return (
-    <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
-      <Grid container sx={{ my: 10 }}>
-        <Grid item md={6}>
-          <CardSection />
-        </Grid>
-      </Grid>
+    // <Container maxWidth="xl" sx={{ minHeight: "100vh" }}>
+    //   <Grid container sx={{ my: 10 }}>
+    //     <Grid item md={6}>
+    //       <CardSection />
+    //     </Grid>
+    //   </Grid>
+    // </Container>
+    <Container
+      style={{ marginTop: "100px", color: "white", marginLeft: "100px" }}
+    >
+      <Typography variant="h5" sx={{ marginBottom: "20px" }}>
+        Agreement In Principle
+      </Typography>
+      <Typography variant="h2"> Review Your Details</Typography>
+      <Divider
+        sx={{
+          backgroundColor: "white",
+          borderBottomWidth: 3,
+          width: "1200px",
+          marginTop: "30px",
+        }}
+      />
+      <Card sx={{ minWidth: 375, mt: 10 }}>
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Your Loan Details
+          </Typography>
+          <Grid
+            container
+            spacing={2}
+            sx={{ margin: "auto", maxWidth: "lg", pb: "100px" }}
+          >
+            <Grid item xs={12}>
+              <Typography>Property</Typography>
+            </Grid>
+          </Grid>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
     </Container>
-  );
-}
-
-export function CardSection() {
-  return (
-    <Card sx={{ minWidth: 375 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
   );
 }

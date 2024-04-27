@@ -56,16 +56,16 @@ function Project({ item }: ProjectProps) {
           px: 10,
           py: 15,
           height: {
-            xs: 1200,
-            sm: 1000,
-            md: 800,
-            lg: 600,
+            xs: 1100,
+            sm: 900,
+            md: 700,
+            lg: 500,
           },
         }}
       >
         <CardContent sx={{ flex: 1 }}>
           <Typography
-            variant="h3"
+            variant="h4"
             sx={{
               marginBottom: "50px",
               color: "primary.main",
@@ -76,10 +76,7 @@ function Project({ item }: ProjectProps) {
           <Typography
             paragraph
             sx={{
-              fontSize: {
-                xs: 18,
-                md: "25px",
-              },
+              fontSize: "20px",
             }}
           >
             {item.description}

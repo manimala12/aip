@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { cardItems, CardData } from "./home_page_card_items";
+import { cardItems, CardData } from "./data";
 import { Grid } from "@mui/material";
 
 export default function HomePageCards() {

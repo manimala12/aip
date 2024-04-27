@@ -2,25 +2,25 @@ import * as React from "react";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import { mainFeaturedPost } from "./utils";
 import { Container } from "@mui/material";
 
-export default function MainFeaturedPost() {
+export default function AboutPageImage() {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Paper
         sx={{
           position: "relative",
           backgroundColor: "grey.800",
-          color: "#fff",
+          color: "#ffc107",
           mb: 4,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundImage: `url(${mainFeaturedPost.image})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(${mainFeaturedPost.image})`,
           mt: 12,
+          height: "400px",
         }}
       >
         {/* Increase the priority of the hero background image */}
@@ -55,6 +55,7 @@ export default function MainFeaturedPost() {
                 variant="h3"
                 color="inherit"
                 gutterBottom
+                sx={{ fontWeight: 700 }}
               >
                 {mainFeaturedPost.title}
               </Typography>

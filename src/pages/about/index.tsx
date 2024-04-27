@@ -1,13 +1,14 @@
 import { Typography, Container } from "@mui/material";
-import MainFeaturedPost from "../../components/mainFeature";
+import AboutPageImage from "../../components/about_page_image";
+import OurPeople from "../people";
 
 export default function About() {
   return (
     <>
-      <MainFeaturedPost />
+      <AboutPageImage />
       <Container
         sx={{
-          marginTop: "200px",
+          marginTop: "100px",
           textAlign: "center",
           color: "white",
         }}
@@ -45,6 +46,7 @@ export default function About() {
           to Crisis
         </Typography>
       </Container>
+      <OurPeople />
     </>
   );
 }

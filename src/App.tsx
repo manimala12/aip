@@ -1,18 +1,17 @@
-import ButtonAppBar from "./components/app_bar/app_bar";
+import ButtonAppBar from "./components/app_bar";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/home/home";
-import Contact from "./pages/contact/contact";
-import About from "./pages/about/about";
-import Footer from "./components/footer/footer";
-import Login from "./pages/login/login";
-import Register from "./pages/register/register";
-import DialogModal from "./pages/dialog_modal/dialog_modal";
-import MainHome from "./pages/main_home/main_home";
-import LoanDetails from "./pages/loan_details/loan_details";
-import PersonalDetails from "./pages/personal_details/personal_details";
-import IncomeDetails from "./pages/income_details/income_details";
-import Expenditures from "./pages/expenditures/expenditures";
-import Result from "./pages/result/result";
+import Home from "./pages/home";
+import Contact from "./pages/contact";
+import About from "./pages/about";
+import Footer from "./components/footer";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import MainHome from "./pages/main_home";
+import LoanDetails from "./pages/loan_details";
+import PersonalDetails from "./pages/personal_details";
+import IncomeDetails from "./pages/income_details";
+import Expenditures from "./pages/expenditures";
+import Result from "./pages/result";
 import { ToastContainer } from "react-toastify";
 import { AppRoutes } from "./types";
 import { LightThemeProvider } from "./components/theme-providers";
@@ -66,7 +65,6 @@ export default function App() {
             </LightThemeProvider>
           }
         />
-        <Route path={AppRoutes.REGISTERED} element={<DialogModal />} />
         <Route
           path={AppRoutes.LOAN_DETAILS}
           element={<ProtectedRoute component={<LoanDetails />} />}

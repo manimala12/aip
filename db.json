@@ -8,6 +8,15 @@
       "confirmPassword": "12345678",
       "hasAgreed": true,
       "id": 1
+    },
+    {
+      "userName": "Kavya",
+      "fullName": "Kavya Mekala",
+      "email": "kavyasri2138@gmail.com",
+      "password": "Kavyasri2138@m",
+      "confirmPassword": "Kavyasri2138@m",
+      "hasAgreed": true,
+      "id": 2
     }
   ],
   "loan-details": [
@@ -19,6 +28,15 @@
       "loanDuration": 23,
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "noOfPeople": "1",
+      "homeType": "Constructing a new home",
+      "propertyValue": "1000000",
+      "deposit": "200000",
+      "loanDuration": 20,
+      "email": "kavyasri2138@gmail.com",
+      "id": 2
     }
   ],
   "personal-details": [
@@ -30,6 +48,15 @@
       "address": "ss, skfsdl, sdf",
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "fullName": "sf",
+      "panNumber": "BAJPC4350S",
+      "gender": "Female",
+      "mobileNumber": "9346704426",
+      "address": "c, cgghhgff",
+      "email": "kavyasri2138@gmail.com",
+      "id": 2
     }
   ],
   "income-details": [
@@ -43,6 +70,17 @@
       "earning": "240000",
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "typeOfEmployement": "Salaried",
+      "contractType": "Full Time",
+      "occupation": "IT Employee",
+      "nameOfTheOccupation": "",
+      "nameOfTheEmployer": "Kavya",
+      "oftenYouGetPaid": 1,
+      "earning": "3000000",
+      "email": "kavyasri2138@gmail.com",
+      "id": 2
     }
   ],
   "expenditures": [
@@ -50,7 +88,7 @@
       "activeLoans": "No",
       "loanEMI": "",
       "loanOutstanding": "",
-      "vehicle": "Yes",
+      "vehicle": "No",
       "vehicleEMI": "",
       "vehicleOutstanding": "",
       "children": "0",
@@ -59,6 +97,20 @@
       "otherAmount": "50000",
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "activeLoans": "No",
+      "loanEMI": "",
+      "loanOutstanding": "",
+      "vehicle": "No",
+      "vehicleEMI": "",
+      "vehicleOutstanding": "",
+      "children": "1",
+      "schoolFee": "30000",
+      "otherExpenditures": "No",
+      "otherAmount": "",
+      "email": "kavyasri2138@gmail.com",
+      "id": 2
     }
   ],
   "decision": [
@@ -66,6 +118,11 @@
       "result": "S",
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "result": "S",
+      "email": "kavyasri2138@gmail.com",
+      "id": 2
     }
   ],
   "credit-check": [
