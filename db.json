@@ -8,22 +8,13 @@
       "confirmPassword": "12345678",
       "hasAgreed": true,
       "id": 1
-    },
-    {
-      "userName": "Kavya",
-      "fullName": "Kavya Mekala",
-      "email": "kavyasri2138@gmail.com",
-      "password": "Kavyasri2138@m",
-      "confirmPassword": "Kavyasri2138@m",
-      "hasAgreed": true,
-      "id": 2
     }
   ],
   "loan-details": [
     {
       "noOfPeople": "1",
       "homeType": "Constructing a new home",
-      "propertyValue": "150000",
+      "propertyValue": "15000000",
       "deposit": "34000",
       "loanDuration": 23,
       "email": "jnaneswari@gmail.com",
@@ -117,12 +108,8 @@
     {
       "result": "S",
       "email": "jnaneswari@gmail.com",
+      "rollNumber": 3677008258,
       "id": 1
-    },
-    {
-      "result": "S",
-      "email": "kavyasri2138@gmail.com",
-      "id": 2
     }
   ],
   "credit-check": [

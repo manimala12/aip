@@ -17,6 +17,7 @@ export interface AppData {
   personalDetails?: PersonalDetailsValues;
   incomeDetails?: IncomeDetailsValues;
   expenditureDetails?: ExpenditureDetailsValues;
+  rollNumber?: number;
   result?: string;
   loading: boolean;
   message?: string;
@@ -55,6 +56,7 @@ export enum DecisionTypes {
 export interface Decision {
   result: string;
   email: string;
+  rollNumber: number;
   id: string;
 }
 

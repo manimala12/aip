@@ -15,6 +15,9 @@ import { LoanDetailsValues } from "../../../pages/loan_details/types";
 import { IncomeDetailsValues } from "../../../pages/income_details/types";
 import { ExpenditureDetailsValues } from "../../../pages/expenditures/types";
 
+function getRollNumber() {
+  return Math.floor(Math.random() * (9999999999 - 1000000000 + 1)) + 1000000000;
+}
 export const saveDecisionAction = (navigate: NavigateFunction) => {
   return async (
     dispatch: Dispatch<AppDataAction>,
@@ -76,15 +79,18 @@ export const saveDecisionAction = (navigate: NavigateFunction) => {
           payload: {
             message: "Decision generated successfully",
             result: decision,
+            rollNumber: decisionResp.data[0].rollNumber,
           },
         });
         navigate(AppRoutes.RESULT);
         return;
       }
 
+      const rollNumber = getRollNumber();
       const res = await axios.post<Decision>(`http://localhost:8000/decision`, {
         result: decision,
         email: userEmail,
+        rollNumber,
       });
 
       if (res.status === 201) {
@@ -93,6 +99,7 @@ export const saveDecisionAction = (navigate: NavigateFunction) => {
           payload: {
             message: "Decision generated successfully",
             result: decision,
+            rollNumber,
           },
         });
         navigate(AppRoutes.RESULT);
