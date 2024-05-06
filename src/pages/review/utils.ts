@@ -1,4 +1,9 @@
-import { loanDetailsFields, personalDetailsFields } from "../../content";
+import {
+  expenditureDetailsFields,
+  incomeDetailsFields,
+  loanDetailsFields,
+  personalDetailsFields,
+} from "../../content";
 import { AppRoutes } from "../../types";
 
 export interface ReviewSection {
@@ -25,5 +30,19 @@ export const reviewSections: ReviewSection[] = [
     fieldLabels: { ...personalDetailsFields },
     editButtonText: "Edit personal details",
     editLink: AppRoutes.PERSONAL_DETAILS,
+  },
+  {
+    label: "Income Details",
+    name: "incomeDetails",
+    fieldLabels: { ...incomeDetailsFields },
+    editButtonText: "Edit income details",
+    editLink: AppRoutes.INCOME_DETAILS,
+  },
+  {
+    label: "Expenditure Details",
+    name: "expenditureDetails",
+    fieldLabels: { ...expenditureDetailsFields },
+    editButtonText: "Edit expenditure details",
+    editLink: AppRoutes.EXPENDITURES,
   },
 ];

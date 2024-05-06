@@ -73,22 +73,31 @@ export default function Review() {
                 <TableContainer component={Paper}>
                   <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableBody>
-                      {Object.keys(fieldLabels).map((key: string) => (
-                        <TableRow
-                          key={key}
-                          sx={{
-                            "&:last-child td, &:last-child th": { border: 0 },
-                          }}
-                        >
-                          <TableCell component="th" scope="row">
-                            {fieldLabels[key]}
-                          </TableCell>
-                          <TableCell align="right">
-                            {/* @ts-ignore */}
-                            {appData[name][key]}
-                          </TableCell>
-                        </TableRow>
-                      ))}
+                      {Object.keys(fieldLabels).map((key: string) => {
+                        // @ts-ignore
+                        const fieldName = appData[name][key];
+                        if (fieldName) {
+                          return (
+                            <TableRow
+                              key={key}
+                              sx={{
+                                "&:last-child td, &:last-child th": {
+                                  border: 0,
+                                },
+                              }}
+                            >
+                              <TableCell component="th" scope="row">
+                                {fieldLabels[key]}
+                              </TableCell>
+                              <TableCell align="right">
+                                {/* @ts-ignore */}
+                                {appData[name][key]}
+                              </TableCell>
+                            </TableRow>
+                          );
+                        }
+                        return null;
+                      })}
                     </TableBody>
                   </Table>
                 </TableContainer>
