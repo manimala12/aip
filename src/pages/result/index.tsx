@@ -69,7 +69,7 @@ export default function Result() {
         <GetDecisionMessage />
         <Button
           component={Link}
-          to={AppRoutes.LOAN_DETAILS}
+          to={AppRoutes.REVIEW}
           sx={{
             ml: 60,
             mt: 5,
@@ -80,7 +80,7 @@ export default function Result() {
             mb: 20,
           }}
         >
-          Edit Your Details
+          Review Your Details
         </Button>
       </Grid>
     </Grid>

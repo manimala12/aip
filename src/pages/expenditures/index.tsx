@@ -26,7 +26,7 @@ import { saveExpenditureDetailsAction } from "../../custom-redux/actions/expendi
 import { getExpenditureDetailsAction } from "../../custom-redux/actions/expenditureDetails/get";
 import { UnknownAction } from "redux";
 import { useEffect } from "react";
-import { saveDecisionAction } from "../../custom-redux/actions/getDecision";
+import { AppRoutes } from "../../types";
 
 export default function Expenditures() {
   const navigate = useNavigate();
@@ -58,7 +58,6 @@ export default function Expenditures() {
           navigate
         ) as unknown as UnknownAction
       );
-      dispatch(saveDecisionAction(navigate) as unknown as UnknownAction);
     },
   });
 
@@ -387,7 +386,7 @@ export default function Expenditures() {
               fontWeight: "bold",
               marginBottom: "30px",
             }}
-            to="/income-details"
+            to={AppRoutes.INCOME_DETAILS}
           >
             <ArrowLeftIcon sx={{ fontSize: "30px" }} />
             Back

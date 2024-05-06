@@ -14,20 +14,11 @@
     {
       "noOfPeople": "1",
       "homeType": "Constructing a new home",
-      "propertyValue": "15000000",
+      "propertyValue": "150000",
       "deposit": "34000",
       "loanDuration": 23,
       "email": "jnaneswari@gmail.com",
       "id": 1
-    },
-    {
-      "noOfPeople": "1",
-      "homeType": "Constructing a new home",
-      "propertyValue": "1000000",
-      "deposit": "200000",
-      "loanDuration": 20,
-      "email": "kavyasri2138@gmail.com",
-      "id": 2
     }
   ],
   "personal-details": [
@@ -39,15 +30,6 @@
       "address": "ss, skfsdl, sdf",
       "email": "jnaneswari@gmail.com",
       "id": 1
-    },
-    {
-      "fullName": "sf",
-      "panNumber": "BAJPC4350S",
-      "gender": "Female",
-      "mobileNumber": "9346704426",
-      "address": "c, cgghhgff",
-      "email": "kavyasri2138@gmail.com",
-      "id": 2
     }
   ],
   "income-details": [
@@ -61,17 +43,6 @@
       "earning": "240000",
       "email": "jnaneswari@gmail.com",
       "id": 1
-    },
-    {
-      "typeOfEmployement": "Salaried",
-      "contractType": "Full Time",
-      "occupation": "IT Employee",
-      "nameOfTheOccupation": "",
-      "nameOfTheEmployer": "Kavya",
-      "oftenYouGetPaid": 1,
-      "earning": "3000000",
-      "email": "kavyasri2138@gmail.com",
-      "id": 2
     }
   ],
   "expenditures": [
@@ -88,20 +59,6 @@
       "otherAmount": "50000",
       "email": "jnaneswari@gmail.com",
       "id": 1
-    },
-    {
-      "activeLoans": "No",
-      "loanEMI": "",
-      "loanOutstanding": "",
-      "vehicle": "No",
-      "vehicleEMI": "",
-      "vehicleOutstanding": "",
-      "children": "1",
-      "schoolFee": "30000",
-      "otherExpenditures": "No",
-      "otherAmount": "",
-      "email": "kavyasri2138@gmail.com",
-      "id": 2
     }
   ],
   "decision": [
