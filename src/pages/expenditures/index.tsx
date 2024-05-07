@@ -405,7 +405,7 @@ export default function Expenditures() {
             }}
             endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
           >
-            Submit
+            Review
           </Button>
         </Grid>
       </Grid>
