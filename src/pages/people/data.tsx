@@ -5,11 +5,11 @@ export interface CardData {
 
 export const cardItems: CardData[] = [
   {
-    heading: "Zara supports her team to give excellent customer service.     ",
+    heading: "Zara supports her team to give excellent customer service.",
     link: "assets/person1.jpg",
   },
   {
-    heading: "Christin works in branch helping our customers. ",
+    heading: "Christin works in branch helping our customers.",
     link: "assets/person3.jpg",
   },
   {

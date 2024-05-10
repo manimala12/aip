@@ -27,6 +27,7 @@ import {
   personalDetailsValidation,
 } from "./utils";
 import { AppState } from "../../custom-redux/store";
+import FormHeader from "../../components/form_header";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
@@ -66,112 +67,102 @@ export default function PersonalDetails() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <Typography variant="h5" sx={{ marginBottom: "20px" }}>
-        Agreement In Principle
-      </Typography>
-      <Typography variant="h2">Personal Details</Typography>
-      <Divider
-        sx={{
-          backgroundColor: "white",
-          borderBottomWidth: 3,
-          width: "1200px",
-          marginTop: "30px",
-        }}
-      />
-      <Typography
-        paragraph
-        sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
-      >
-        Full Name
-      </Typography>
-      <TextField
-        sx={{ borderColor: "white", width: "500px" }}
-        name="fullName"
-        value={formik.values.fullName}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={Boolean(formik.touched.fullName && formik.errors.fullName)}
-        helperText={formik.touched.fullName && formik.errors.fullName}
-      />
-
-      <Typography
-        paragraph
-        sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
-      >
-        PAN Card number
-      </Typography>
-      <Box sx={{ display: "flex", gap: "20px" }}>
+      <FormHeader>
+        <Typography
+          paragraph
+          sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
+        >
+          Full Name
+        </Typography>
         <TextField
-          sx={{ color: "white" }}
-          name="panNumber"
-          value={formik.values.panNumber}
+          sx={{ borderColor: "white", width: "500px" }}
+          name="fullName"
+          value={formik.values.fullName}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          error={Boolean(formik.touched.fullName && formik.errors.fullName)}
+          helperText={formik.touched.fullName && formik.errors.fullName}
         />
-      </Box>
 
-      <FormControl>
-        <FormLabel
-          sx={{
-            color: "white",
-            marginTop: "50px",
-            fontSize: "25px",
-            marginBottom: "10px",
-          }}
+        <Typography
+          paragraph
+          sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
         >
-          Gender
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-radio-buttons-group-label"
-          name="gender"
+          PAN Card number
+        </Typography>
+        <Box sx={{ display: "flex", gap: "20px" }}>
+          <TextField
+            sx={{ color: "white" }}
+            name="panNumber"
+            value={formik.values.panNumber}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        </Box>
+
+        <FormControl>
+          <FormLabel
+            sx={{
+              color: "white",
+              marginTop: "50px",
+              fontSize: "25px",
+              marginBottom: "10px",
+            }}
+          >
+            Gender
+          </FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            name="gender"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.gender}
+          >
+            <FormControlLabel
+              value="Male"
+              control={<Radio sx={{ color: "white" }} />}
+              label="Male"
+            />
+            <FormControlLabel
+              value="Female"
+              control={<Radio sx={{ color: "white" }} />}
+              label="Female"
+            />
+          </RadioGroup>
+          <FormHelperText
+            error={Boolean(formik.touched.gender && formik.errors.gender)}
+          >
+            {formik.touched.gender && formik.errors.gender}
+          </FormHelperText>
+        </FormControl>
+
+        <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
+          Mobile Number
+        </Typography>
+        <TextField
+          sx={{ borderColor: "white", width: "500px" }}
+          name="mobileNumber"
+          value={formik.values.mobileNumber}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.gender}
-        >
-          <FormControlLabel
-            value="Male"
-            control={<Radio sx={{ color: "white" }} />}
-            label="Male"
-          />
-          <FormControlLabel
-            value="Female"
-            control={<Radio sx={{ color: "white" }} />}
-            label="Female"
-          />
-        </RadioGroup>
-        <FormHelperText
-          error={Boolean(formik.touched.gender && formik.errors.gender)}
-        >
-          {formik.touched.gender && formik.errors.gender}
-        </FormHelperText>
-      </FormControl>
-
-      <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
-        Mobile Number
-      </Typography>
-      <TextField
-        sx={{ borderColor: "white", width: "500px" }}
-        name="mobileNumber"
-        value={formik.values.mobileNumber}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={Boolean(
-          formik.touched.mobileNumber && formik.errors.mobileNumber
-        )}
-        helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
-      />
-      <Typography paragraph sx={{ fontSize: "23px", marginTop: "50px" }}>
-        Address
-      </Typography>
-      <TextField
-        sx={{ borderColor: "white", width: "500px" }}
-        name="address"
-        value={formik.values.address}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={Boolean(formik.touched.address && formik.errors.address)}
-        helperText={formik.touched.address && formik.errors.address}
-      />
+          error={Boolean(
+            formik.touched.mobileNumber && formik.errors.mobileNumber
+          )}
+          helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
+        />
+        <Typography paragraph sx={{ fontSize: "23px", marginTop: "50px" }}>
+          Address
+        </Typography>
+        <TextField
+          sx={{ borderColor: "white", width: "500px" }}
+          name="address"
+          value={formik.values.address}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={Boolean(formik.touched.address && formik.errors.address)}
+          helperText={formik.touched.address && formik.errors.address}
+        />
+      </FormHeader>
 
       <Divider
         sx={{

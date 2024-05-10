@@ -8,6 +8,15 @@
       "confirmPassword": "12345678",
       "hasAgreed": true,
       "id": 1
+    },
+    {
+      "userName": "manimala",
+      "fullName": "manimala",
+      "email": "manimala@gmail.com",
+      "password": "123456789",
+      "confirmPassword": "123456789",
+      "hasAgreed": true,
+      "id": 2
     }
   ],
   "loan-details": [
@@ -19,6 +28,15 @@
       "loanDuration": 23,
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "noOfPeople": "1",
+      "homeType": "Reconstructing an existing home",
+      "propertyValue": "5000000",
+      "deposit": "50000",
+      "loanDuration": 14,
+      "email": "manimala@gmail.com",
+      "id": 2
     }
   ],
   "personal-details": [
@@ -30,6 +48,15 @@
       "address": "ss, skfsdl, sdf",
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "fullName": "Manimala Yalla",
+      "panNumber": "BAJPC4350S",
+      "gender": "Female",
+      "mobileNumber": "9876543210",
+      "address": "c, cgghhgff",
+      "email": "manimala@gmail.com",
+      "id": 2
     }
   ],
   "income-details": [
@@ -43,6 +70,17 @@
       "earning": "240000",
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "typeOfEmployement": "Salaried",
+      "contractType": "Full Time",
+      "occupation": "Doctor",
+      "nameOfTheOccupation": "",
+      "nameOfTheEmployer": "TCS",
+      "oftenYouGetPaid": 2,
+      "earning": "10000",
+      "email": "manimala@gmail.com",
+      "id": 2
     }
   ],
   "expenditures": [
@@ -59,6 +97,20 @@
       "otherAmount": "50000",
       "email": "jnaneswari@gmail.com",
       "id": 1
+    },
+    {
+      "activeLoans": "Yes",
+      "loanEMI": "5000",
+      "loanOutstanding": "500000",
+      "vehicle": "Yes",
+      "vehicleEMI": "1000",
+      "vehicleOutstanding": "500000",
+      "children": "1",
+      "schoolFee": "500000",
+      "otherExpenditures": "Yes",
+      "otherAmount": "20000",
+      "email": "manimala@gmail.com",
+      "id": 2
     }
   ],
   "decision": [
@@ -67,11 +119,22 @@
       "email": "jnaneswari@gmail.com",
       "rollNumber": 3677008258,
       "id": 1
+    },
+    {
+      "result": "P",
+      "email": "manimala@gmail.com",
+      "rollNumber": 6255570734,
+      "id": 2
     }
   ],
   "credit-check": [
     {
       "PAN": "BAJPC4350S",
+      "creditScore": 798,
+      "id": 1
+    },
+    {
+      "PAN": "BAJPC4351S",
       "creditScore": 798,
       "id": 1
     },

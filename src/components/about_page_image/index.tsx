@@ -23,7 +23,6 @@ export default function AboutPageImage() {
           height: "400px",
         }}
       >
-        {/* Increase the priority of the hero background image */}
         {
           <img
             style={{ display: "none" }}

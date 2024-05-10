@@ -129,7 +129,6 @@ function Success({
               <CircleIcon style={{ color: "white", fontSize: "18px" }} />
             </ListItemIcon>
             <ListItemText sx={{ fontSize: "20px" }}>
-              {" "}
               Your mortgage reference / roll number is <b>{rollNumber}</b>
             </ListItemText>
           </ListItem>

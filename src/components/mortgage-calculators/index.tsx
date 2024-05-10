@@ -40,6 +40,7 @@ export default function MortgageCalculator() {
           {cardItems.map((card: CardData) => (
             <Grid item xs={12} sm={6} md={4}>
               <Card
+                key={card.heading}
                 sx={{
                   maxWidth: 345,
                   pb: 2,
