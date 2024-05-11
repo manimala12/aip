@@ -220,6 +220,7 @@ export default function IncomeDetails() {
           <TextField
             sx={{ borderColor: "white", width: "500px" }}
             name="nameOfTheOccupation"
+            placeholder="Enter your occupation"
             value={formik.values.nameOfTheOccupation}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -241,6 +242,7 @@ export default function IncomeDetails() {
       <TextField
         sx={{ borderColor: "white", width: "500px" }}
         name="nameOfTheEmployer"
+        placeholder="Enter your employer name"
         value={formik.values.nameOfTheEmployer}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -286,6 +288,7 @@ export default function IncomeDetails() {
       <TextField
         sx={{ borderColor: "white", width: "500px" }}
         name="earning"
+        placeholder="Enter your income"
         value={formik.values.earning}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}

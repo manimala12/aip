@@ -77,6 +77,7 @@ export default function PersonalDetails() {
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
           name="fullName"
+          placeholder="Enter your full name"
           value={formik.values.fullName}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -93,6 +94,7 @@ export default function PersonalDetails() {
         <Box sx={{ display: "flex", gap: "20px" }}>
           <TextField
             sx={{ color: "white" }}
+            placeholder="Enter PAN Card Number"
             name="panNumber"
             value={formik.values.panNumber}
             onChange={formik.handleChange}
@@ -142,6 +144,7 @@ export default function PersonalDetails() {
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
           name="mobileNumber"
+          placeholder="Enter mobile number"
           value={formik.values.mobileNumber}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -155,6 +158,7 @@ export default function PersonalDetails() {
         </Typography>
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
+          placeholder="Enter your address"
           name="address"
           value={formik.values.address}
           onChange={formik.handleChange}

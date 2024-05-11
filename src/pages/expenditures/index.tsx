@@ -160,6 +160,7 @@ export default function Expenditures() {
               <TextField
                 sx={{ borderColor: "white", width: "500px" }}
                 name="loanEMI"
+                placeholder="Enter your loan EMI"
                 value={formik.values.loanEMI}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -177,6 +178,7 @@ export default function Expenditures() {
               <TextField
                 sx={{ borderColor: "white", width: "500px" }}
                 name="loanOutstanding"
+                placeholder="Enter your loan outstanding amount"
                 value={formik.values.loanOutstanding}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -237,6 +239,7 @@ export default function Expenditures() {
                 sx={{ borderColor: "white", width: "500px" }}
                 name="vehicleEMI"
                 value={formik.values.vehicleEMI}
+                placeholder="Enter your vehicle EMI"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={Boolean(
@@ -257,6 +260,7 @@ export default function Expenditures() {
               <TextField
                 sx={{ borderColor: "white", width: "500px" }}
                 name="vehicleOutstanding"
+                placeholder="Enter your vehicle outstanding amount"
                 value={formik.values.vehicleOutstanding}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -280,6 +284,7 @@ export default function Expenditures() {
             sx={{ borderColor: "white", width: "500px" }}
             name="children"
             value={formik.values.children}
+            placeholder="Enter number of children"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={Boolean(formik.touched.children && formik.errors.children)}
@@ -294,6 +299,7 @@ export default function Expenditures() {
             <TextField
               sx={{ borderColor: "white", width: "500px" }}
               name="schoolFee"
+              placeholder="Enter your children school fee"
               value={formik.values.schoolFee}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -354,6 +360,7 @@ export default function Expenditures() {
               sx={{ borderColor: "white", width: "500px" }}
               name="otherAmount"
               value={formik.values.otherAmount}
+              placeholder="Enter your other expenses amount"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={Boolean(

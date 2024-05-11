@@ -17,6 +17,15 @@
       "confirmPassword": "123456789",
       "hasAgreed": true,
       "id": 2
+    },
+    {
+      "userName": "abc",
+      "fullName": "abc",
+      "email": "abc@gmail.com",
+      "password": "1234567890",
+      "confirmPassword": "1234567890",
+      "hasAgreed": true,
+      "id": 3
     }
   ],
   "loan-details": [
@@ -37,6 +46,15 @@
       "loanDuration": 14,
       "email": "manimala@gmail.com",
       "id": 2
+    },
+    {
+      "noOfPeople": "2",
+      "homeType": "Reconstructing an existing home",
+      "propertyValue": "5000000",
+      "deposit": "10000",
+      "loanDuration": 14,
+      "email": "abc@gmail.com",
+      "id": 3
     }
   ],
   "personal-details": [
@@ -57,6 +75,15 @@
       "address": "c, cgghhgff",
       "email": "manimala@gmail.com",
       "id": 2
+    },
+    {
+      "fullName": "abc",
+      "panNumber": "3698745211",
+      "gender": "Female",
+      "mobileNumber": "9875641351",
+      "address": "sdfkjhg",
+      "email": "abc@gmail.com",
+      "id": 3
     }
   ],
   "income-details": [
@@ -81,6 +108,17 @@
       "earning": "10000",
       "email": "manimala@gmail.com",
       "id": 2
+    },
+    {
+      "typeOfEmployement": "Self Employed",
+      "contractType": "Part Time",
+      "occupation": "Doctor",
+      "nameOfTheOccupation": "",
+      "nameOfTheEmployer": "ycp",
+      "oftenYouGetPaid": 2,
+      "earning": "2000000",
+      "email": "abc@gmail.com",
+      "id": 3
     }
   ],
   "expenditures": [
@@ -111,6 +149,20 @@
       "otherAmount": "20000",
       "email": "manimala@gmail.com",
       "id": 2
+    },
+    {
+      "activeLoans": "No",
+      "loanEMI": "",
+      "loanOutstanding": "",
+      "vehicle": "No",
+      "vehicleEMI": "",
+      "vehicleOutstanding": "",
+      "children": "1",
+      "schoolFee": "50000",
+      "otherExpenditures": "No",
+      "otherAmount": "",
+      "email": "abc@gmail.com",
+      "id": 3
     }
   ],
   "decision": [
