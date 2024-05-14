@@ -3,7 +3,7 @@ export interface LoanDetailsValues {
   homeType: string;
   propertyValue: string;
   deposit: string;
-  loanDuration: string;
+  loanDuration: number;
   email?: string;
   id?: string;
 }
