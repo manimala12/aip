@@ -25,6 +25,7 @@ import { saveLoanDetailsAction } from "../../custom-redux/actions/loanDetails/sa
 import { getLoanDetailsAction } from "../../custom-redux/actions/loanDetails/get";
 import { AppState } from "../../custom-redux/store";
 import FormHeader from "../../components/FormHeader";
+import { loanDetailsContent } from "../../content/loanDetails";
 
 export default function LoanDetails() {
   const navigate = useNavigate();
@@ -84,7 +85,7 @@ export default function LoanDetails() {
               marginBottom: "10px",
             }}
           >
-            How many people will be applying for the mortgage?
+            {loanDetailsContent.noOfPeople.label}
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
@@ -117,7 +118,7 @@ export default function LoanDetails() {
           paragraph
           sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
         >
-          Firstly, what would you like to do?
+          {loanDetailsContent.homeType.label}
         </Typography>
 
         <FormControl sx={{ width: "500px" }}>
