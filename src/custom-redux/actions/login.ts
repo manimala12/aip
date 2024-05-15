@@ -1,17 +1,13 @@
 import { authConstants } from "../constants";
-import { ThunkAction } from "redux-thunk";
-import { AuthAction, AuthState } from "../../types";
+import { AuthAction } from "../../types";
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { UserData } from "../../pages/register/types";
+import { UserData } from "../../pages/Register/types";
 import { errorToast, successToast } from "../../components/toasts";
-import { LoginValues } from "../../pages/login/types";
+import { LoginValues } from "../../pages/Login/types";
 
-export const loginAction = (
-  user: LoginValues,
-  navigate: NavigateFunction
-): ThunkAction<void, AuthState, {}, AuthAction> => {
+export const loginAction = (user: LoginValues, navigate: NavigateFunction) => {
   return async (dispatch: Dispatch<AuthAction>) => {
     try {
       dispatch({ type: authConstants.LOGIN_REQUEST });

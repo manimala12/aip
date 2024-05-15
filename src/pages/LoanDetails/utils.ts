@@ -15,7 +15,7 @@ export const loanDetailsValidation = (): Yup.ObjectSchema<LoanDetailsValues> =>
         HomeTypeOptions.EXISTING_HOME,
         HomeTypeOptions.NEW_HOME,
       ]),
-    loanDuration: Yup.string().required("Please select loan duration"),
+    loanDuration: Yup.number().required("Please select loan duration").min(1),
     email: Yup.string().optional(),
     id: Yup.string().optional(),
   });
@@ -29,7 +29,7 @@ export const loanDetailsInitialValues = (
       homeType: "",
       propertyValue: "",
       deposit: "",
-      loanDuration: "",
+      loanDuration: 0,
     };
   }
   return {

@@ -5,7 +5,7 @@ import { errorToast, successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { AppState } from "../../store";
 import { ExpenditureDetailsConstants } from "../../constants";
-import { ExpenditureDetailsValues } from "../../../pages/expenditures/types";
+import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types";
 
 export const saveExpenditureDetailsAction = (
   expenditureDetails: ExpenditureDetailsValues,

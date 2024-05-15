@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import axios from "axios";
 import { errorToast, successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
-import { LoanDetailsValues } from "../../../pages/loan_details/types";
+import { LoanDetailsValues } from "../../../pages/LoanDetails/types";
 import { AppState } from "../../store";
 
 export const saveLoanDetailsAction = (

@@ -2,6 +2,7 @@ import { loginAction } from "../actions/login";
 import { authConstants } from "../constants";
 import axios from "axios";
 import { errorToast, successToast } from "../../components/toasts";
+import { AppState } from "../store";
 
 jest.mock("axios");
 jest.mock("../../components/toasts", () => ({
@@ -11,7 +12,7 @@ jest.mock("../../components/toasts", () => ({
 
 describe("loginAction", () => {
   let dispatchMock: jest.Mock;
-  let navigateMock: jest.Mock<void, [string]>;
+  let navigateMock: jest.Mock;
 
   beforeEach(() => {
     dispatchMock = jest.fn();
@@ -27,7 +28,7 @@ describe("loginAction", () => {
     const userData = [{ ...user }];
     (axios.get as jest.Mock).mockResolvedValue({ data: userData });
 
-    await loginAction(user, navigateMock)(dispatchMock);
+    loginAction(user, navigateMock)(dispatchMock);
 
     expect(axios.get).toHaveBeenCalledWith(
       `http://localhost:8000/users?email=${user.email}`

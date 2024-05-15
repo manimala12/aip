@@ -27,7 +27,7 @@ import {
   personalDetailsValidation,
 } from "./utils";
 import { AppState } from "../../custom-redux/store";
-import FormHeader from "../../components/form_header";
+import FormHeader from "../../components/FormHeader";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ export default function PersonalDetails() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <FormHeader>
+      <FormHeader heading="Your Personal Details">
         <Typography
           paragraph
           sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}

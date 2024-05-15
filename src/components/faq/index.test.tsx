@@ -2,7 +2,7 @@
 
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
-import Faq from "./";
+import Faq from ".";
 
 describe("FAQ Component", () => {
   it("renders faqs in an accordion", () => {

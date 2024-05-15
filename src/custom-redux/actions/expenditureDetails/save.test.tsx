@@ -38,6 +38,7 @@ describe("saveExpenditureDetailsAction", () => {
       schoolFee: "15000",
       otherExpenditures: "Yes",
       otherAmount: "50000",
+      id: "1",
     };
 
     (axios.get as jest.MockedFunction<typeof axios.get>).mockResolvedValueOnce({
@@ -101,6 +102,7 @@ describe("saveExpenditureDetailsAction", () => {
       schoolFee: "15000",
       otherExpenditures: "Yes",
       otherAmount: "50000",
+      id: "1",
     };
 
     (axios.get as jest.MockedFunction<typeof axios.get>).mockResolvedValueOnce({
@@ -164,6 +166,7 @@ describe("saveExpenditureDetailsAction", () => {
       schoolFee: "15000",
       otherExpenditures: "Yes",
       otherAmount: "50000",
+      id: "1",
     };
 
     (axios.get as jest.MockedFunction<typeof axios.get>).mockResolvedValueOnce({

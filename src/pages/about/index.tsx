@@ -1,6 +1,6 @@
 import { Typography, Container } from "@mui/material";
-import AboutPageImage from "../../components/about_page_image";
-import OurPeople from "../people";
+import AboutPageImage from "../../components/AboutPageImage";
+import OurPeople from "../People";
 
 export default function About() {
   return (

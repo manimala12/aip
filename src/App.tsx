@@ -1,26 +1,26 @@
-import ButtonAppBar from "./components/app_bar";
+import ButtonAppBar from "./components/AppBar";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/home";
-import Contact from "./pages/contact";
-import About from "./pages/about";
-import Footer from "./components/footer";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import MainHome from "./pages/main_home";
-import LoanDetails from "./pages/loan_details";
-import PersonalDetails from "./pages/personal_details";
-import IncomeDetails from "./pages/income_details";
-import Expenditures from "./pages/expenditures";
-import Result from "./pages/result";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import MainHome from "./pages/MainHome";
+import LoanDetails from "./pages/LoanDetails";
+import PersonalDetails from "./pages/PersonalDetails";
+import IncomeDetails from "./pages/IncomeDetails";
+import Expenditures from "./pages/Expenditures";
+import Result from "./pages/Result";
 import { ToastContainer } from "react-toastify";
 import { AppRoutes } from "./types";
-import { LightThemeProvider } from "./components/theme-providers";
+import { LightThemeProvider } from "./components/ThemeProviders";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "./custom-redux/store";
 import { useEffect } from "react";
 import { verifyTokenAction } from "./custom-redux/actions/verifyToken";
 import { UnknownAction } from "redux";
-import Review from "./pages/review";
+import Review from "./pages/Review";
 
 export default function App() {
   const isAuthenticated = useSelector<AppState, boolean>(

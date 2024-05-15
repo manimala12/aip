@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import Review from "./";
+import Review from ".";
 import { getStore } from "../../custom-redux/store";
 import { BrowserRouter } from "react-router-dom";
 

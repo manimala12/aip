@@ -1,8 +1,8 @@
 import { Action } from "redux";
-import { LoanDetailsValues } from "../pages/loan_details/types";
-import { PersonalDetailsValues } from "../pages/personal_details/types";
-import { IncomeDetailsValues } from "../pages/income_details/types";
-import { ExpenditureDetailsValues } from "../pages/expenditures/types";
+import { LoanDetailsValues } from "../pages/LoanDetails/types";
+import { PersonalDetailsValues } from "../pages/PersonalDetails/types";
+import { IncomeDetailsValues } from "../pages/IncomeDetails/types";
+import { ExpenditureDetailsValues } from "../pages/Expenditures/types";
 
 export interface AuthState {
   loading: boolean;

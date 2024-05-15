@@ -1,13 +1,18 @@
 import { Typography, Divider } from "@mui/material";
 import React, { FC } from "react";
 
-const FormHeader: FC<React.PropsWithChildren> = ({ children }) => {
+interface FormLayoutProps {
+  heading: string;
+  children: React.ReactNode;
+}
+
+const FormHeader: FC<FormLayoutProps> = ({ children, heading }) => {
   return (
     <>
       <Typography variant="h5" sx={{ marginBottom: "20px" }}>
         Agreement In Principle
       </Typography>
-      <Typography variant="h2">Your Loan Details</Typography>
+      <Typography variant="h2">{heading}</Typography>
       <Divider
         sx={{
           backgroundColor: "white",

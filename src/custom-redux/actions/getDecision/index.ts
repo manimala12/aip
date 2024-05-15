@@ -11,9 +11,9 @@ import {
 } from "../../../types";
 import { AppState } from "../../store";
 import { GetDecisionConstants } from "../../constants";
-import { LoanDetailsValues } from "../../../pages/loan_details/types";
-import { IncomeDetailsValues } from "../../../pages/income_details/types";
-import { ExpenditureDetailsValues } from "../../../pages/expenditures/types";
+import { LoanDetailsValues } from "../../../pages/LoanDetails/types";
+import { IncomeDetailsValues } from "../../../pages/IncomeDetails/types";
+import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types";
 
 function getRollNumber() {
   return Math.floor(Math.random() * (9999999999 - 1000000000 + 1)) + 1000000000;

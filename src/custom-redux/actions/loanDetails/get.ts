@@ -3,7 +3,7 @@ import { Dispatch } from "redux";
 import axios from "axios";
 import { errorToast } from "../../../components/toasts";
 import { AppDataAction } from "../../../types";
-import { LoanDetailsValues } from "../../../pages/loan_details/types";
+import { LoanDetailsValues } from "../../../pages/LoanDetails/types";
 import { AppState } from "../../store";
 
 export const getLoanDetailsAction = () => {

@@ -4,7 +4,7 @@ import axios from "axios";
 import { errorToast, successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { AppState } from "../../store";
-import { IncomeDetailsValues } from "../../../pages/income_details/types";
+import { IncomeDetailsValues } from "../../../pages/IncomeDetails/types";
 import { IncomeDetailsConstants } from "../../constants";
 
 export const saveIncomeDetailsAction = (

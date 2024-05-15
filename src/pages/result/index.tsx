@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../custom-redux/store";
 import { DecisionTypes } from "../../types";
 import ConfettiExplosion from "react-confetti-explosion";
-import { LoanDetailsValues } from "../loan_details/types";
+import { LoanDetailsValues } from "../LoanDetails/types";
 import getExpiryDate from "../../helpers/index";
 import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
@@ -97,7 +97,7 @@ function Success({
   rollNumber: number | undefined;
   amountBorrowing: number | undefined;
   deposit: string | undefined;
-  loanDuration: string | undefined;
+  loanDuration: number | undefined;
   email: string | undefined;
 }) {
   return (

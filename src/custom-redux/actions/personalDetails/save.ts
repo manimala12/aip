@@ -5,7 +5,7 @@ import axios from "axios";
 import { errorToast, successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { AppState } from "../../store";
-import { PersonalDetailsValues } from "../../../pages/personal_details/types";
+import { PersonalDetailsValues } from "../../../pages/PersonalDetails/types";
 
 export const savePersonalDetailsAction = (
   personalData: PersonalDetailsValues,

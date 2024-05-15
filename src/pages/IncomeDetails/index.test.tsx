@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import IncomeDetails from "./";
+import IncomeDetails from ".";
 import { getStore } from "../../custom-redux/store";
 
 let mockStore = getStore();

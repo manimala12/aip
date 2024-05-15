@@ -3,7 +3,7 @@ import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
 import { errorToast, successToast } from "../../components/toasts";
-import { RestrationValues, UserData } from "../../pages/register/types";
+import { RestrationValues, UserData } from "../../pages/Register/types";
 import { AppRoutes, AuthAction } from "../../types";
 
 export const registrationAction = (

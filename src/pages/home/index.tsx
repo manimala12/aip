@@ -1,11 +1,11 @@
 import { Typography, Button, Grid, Stack, Paper } from "@mui/material";
-import Faq from "../../components/faq";
+import Faq from "../../components/Faq";
 import { Link } from "react-router-dom";
-import { LightThemeProvider } from "../../components/theme-providers";
-import HomePageCards from "../../components/home_page_cards";
-import FlipCard from "../../components/branches";
-import FeaturedPost from "../../components/carousel";
-import MortgageCalculator from "../../components/mortgage-calculators";
+import { LightThemeProvider } from "../../components/ThemeProviders";
+import HomePageCards from "../../components/HomePageCards";
+import FlipCard from "../../components/Branches";
+import FeaturedPost from "../../components/Carousel";
+import MortgageCalculator from "../../components/MortgageCalculators";
 
 export default function Home() {
   return (
