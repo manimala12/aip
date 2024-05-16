@@ -158,10 +158,10 @@ export default function LoanDetails() {
         </FormControl>
 
         <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
-          Property Value
+          {loanDetailsContent.propertyValue.label}
         </Typography>
         <Typography paragraph sx={{ fontSize: "18px", marginTop: "20px" }}>
-          This doesn't need to be the exact amount right now.
+          {loanDetailsContent.propertyValueDescription.label}
         </Typography>
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
@@ -179,10 +179,10 @@ export default function LoanDetails() {
         />
 
         <Typography paragraph sx={{ fontSize: "25px", marginTop: "60px" }}>
-          Deposit
+          {loanDetailsContent.deposit.label}
         </Typography>
         <Typography paragraph sx={{ fontSize: "18px", marginTop: "20px" }}>
-          Tell us roughly how much your deposit wil be.
+          {loanDetailsContent.depositDescription.label}
         </Typography>
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
@@ -195,7 +195,7 @@ export default function LoanDetails() {
           helperText={formik.touched.deposit && formik.errors.deposit}
         />
         <Typography paragraph sx={{ fontSize: "25px", marginTop: "60px" }}>
-          Desired loan duration
+          {loanDetailsContent.loanDuration.label}
         </Typography>
 
         <Slider

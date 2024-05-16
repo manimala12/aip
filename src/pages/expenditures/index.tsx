@@ -27,6 +27,8 @@ import { getExpenditureDetailsAction } from "../../custom-redux/actions/expendit
 import { UnknownAction } from "redux";
 import { useEffect } from "react";
 import { AppRoutes } from "../../types";
+import FormHeader from "../../components/FormHeader";
+import { expenditureDetailsContent } from "../../content/expenditures";
 
 export default function Expenditures() {
   const navigate = useNavigate();
@@ -95,326 +97,324 @@ export default function Expenditures() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <Typography variant="h5" sx={{ marginBottom: "20px" }}>
-        Agreement In Principle
-      </Typography>
-      <Typography variant="h2">Your Spendings</Typography>
+      <FormHeader heading="Your Spendings">
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <FormControl>
+              <FormLabel
+                sx={{
+                  color: "white",
+                  marginTop: "50px",
+                  fontSize: "25px",
+                  marginBottom: "10px",
+                }}
+              >
+                {expenditureDetailsContent.activeLoans.label}
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                name="activeLoans"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.activeLoans}
+              >
+                <FormControlLabel
+                  value="Yes"
+                  control={<Radio sx={{ color: "white" }} />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="No"
+                  control={<Radio sx={{ color: "white" }} />}
+                  label="No"
+                />
+              </RadioGroup>
+              <FormHelperText
+                error={Boolean(
+                  formik.touched.activeLoans && formik.errors.activeLoans
+                )}
+              >
+                {formik.touched.activeLoans && formik.errors.activeLoans}
+              </FormHelperText>
+            </FormControl>
+          </Grid>
+          <br />
+          {formik.values.activeLoans === "Yes" && (
+            <>
+              <Grid item xs={12}>
+                <Typography
+                  paragraph
+                  sx={{ fontSize: "25px", marginTop: "50px" }}
+                >
+                  {expenditureDetailsContent.loanEMI.label}
+                </Typography>
+                <TextField
+                  sx={{ borderColor: "white", width: "500px" }}
+                  name="loanEMI"
+                  placeholder="Enter your loan EMI"
+                  value={formik.values.loanEMI}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={Boolean(
+                    formik.touched.loanEMI && formik.errors.loanEMI
+                  )}
+                  helperText={formik.touched.loanEMI && formik.errors.loanEMI}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography
+                  paragraph
+                  sx={{ fontSize: "25px", marginTop: "50px" }}
+                >
+                  {expenditureDetailsContent.loanOutstnading.label}
+                </Typography>
+                <TextField
+                  sx={{ borderColor: "white", width: "500px" }}
+                  name="loanOutstanding"
+                  placeholder="Enter your loan outstanding amount"
+                  value={formik.values.loanOutstanding}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={Boolean(
+                    formik.touched.loanOutstanding &&
+                      formik.errors.loanOutstanding
+                  )}
+                  helperText={
+                    formik.touched.loanOutstanding &&
+                    formik.errors.loanOutstanding
+                  }
+                />
+              </Grid>
+            </>
+          )}
+          <Grid item xs={12}>
+            <FormControl>
+              <FormLabel
+                sx={{
+                  color: "white",
+                  marginTop: "50px",
+                  fontSize: "25px",
+                  marginBottom: "10px",
+                }}
+              >
+                {expenditureDetailsContent.vehicle.label}
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                name="vehicle"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.vehicle}
+              >
+                <FormControlLabel
+                  value="Yes"
+                  control={<Radio sx={{ color: "white" }} />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="No"
+                  control={<Radio sx={{ color: "white" }} />}
+                  label="No"
+                />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+          {formik.values.vehicle === "Yes" && (
+            <>
+              <Grid item xs={12}>
+                <Typography
+                  paragraph
+                  sx={{ fontSize: "25px", marginTop: "50px" }}
+                >
+                  {expenditureDetailsContent.vehicleEMI.label}
+                </Typography>
+                <TextField
+                  sx={{ borderColor: "white", width: "500px" }}
+                  name="vehicleEMI"
+                  value={formik.values.vehicleEMI}
+                  placeholder="Enter your vehicle EMI"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={Boolean(
+                    formik.touched.vehicleEMI && formik.errors.vehicleEMI
+                  )}
+                  helperText={
+                    formik.touched.vehicleEMI && formik.errors.vehicleEMI
+                  }
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography
+                  paragraph
+                  sx={{ fontSize: "25px", marginTop: "50px" }}
+                >
+                  {expenditureDetailsContent.vehicleOutstanding.label}
+                </Typography>
+                <TextField
+                  sx={{ borderColor: "white", width: "500px" }}
+                  name="vehicleOutstanding"
+                  placeholder="Enter your vehicle outstanding amount"
+                  value={formik.values.vehicleOutstanding}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={Boolean(
+                    formik.touched.vehicleOutstanding &&
+                      formik.errors.vehicleOutstanding
+                  )}
+                  helperText={
+                    formik.touched.vehicleOutstanding &&
+                    formik.errors.vehicleOutstanding
+                  }
+                />
+              </Grid>
+            </>
+          )}
+          <Grid item xs={12}>
+            <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
+              {expenditureDetailsContent.children.label}
+            </Typography>
+            <TextField
+              sx={{ borderColor: "white", width: "500px" }}
+              name="children"
+              value={formik.values.children}
+              placeholder="Enter number of children"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={Boolean(formik.touched.children && formik.errors.children)}
+              helperText={formik.touched.children && formik.errors.children}
+            />
+          </Grid>
+          {+formik.values.children > 0 && (
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                sx={{ fontSize: "25px", marginTop: "50px" }}
+              >
+                {expenditureDetailsContent.schoolFee.label}
+              </Typography>
+              <TextField
+                sx={{ borderColor: "white", width: "500px" }}
+                name="schoolFee"
+                placeholder="Enter your children school fee"
+                value={formik.values.schoolFee}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(
+                  formik.touched.schoolFee && formik.errors.schoolFee
+                )}
+                helperText={formik.touched.schoolFee && formik.errors.schoolFee}
+              />
+            </Grid>
+          )}
+          <Grid item xs={12}>
+            <FormControl>
+              <FormLabel
+                sx={{
+                  color: "white",
+                  marginTop: "50px",
+                  fontSize: "25px",
+                  marginBottom: "10px",
+                }}
+              >
+                {expenditureDetailsContent.otherExpenditures.label}
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                name="otherExpenditures"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.otherExpenditures}
+              >
+                <FormControlLabel
+                  value="Yes"
+                  control={<Radio sx={{ color: "white" }} />}
+                  label="Yes"
+                />
+                <FormControlLabel
+                  value="No"
+                  control={<Radio sx={{ color: "white" }} />}
+                  label="No"
+                />
+              </RadioGroup>
+              <FormHelperText
+                error={Boolean(
+                  formik.touched.otherExpenditures &&
+                    formik.errors.otherExpenditures
+                )}
+              >
+                {formik.touched.otherExpenditures &&
+                  formik.errors.otherExpenditures}
+              </FormHelperText>
+            </FormControl>
+          </Grid>
+          {formik.values.otherExpenditures.match(/yes/i) && (
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                sx={{ fontSize: "25px", marginTop: "50px" }}
+              >
+                {expenditureDetailsContent.otherAmount.label}
+              </Typography>
+              <TextField
+                sx={{ borderColor: "white", width: "500px" }}
+                name="otherAmount"
+                value={formik.values.otherAmount}
+                placeholder="Enter your other expenses amount"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(
+                  formik.touched.otherAmount && formik.errors.otherAmount
+                )}
+                helperText={
+                  formik.touched.otherAmount && formik.errors.otherAmount
+                }
+              />
+            </Grid>
+          )}
+        </Grid>
+      </FormHeader>
+
       <Divider
         sx={{
           backgroundColor: "white",
           borderBottomWidth: 3,
           width: "1200px",
-          marginTop: "30px",
+          marginTop: "50px",
         }}
       />
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <FormControl>
-            <FormLabel
-              sx={{
-                color: "white",
-                marginTop: "50px",
-                fontSize: "25px",
-                marginBottom: "10px",
-              }}
-            >
-              Do you have any active loans?
-            </FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              name="activeLoans"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.activeLoans}
-            >
-              <FormControlLabel
-                value="Yes"
-                control={<Radio sx={{ color: "white" }} />}
-                label="Yes"
-              />
-              <FormControlLabel
-                value="No"
-                control={<Radio sx={{ color: "white" }} />}
-                label="No"
-              />
-            </RadioGroup>
-            <FormHelperText
-              error={Boolean(
-                formik.touched.activeLoans && formik.errors.activeLoans
-              )}
-            >
-              {formik.touched.activeLoans && formik.errors.activeLoans}
-            </FormHelperText>
-          </FormControl>
-        </Grid>
-        <br />
-        {formik.values.activeLoans === "Yes" && (
-          <>
-            <Grid item xs={12}>
-              <Typography
-                paragraph
-                sx={{ fontSize: "25px", marginTop: "50px" }}
-              >
-                How much amount will you pay for EMI every month?
-              </Typography>
-              <TextField
-                sx={{ borderColor: "white", width: "500px" }}
-                name="loanEMI"
-                placeholder="Enter your loan EMI"
-                value={formik.values.loanEMI}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={Boolean(formik.touched.loanEMI && formik.errors.loanEMI)}
-                helperText={formik.touched.loanEMI && formik.errors.loanEMI}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography
-                paragraph
-                sx={{ fontSize: "25px", marginTop: "50px" }}
-              >
-                Outstanding amount
-              </Typography>
-              <TextField
-                sx={{ borderColor: "white", width: "500px" }}
-                name="loanOutstanding"
-                placeholder="Enter your loan outstanding amount"
-                value={formik.values.loanOutstanding}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={Boolean(
-                  formik.touched.loanOutstanding &&
-                    formik.errors.loanOutstanding
-                )}
-                helperText={
-                  formik.touched.loanOutstanding &&
-                  formik.errors.loanOutstanding
-                }
-              />
-            </Grid>
-          </>
-        )}
-        <Grid item xs={12}>
-          <FormControl>
-            <FormLabel
-              sx={{
-                color: "white",
-                marginTop: "50px",
-                fontSize: "25px",
-                marginBottom: "10px",
-              }}
-            >
-              Do you have any vehicle loans?
-            </FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              name="vehicle"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.vehicle}
-            >
-              <FormControlLabel
-                value="Yes"
-                control={<Radio sx={{ color: "white" }} />}
-                label="Yes"
-              />
-              <FormControlLabel
-                value="No"
-                control={<Radio sx={{ color: "white" }} />}
-                label="No"
-              />
-            </RadioGroup>
-          </FormControl>
-        </Grid>
-        {formik.values.vehicle === "Yes" && (
-          <>
-            <Grid item xs={12}>
-              <Typography
-                paragraph
-                sx={{ fontSize: "25px", marginTop: "50px" }}
-              >
-                How much amount will you pay for your vehicle EMI?
-              </Typography>
-              <TextField
-                sx={{ borderColor: "white", width: "500px" }}
-                name="vehicleEMI"
-                value={formik.values.vehicleEMI}
-                placeholder="Enter your vehicle EMI"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={Boolean(
-                  formik.touched.vehicleEMI && formik.errors.vehicleEMI
-                )}
-                helperText={
-                  formik.touched.vehicleEMI && formik.errors.vehicleEMI
-                }
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography
-                paragraph
-                sx={{ fontSize: "25px", marginTop: "50px" }}
-              >
-                Outstanding amount of your vehicle
-              </Typography>
-              <TextField
-                sx={{ borderColor: "white", width: "500px" }}
-                name="vehicleOutstanding"
-                placeholder="Enter your vehicle outstanding amount"
-                value={formik.values.vehicleOutstanding}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={Boolean(
-                  formik.touched.vehicleOutstanding &&
-                    formik.errors.vehicleOutstanding
-                )}
-                helperText={
-                  formik.touched.vehicleOutstanding &&
-                  formik.errors.vehicleOutstanding
-                }
-              />
-            </Grid>
-          </>
-        )}
-        <Grid item xs={12}>
-          <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
-            Number of children
-          </Typography>
-          <TextField
-            sx={{ borderColor: "white", width: "500px" }}
-            name="children"
-            value={formik.values.children}
-            placeholder="Enter number of children"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={Boolean(formik.touched.children && formik.errors.children)}
-            helperText={formik.touched.children && formik.errors.children}
-          />
-        </Grid>
-        {+formik.values.children > 0 && (
-          <Grid item xs={12}>
-            <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
-              How much amount will you pay for their school fee yearly?
-            </Typography>
-            <TextField
-              sx={{ borderColor: "white", width: "500px" }}
-              name="schoolFee"
-              placeholder="Enter your children school fee"
-              value={formik.values.schoolFee}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={Boolean(
-                formik.touched.schoolFee && formik.errors.schoolFee
-              )}
-              helperText={formik.touched.schoolFee && formik.errors.schoolFee}
-            />
-          </Grid>
-        )}
-        <Grid item xs={12}>
-          <FormControl>
-            <FormLabel
-              sx={{
-                color: "white",
-                marginTop: "50px",
-                fontSize: "25px",
-                marginBottom: "10px",
-              }}
-            >
-              Do you have any other expenditures
-            </FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              name="otherExpenditures"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.otherExpenditures}
-            >
-              <FormControlLabel
-                value="Yes"
-                control={<Radio sx={{ color: "white" }} />}
-                label="Yes"
-              />
-              <FormControlLabel
-                value="No"
-                control={<Radio sx={{ color: "white" }} />}
-                label="No"
-              />
-            </RadioGroup>
-            <FormHelperText
-              error={Boolean(
-                formik.touched.otherExpenditures &&
-                  formik.errors.otherExpenditures
-              )}
-            >
-              {formik.touched.otherExpenditures &&
-                formik.errors.otherExpenditures}
-            </FormHelperText>
-          </FormControl>
-        </Grid>
-        {formik.values.otherExpenditures.match(/yes/i) && (
-          <Grid item xs={12}>
-            <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
-              How much amount will you spend on them every month?
-            </Typography>
-            <TextField
-              sx={{ borderColor: "white", width: "500px" }}
-              name="otherAmount"
-              value={formik.values.otherAmount}
-              placeholder="Enter your other expenses amount"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={Boolean(
-                formik.touched.otherAmount && formik.errors.otherAmount
-              )}
-              helperText={
-                formik.touched.otherAmount && formik.errors.otherAmount
-              }
-            />
-          </Grid>
-        )}
-
-        <Divider
+      <Grid sx={{ display: "flex", gap: "800px" }}>
+        <Button
+          variant="contained"
+          color="inherit"
+          component={Link}
           sx={{
-            backgroundColor: "white",
-            borderBottomWidth: 3,
-            width: "1200px",
-            marginTop: "50px",
+            backgroundColor: "#ffc107",
+            padding: "15px 60px",
+            marginTop: "40px",
+            fontWeight: "bold",
+            marginBottom: "30px",
           }}
-        />
-        <Grid sx={{ display: "flex", gap: "800px" }}>
-          <Button
-            variant="contained"
-            color="inherit"
-            component={Link}
-            sx={{
-              backgroundColor: "#ffc107",
-              padding: "15px 60px",
-              marginTop: "40px",
-              fontWeight: "bold",
-              marginBottom: "30px",
-            }}
-            to={AppRoutes.INCOME_DETAILS}
-          >
-            <ArrowLeftIcon sx={{ fontSize: "30px" }} />
-            Back
-          </Button>
-          <Button
-            type="submit"
-            variant="contained"
-            color="inherit"
-            sx={{
-              backgroundColor: "#ffc107",
-              // marginLeft: "585px",
-              padding: "15px 60px",
-              marginTop: "40px",
-              fontWeight: "bold",
-              marginBottom: "30px",
-            }}
-            endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
-          >
-            Review
-          </Button>
-        </Grid>
+          to={AppRoutes.INCOME_DETAILS}
+        >
+          <ArrowLeftIcon sx={{ fontSize: "30px" }} />
+          Back
+        </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="inherit"
+          sx={{
+            backgroundColor: "#ffc107",
+            // marginLeft: "585px",
+            padding: "15px 60px",
+            marginTop: "40px",
+            fontWeight: "bold",
+            marginBottom: "30px",
+          }}
+          endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
+        >
+          Review
+        </Button>
       </Grid>
     </form>
   );

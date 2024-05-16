@@ -28,6 +28,7 @@ import {
 } from "./utils";
 import { AppState } from "../../custom-redux/store";
 import FormHeader from "../../components/FormHeader";
+import { personalDetailsContent } from "../../content/personalDetails";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ export default function PersonalDetails() {
           paragraph
           sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
         >
-          Full Name
+          {personalDetailsContent.fullName.label}
         </Typography>
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
@@ -89,7 +90,7 @@ export default function PersonalDetails() {
           paragraph
           sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
         >
-          PAN Card number
+          {personalDetailsContent.panCardNumber.label}
         </Typography>
         <Box sx={{ display: "flex", gap: "20px" }}>
           <TextField
@@ -111,7 +112,7 @@ export default function PersonalDetails() {
               marginBottom: "10px",
             }}
           >
-            Gender
+            {personalDetailsContent.gender.label}
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
@@ -139,7 +140,7 @@ export default function PersonalDetails() {
         </FormControl>
 
         <Typography paragraph sx={{ fontSize: "25px", marginTop: "50px" }}>
-          Mobile Number
+          {personalDetailsContent.mobileNumber.label}
         </Typography>
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
@@ -154,7 +155,7 @@ export default function PersonalDetails() {
           helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
         />
         <Typography paragraph sx={{ fontSize: "23px", marginTop: "50px" }}>
-          Address
+          {personalDetailsContent.address.label}
         </Typography>
         <TextField
           sx={{ borderColor: "white", width: "500px" }}
