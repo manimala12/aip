@@ -1,7 +1,5 @@
 import {
   Typography,
-  Divider,
-  Button,
   TextField,
   Radio,
   FormControlLabel,
@@ -11,9 +9,7 @@ import {
   FormHelperText,
   Grid,
 } from "@mui/material";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import {
   expenditureDetailsInitialValues,
@@ -29,6 +25,7 @@ import { useEffect } from "react";
 import { AppRoutes } from "../../types";
 import FormHeader from "../../components/FormHeader";
 import { expenditureDetailsContent } from "../../content/expenditures";
+import FormFooter from "../../components/FormFooter";
 
 export default function Expenditures() {
   const navigate = useNavigate();
@@ -373,49 +370,7 @@ export default function Expenditures() {
           )}
         </Grid>
       </FormHeader>
-
-      <Divider
-        sx={{
-          backgroundColor: "white",
-          borderBottomWidth: 3,
-          width: "1200px",
-          marginTop: "50px",
-        }}
-      />
-      <Grid sx={{ display: "flex", gap: "800px" }}>
-        <Button
-          variant="contained"
-          color="inherit"
-          component={Link}
-          sx={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          to={AppRoutes.INCOME_DETAILS}
-        >
-          <ArrowLeftIcon sx={{ fontSize: "30px" }} />
-          Back
-        </Button>
-        <Button
-          type="submit"
-          variant="contained"
-          color="inherit"
-          sx={{
-            backgroundColor: "#ffc107",
-            // marginLeft: "585px",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
-        >
-          Review
-        </Button>
-      </Grid>
+      <FormFooter name="expenditures" route={AppRoutes.INCOME_DETAILS} />
     </form>
   );
 }

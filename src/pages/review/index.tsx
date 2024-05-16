@@ -116,7 +116,16 @@ export default function Review() {
           )
         )}
       </Container>
-      <Grid sx={{ display: "flex", gap: "700px", marginLeft: 5 }}>
+      <Divider
+        sx={{
+          backgroundColor: "white",
+          borderBottomWidth: 3,
+          width: "1200px",
+          marginTop: "50px",
+          marginLeft: "100px",
+        }}
+      />
+      <Grid sx={{ display: "flex", gap: "700px", marginLeft: 15 }}>
         <Button
           variant="contained"
           color="inherit"

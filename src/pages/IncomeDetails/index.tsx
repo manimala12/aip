@@ -1,9 +1,7 @@
 import {
   Typography,
-  Divider,
   TextField,
   MenuItem,
-  Button,
   Select,
   FormControl,
   Radio,
@@ -11,13 +9,9 @@ import {
   FormLabel,
   RadioGroup,
   FormHelperText,
-  Grid,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { AppRoutes } from "../../types";
 import { incomeDetailsInitialValues, incomeDetailsValidation } from "./utils";
 import { IncomeDetailsValues } from "./types";
 import { AppState } from "../../custom-redux/store";
@@ -28,6 +22,8 @@ import { useEffect } from "react";
 import { UnknownAction } from "redux";
 import FormHeader from "../../components/FormHeader";
 import { incomeDetailsContent } from "../../content/incomeDetails";
+import FormFooter from "../../components/FormFooter";
+import { AppRoutes } from "../../types";
 
 export default function IncomeDetails() {
   const navigate = useNavigate();
@@ -288,48 +284,7 @@ export default function IncomeDetails() {
           helperText={formik.touched.earning && formik.errors.earning}
         />
       </FormHeader>
-
-      <Divider
-        sx={{
-          backgroundColor: "white",
-          borderBottomWidth: 3,
-          width: "1200px",
-          marginTop: "50px",
-        }}
-      />
-      <Grid sx={{ display: "flex", gap: "750px" }}>
-        <Button
-          variant="contained"
-          color="inherit"
-          component={Link}
-          sx={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          to={AppRoutes.PERSONAL_DETAILS}
-        >
-          <ArrowLeftIcon sx={{ fontSize: "30px" }} />
-          Back
-        </Button>
-        <Button
-          variant="contained"
-          color="inherit"
-          type="submit"
-          sx={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
-        >
-          Continue
-        </Button>
-      </Grid>
+      <FormFooter name="income" route={AppRoutes.PERSONAL_DETAILS} />
     </form>
   );
 }

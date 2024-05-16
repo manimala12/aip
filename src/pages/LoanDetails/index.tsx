@@ -1,8 +1,6 @@
 import {
   Typography,
-  Divider,
   TextField,
-  Button,
   MenuItem,
   Select,
   FormHelperText,
@@ -14,7 +12,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { useNavigate } from "react-router-dom";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { useFormik } from "formik";
 import { HomeTypeOptions, LoanDetailsValues } from "./types";
 import { loanDetailsInitialValues, loanDetailsValidation } from "./utils";
@@ -26,6 +23,7 @@ import { getLoanDetailsAction } from "../../custom-redux/actions/loanDetails/get
 import { AppState } from "../../custom-redux/store";
 import FormHeader from "../../components/FormHeader";
 import { loanDetailsContent } from "../../content/loanDetails";
+import FormFooter from "../../components/FormFooter";
 
 export default function LoanDetails() {
   const navigate = useNavigate();
@@ -225,32 +223,7 @@ export default function LoanDetails() {
           helperText={formik.touched.loanDuration && formik.errors.loanDuration}
         />
       </FormHeader>
-
-      <Divider
-        sx={{
-          backgroundColor: "white",
-          borderBottomWidth: 3,
-          width: "1200px",
-          marginTop: "50px",
-        }}
-      />
-
-      <Button
-        variant="contained"
-        color="inherit"
-        type="submit"
-        sx={{
-          backgroundColor: "#ffc107",
-          marginLeft: "985px",
-          padding: "15px 60px",
-          marginTop: "40px",
-          fontWeight: "bold",
-          marginBottom: "30px",
-        }}
-        endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
-      >
-        Continue
-      </Button>
+      <FormFooter name="loan" route="" />
     </form>
   );
 }

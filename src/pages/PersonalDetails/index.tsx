@@ -1,20 +1,10 @@
-import {
-  Box,
-  Typography,
-  Divider,
-  TextField,
-  Button,
-  FormHelperText,
-  Grid,
-} from "@mui/material";
+import { Box, Typography, TextField, FormHelperText } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Link, useNavigate } from "react-router-dom";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { PersonalDetailsValues } from "./types";
 import { savePersonalDetailsAction } from "../../custom-redux/actions/personalDetails/save";
@@ -29,6 +19,8 @@ import {
 import { AppState } from "../../custom-redux/store";
 import FormHeader from "../../components/FormHeader";
 import { personalDetailsContent } from "../../content/personalDetails";
+import FormFooter from "../../components/FormFooter";
+import { AppRoutes } from "../../types";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
@@ -169,47 +161,7 @@ export default function PersonalDetails() {
         />
       </FormHeader>
 
-      <Divider
-        sx={{
-          backgroundColor: "white",
-          borderBottomWidth: 3,
-          width: "1200px",
-          marginTop: "50px",
-        }}
-      />
-      <Grid sx={{ display: "flex", gap: "750px" }}>
-        <Button
-          variant="contained"
-          color="inherit"
-          component={Link}
-          sx={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          to="/loan-details"
-        >
-          <ArrowLeftIcon sx={{ fontSize: "30px" }} />
-          Back
-        </Button>
-        <Button
-          variant="contained"
-          color="inherit"
-          type="submit"
-          sx={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
-        >
-          Continue
-        </Button>
-      </Grid>
+      <FormFooter name="personal" route={AppRoutes.LOAN_DETAILS} />
     </form>
   );
 }
