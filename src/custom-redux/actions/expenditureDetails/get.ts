@@ -1,10 +1,10 @@
 import { ExpenditureDetailsConstants } from "../../constants";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast } from "../../../components/toasts";
 import { AppDataAction } from "../../../types";
 import { AppState } from "../../store";
 import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types";
+import { errorHandler } from "../../../helpers";
 
 export const getExpenditureDetailsAction = () => {
   return async (
@@ -38,13 +38,11 @@ export const getExpenditureDetailsAction = () => {
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_FAILURE
+      );
     }
   };
 };

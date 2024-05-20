@@ -49,6 +49,7 @@ const FormFooter: FC<FormLayoutProps> = ({ name, route }) => {
             marginTop: "40px",
             fontWeight: "bold",
             marginBottom: "30px",
+            marginLeft: "auto",
           }}
           endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
         >

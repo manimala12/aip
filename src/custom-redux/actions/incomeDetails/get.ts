@@ -1,10 +1,10 @@
 import { IncomeDetailsConstants } from "../../constants";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast } from "../../../components/toasts";
 import { AppDataAction } from "../../../types";
 import { AppState } from "../../store";
 import { IncomeDetailsValues } from "../../../pages/IncomeDetails/types";
+import { errorHandler } from "../../../helpers";
 
 export const getIncomeDetailsAction = () => {
   return async (
@@ -36,13 +36,11 @@ export const getIncomeDetailsAction = () => {
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: IncomeDetailsConstants.GET_INCOME_DETAILS_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        IncomeDetailsConstants.GET_INCOME_DETAILS_FAILURE
+      );
     }
   };
 };

@@ -76,7 +76,11 @@ export default function IncomeDetails() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <FormHeader heading="Your Earnings">
+      <FormHeader
+        heading="Your Earnings"
+        name="income"
+        route={AppRoutes.PERSONAL_DETAILS}
+      >
         <FormControl>
           <FormLabel
             sx={{
@@ -284,7 +288,6 @@ export default function IncomeDetails() {
           helperText={formik.touched.earning && formik.errors.earning}
         />
       </FormHeader>
-      <FormFooter name="income" route={AppRoutes.PERSONAL_DETAILS} />
     </form>
   );
 }

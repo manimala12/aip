@@ -2,10 +2,11 @@ import { PersonalDetailsConstants } from "../../constants";
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast, successToast } from "../../../components/toasts";
+import { successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { AppState } from "../../store";
 import { PersonalDetailsValues } from "../../../pages/PersonalDetails/types";
+import { errorHandler } from "../../../helpers";
 
 export const savePersonalDetailsAction = (
   personalData: PersonalDetailsValues,
@@ -60,13 +61,11 @@ export const savePersonalDetailsAction = (
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: PersonalDetailsConstants.SAVE_PERSONAL_DETAILS_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        PersonalDetailsConstants.SAVE_PERSONAL_DETAILS_FAILURE
+      );
     }
   };
 };

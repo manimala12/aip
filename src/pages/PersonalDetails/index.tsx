@@ -60,7 +60,11 @@ export default function PersonalDetails() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <FormHeader heading="Your Personal Details">
+      <FormHeader
+        heading="Your Personal Details"
+        name="personal"
+        route={AppRoutes.LOAN_DETAILS}
+      >
         <Typography
           paragraph
           sx={{ fontSize: "25px", marginTop: "50px", marginBottom: "20px" }}
@@ -160,8 +164,6 @@ export default function PersonalDetails() {
           helperText={formik.touched.address && formik.errors.address}
         />
       </FormHeader>
-
-      <FormFooter name="personal" route={AppRoutes.LOAN_DETAILS} />
     </form>
   );
 }

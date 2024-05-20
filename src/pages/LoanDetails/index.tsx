@@ -21,9 +21,9 @@ import { useEffect } from "react";
 import { saveLoanDetailsAction } from "../../custom-redux/actions/loanDetails/save";
 import { getLoanDetailsAction } from "../../custom-redux/actions/loanDetails/get";
 import { AppState } from "../../custom-redux/store";
-import FormHeader from "../../components/FormHeader";
 import { loanDetailsContent } from "../../content/loanDetails";
 import FormFooter from "../../components/FormFooter";
+import FormLayout from "../../components/FormHeader";
 
 export default function LoanDetails() {
   const navigate = useNavigate();
@@ -69,11 +69,11 @@ export default function LoanDetails() {
 
   return (
     <form
-      style={{ marginTop: "200px", marginLeft: "100px", color: "white" }}
+      style={{ color: "white" }}
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <FormHeader heading="Your Loan Details">
+      <FormLayout heading="Your Loan Details" name="loan" route="">
         <FormControl>
           <FormLabel
             sx={{
@@ -119,7 +119,7 @@ export default function LoanDetails() {
           {loanDetailsContent.homeType.label}
         </Typography>
 
-        <FormControl sx={{ width: "500px" }}>
+        <FormControl sx={{ width: { xs: "100%" }, maxWidth: "500px" }}>
           <Select
             value={formik.values.homeType}
             onChange={formik.handleChange}
@@ -162,7 +162,11 @@ export default function LoanDetails() {
           {loanDetailsContent.propertyValueDescription.label}
         </Typography>
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{
+            borderColor: "white",
+            width: { xs: "100%" },
+            maxWidth: "500px",
+          }}
           name="propertyValue"
           placeholder="Enter Property Value"
           value={formik.values.propertyValue}
@@ -183,7 +187,11 @@ export default function LoanDetails() {
           {loanDetailsContent.depositDescription.label}
         </Typography>
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{
+            borderColor: "white",
+            width: { xs: "100%" },
+            maxWidth: "500px",
+          }}
           name="deposit"
           placeholder="Enter Deposit Value"
           value={formik.values.deposit}
@@ -206,13 +214,22 @@ export default function LoanDetails() {
           marks
           min={5}
           max={30}
-          sx={{ color: "white", width: "480px", px: 1 }}
+          sx={{
+            color: "white",
+            width: { xs: "100%" },
+            maxWidth: "480px",
+            px: 1,
+          }}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
         <br />
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{
+            borderColor: "white",
+            width: { xs: "100%" },
+            maxWidth: "500px",
+          }}
           name="loanDuration"
           value={formik.values.loanDuration}
           onChange={formik.handleChange}
@@ -222,8 +239,7 @@ export default function LoanDetails() {
           )}
           helperText={formik.touched.loanDuration && formik.errors.loanDuration}
         />
-      </FormHeader>
-      <FormFooter name="loan" route="" />
+      </FormLayout>
     </form>
   );
 }

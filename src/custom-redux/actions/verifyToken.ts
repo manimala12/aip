@@ -1,7 +1,7 @@
 import { authConstants } from "../constants";
 import { AuthAction } from "../../types";
 import { Dispatch } from "redux";
-import { errorToast } from "../../components/toasts";
+import { errorHandler } from "../../helpers";
 
 export const verifyTokenAction = () => {
   return async (dispatch: Dispatch<AuthAction>) => {
@@ -28,13 +28,11 @@ export const verifyTokenAction = () => {
         },
       });
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: authConstants.VERIFY_TOKEN_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        authConstants.VERIFY_TOKEN_FAILURE
+      );
     }
   };
 };
