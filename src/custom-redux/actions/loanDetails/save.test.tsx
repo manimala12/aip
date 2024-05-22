@@ -19,6 +19,7 @@ describe("saveLoanDetailsAction", () => {
     dispatchMock = jest.fn();
     getStateMock = jest.fn().mockReturnValue({
       auth: { email: "test@example.com" },
+      appData: { navigatedFrom: AppRoutes.HOME },
     });
     navigateMock = jest.fn();
   });
@@ -65,6 +66,31 @@ describe("saveLoanDetailsAction", () => {
       payload: expectedPayload,
     });
     expect(navigateMock).toHaveBeenCalledWith(AppRoutes.PERSONAL_DETAILS);
+  });
+
+  test("should navigate to review route on continue if user is coming from review page", async () => {
+    getStateMock = jest.fn().mockReturnValue({
+      auth: { email: "test@example.com" },
+      appData: { navigatedFrom: AppRoutes.REVIEW },
+    });
+    const loanData = {
+      noOfPeople: "1",
+      homeType: "Constructing a new home",
+      propertyValue: "150000",
+      deposit: "34000",
+      loanDuration: 23,
+      email: "jnaneswari@gmail.com",
+      id: "1",
+    };
+    (axios.get as jest.Mock).mockResolvedValue({ data: [loanData] });
+    (axios.patch as jest.Mock).mockResolvedValue({});
+
+    await saveLoanDetailsAction(loanData, navigateMock)(
+      dispatchMock,
+      getStateMock
+    );
+
+    expect(navigateMock).toHaveBeenCalledWith(AppRoutes.REVIEW);
   });
 
   test("should dispatch SAVE_LOAN_DETAILS_SUCCESS on successful creation", async () => {

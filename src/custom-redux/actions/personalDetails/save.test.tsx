@@ -19,6 +19,7 @@ describe("savePersonalDetailsAction", () => {
     dispatchMock = jest.fn();
     getStateMock = jest.fn().mockReturnValue({
       auth: { email: "test@example.com" },
+      appData: { loanDetails: null, navigatedFrom: AppRoutes.LOAN_DETAILS },
     });
     navigateMock = jest.fn();
   });

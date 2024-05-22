@@ -24,7 +24,11 @@ describe("saveExpenditureDetailsAction", () => {
         loading: false,
         isAuthenticated: true,
       },
-      appData: { expenditureDetails: undefined, loading: false },
+      appData: {
+        expenditureDetails: undefined,
+        loading: false,
+        navigatedFrom: AppRoutes.INCOME_DETAILS,
+      },
     });
     const navigate = jest.fn();
     const mockExpenditureDetails = {
