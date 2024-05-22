@@ -2,10 +2,11 @@ import { LoanDetailsConstants } from "../../constants";
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast, successToast } from "../../../components/toasts";
+import { successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { LoanDetailsValues } from "../../../pages/LoanDetails/types";
 import { AppState } from "../../store";
+import { errorHandler } from "../../../helpers";
 
 export const saveLoanDetailsAction = (
   loanData: LoanDetailsValues,
@@ -58,13 +59,11 @@ export const saveLoanDetailsAction = (
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: LoanDetailsConstants.SAVE_LOAN_DETAILS_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        LoanDetailsConstants.SAVE_LOAN_DETAILS_FAILURE
+      );
     }
   };
 };

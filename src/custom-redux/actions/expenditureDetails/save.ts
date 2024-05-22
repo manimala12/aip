@@ -1,11 +1,12 @@
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast, successToast } from "../../../components/toasts";
+import { successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { AppState } from "../../store";
 import { ExpenditureDetailsConstants } from "../../constants";
 import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types";
+import { errorHandler } from "../../../helpers";
 
 export const saveExpenditureDetailsAction = (
   expenditureDetails: ExpenditureDetailsValues,
@@ -60,13 +61,11 @@ export const saveExpenditureDetailsAction = (
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_FAILURE
+      );
     }
   };
 };

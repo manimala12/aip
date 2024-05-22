@@ -1,11 +1,12 @@
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast, successToast } from "../../../components/toasts";
+import { successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { AppState } from "../../store";
 import { IncomeDetailsValues } from "../../../pages/IncomeDetails/types";
 import { IncomeDetailsConstants } from "../../constants";
+import { errorHandler } from "../../../helpers";
 
 export const saveIncomeDetailsAction = (
   incomeDetails: IncomeDetailsValues,
@@ -60,13 +61,11 @@ export const saveIncomeDetailsAction = (
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: IncomeDetailsConstants.SAVE_INCOME_DETAILS_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        IncomeDetailsConstants.SAVE_INCOME_DETAILS_FAILURE
+      );
     }
   };
 };

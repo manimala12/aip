@@ -94,7 +94,11 @@ export default function Expenditures() {
       autoComplete="off"
       onSubmit={formik.handleSubmit}
     >
-      <FormHeader heading="Your Spendings">
+      <FormHeader
+        heading="Your Spendings"
+        name="expenditures"
+        route={AppRoutes.INCOME_DETAILS}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FormControl>
@@ -370,7 +374,6 @@ export default function Expenditures() {
           )}
         </Grid>
       </FormHeader>
-      <FormFooter name="expenditures" route={AppRoutes.INCOME_DETAILS} />
     </form>
   );
 }

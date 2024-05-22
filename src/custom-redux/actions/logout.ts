@@ -1,7 +1,8 @@
 import { ClearAppDataConstants, authConstants } from "../constants";
 import { AuthAction } from "../../types";
 import { Dispatch } from "redux";
-import { errorToast, successToast } from "../../components/toasts";
+import { successToast } from "../../components/toasts";
+import { errorHandler } from "../../helpers";
 
 export const logoutAction = () => {
   return async (dispatch: Dispatch<AuthAction>) => {
@@ -20,13 +21,7 @@ export const logoutAction = () => {
         type: ClearAppDataConstants.CLEAR_APP_DATA_SUCCESS,
       });
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: authConstants.LOGOUT_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(error as Error, dispatch, authConstants.LOGOUT_FAILURE);
     }
   };
 };

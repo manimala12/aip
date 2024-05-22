@@ -4,8 +4,9 @@ import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
 import { UserData } from "../../pages/Register/types";
-import { errorToast, successToast } from "../../components/toasts";
+import { successToast } from "../../components/toasts";
 import { LoginValues } from "../../pages/Login/types";
+import { errorHandler } from "../../helpers";
 
 export const loginAction = (user: LoginValues, navigate: NavigateFunction) => {
   return async (dispatch: Dispatch<AuthAction>) => {
@@ -33,13 +34,7 @@ export const loginAction = (user: LoginValues, navigate: NavigateFunction) => {
         throw new Error("Invalid password. Please try again");
       }
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: authConstants.LOGIN_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(error as Error, dispatch, authConstants.LOGIN_FAILURE);
     }
   };
 };

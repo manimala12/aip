@@ -2,9 +2,10 @@ import { authConstants } from "../constants";
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast, successToast } from "../../components/toasts";
+import { successToast } from "../../components/toasts";
 import { RestrationValues, UserData } from "../../pages/Register/types";
 import { AppRoutes, AuthAction } from "../../types";
+import { errorHandler } from "../../helpers";
 
 export const registrationAction = (
   user: RestrationValues,
@@ -44,13 +45,11 @@ export const registrationAction = (
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: authConstants.REGISTRATION_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        authConstants.REGISTRATION_FAILURE
+      );
     }
   };
 };

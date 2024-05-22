@@ -1,10 +1,10 @@
 import { LoanDetailsConstants } from "../../constants";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast } from "../../../components/toasts";
 import { AppDataAction } from "../../../types";
 import { LoanDetailsValues } from "../../../pages/LoanDetails/types";
 import { AppState } from "../../store";
+import { errorHandler } from "../../../helpers";
 
 export const getLoanDetailsAction = () => {
   return async (
@@ -37,13 +37,11 @@ export const getLoanDetailsAction = () => {
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: LoanDetailsConstants.GET_LOAN_DETAILS_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        LoanDetailsConstants.GET_LOAN_DETAILS_FAILURE
+      );
     }
   };
 };

@@ -1,7 +1,6 @@
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import axios from "axios";
-import { errorToast } from "../../../components/toasts";
 import {
   AppDataAction,
   AppRoutes,
@@ -14,6 +13,7 @@ import { GetDecisionConstants } from "../../constants";
 import { LoanDetailsValues } from "../../../pages/LoanDetails/types";
 import { IncomeDetailsValues } from "../../../pages/IncomeDetails/types";
 import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types";
+import { errorHandler } from "../../../helpers";
 
 function getRollNumber() {
   return Math.floor(Math.random() * (9999999999 - 1000000000 + 1)) + 1000000000;
@@ -107,13 +107,11 @@ export const saveDecisionAction = (navigate: NavigateFunction) => {
       }
       throw new Error("Something went wrong");
     } catch (error) {
-      const err = error as Error;
-      const errorMessage = err.message;
-      errorToast(errorMessage);
-      dispatch({
-        type: GetDecisionConstants.SAVE_DECISION_FAILURE,
-        payload: { error: errorMessage },
-      });
+      errorHandler(
+        error as Error,
+        dispatch,
+        GetDecisionConstants.SAVE_DECISION_FAILURE
+      );
     }
   };
 };
