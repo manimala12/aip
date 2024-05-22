@@ -49,15 +49,11 @@ describe("IncomeDetails", () => {
 
     // const earningInput = screen.getByPlaceholderText("How much will you earn");
     // fireEvent.change(earningInput, { target: { value: "50000" } });
-
-    // Add more assertions for other form fields if needed
   });
 
   it("submits the form when Continue button is clicked", () => {
     renderComponent();
 
     fireEvent.click(screen.getByText("Continue"));
-
-    // Add assertions or mocks for form submission logic
   });
 });

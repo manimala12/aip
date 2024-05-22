@@ -53,7 +53,5 @@ describe("LoanDetails", () => {
   it("should submit the form when Continue button is clicked", async () => {
     renderComponent();
     fireEvent.click(screen.getByText("Continue"));
-
-    // Add assertions or mocks for form submission logic
   });
 });

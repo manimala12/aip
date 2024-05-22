@@ -16,7 +16,7 @@ describe("getIncomeDetailsAction", () => {
     dispatchMock = jest.fn();
     getStateMock = jest.fn().mockReturnValue({
       auth: { email: "test@example.com" },
-      appData: { incomeDetails: null }, // Assuming incomeDetails is initially null
+      appData: { incomeDetails: null },
     });
   });
 

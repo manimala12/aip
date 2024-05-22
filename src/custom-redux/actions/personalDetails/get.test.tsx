@@ -16,7 +16,7 @@ describe("getPersonalDetailsAction", () => {
     dispatchMock = jest.fn();
     getStateMock = jest.fn().mockReturnValue({
       auth: { email: "test@example.com" },
-      appData: { personalDetails: null }, // Assuming personalDetails is initially null
+      appData: { personalDetails: null },
     });
   });
 
@@ -51,7 +51,7 @@ describe("getPersonalDetailsAction", () => {
   test("should not fetch personal details if already exists", async () => {
     const getStateMockWithData = jest.fn().mockReturnValue({
       auth: { email: "test@example.com" },
-      appData: { personalDetails: { id: 1, name: "John Doe" } }, // Assuming personalDetails already exists
+      appData: { personalDetails: { id: 1, name: "John Doe" } },
     });
 
     await getPersonalDetailsAction()(dispatchMock, getStateMockWithData);

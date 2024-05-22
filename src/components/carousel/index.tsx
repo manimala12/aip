@@ -44,7 +44,6 @@ interface ProjectProps {
 
 function Project({ item }: ProjectProps) {
   return (
-    // <Grid item xs={12} md={12} key={"post.title"}>
     <CardActionArea component="a" href="#">
       <Card
         sx={{

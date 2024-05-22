@@ -91,6 +91,4 @@ describe("getExpenditureDetailsAction", () => {
     expect(dispatch).not.toHaveBeenCalled();
     expect(errorToast).not.toHaveBeenCalled();
   });
-
-  // Write other test cases similarly
 });
