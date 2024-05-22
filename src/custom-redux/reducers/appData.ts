@@ -4,9 +4,10 @@ import {
   GetDecisionConstants,
   IncomeDetailsConstants,
   LoanDetailsConstants,
+  NavigationConstants,
   PersonalDetailsConstants,
 } from "../constants";
-import { AppData, AppDataAction } from "../../types";
+import { AppData, AppDataAction, AppRoutes } from "../../types";
 
 const initState: AppData = {
   loanDetails: undefined,
@@ -16,6 +17,7 @@ const initState: AppData = {
   loading: false,
   message: undefined,
   error: undefined,
+  navigatedFrom: AppRoutes.HOME,
 };
 
 export const appDataReducer = (
@@ -33,6 +35,7 @@ export const appDataReducer = (
     case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_REQUEST:
     case GetDecisionConstants.SAVE_DECISION_REQUEST:
     case ClearAppDataConstants.CLEAR_APP_DATA_REQUEST:
+    case NavigationConstants.NAVIGATED_FROM_REQUEST:
       return {
         ...state,
         loading: true,
@@ -49,6 +52,7 @@ export const appDataReducer = (
     case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_SUCCESS:
     case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_SUCCESS:
     case GetDecisionConstants.SAVE_DECISION_SUCCESS:
+    case NavigationConstants.NAVIGATED_FROM_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -64,6 +68,7 @@ export const appDataReducer = (
     case ExpenditureDetailsConstants.GET_EXPENDITURE_DETAILS_FAILURE:
     case ExpenditureDetailsConstants.SAVE_EXPENDITURE_DETAILS_FAILURE:
     case GetDecisionConstants.SAVE_DECISION_FAILURE:
+    case NavigationConstants.NAVIGATED_FROM_FAILURE:
       return {
         ...state,
         loading: false,

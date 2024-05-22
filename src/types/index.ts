@@ -22,6 +22,7 @@ export interface AppData {
   loading: boolean;
   message?: string;
   error?: string;
+  navigatedFrom?: string;
 }
 
 export interface AuthAction extends Action {

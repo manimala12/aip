@@ -17,12 +17,13 @@ import {
   Grid,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "../../custom-redux/store";
+import { AppState, store } from "../../custom-redux/store";
 import { AppData, AppRoutes } from "../../types";
 import { Link, useNavigate } from "react-router-dom";
 import { reviewSections } from "./utils";
 import { saveDecisionAction } from "../../custom-redux/actions/getDecision";
 import { UnknownAction } from "redux";
+import { navigatedFromAction } from "../../custom-redux/actions/navigatedFrom";
 
 export default function Review() {
   const appData = useSelector<AppState, AppData>((state) => state.appData);
@@ -107,7 +108,10 @@ export default function Review() {
                   size="small"
                   variant="outlined"
                   sx={{ my: 2, mx: 1 }}
-                  onClick={() => navigate(editLink)}
+                  onClick={() => {
+                    store.dispatch(navigatedFromAction(AppRoutes.REVIEW));
+                    navigate(editLink);
+                  }}
                 >
                   {editButtonText}
                 </Button>

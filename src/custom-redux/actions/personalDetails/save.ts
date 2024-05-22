@@ -4,9 +4,10 @@ import { Dispatch } from "redux";
 import axios from "axios";
 import { successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
-import { AppState } from "../../store";
+import { AppState, store } from "../../store";
 import { PersonalDetailsValues } from "../../../pages/PersonalDetails/types";
 import { errorHandler } from "../../../helpers";
+import { navigatedFromAction } from "../navigatedFrom";
 
 export const savePersonalDetailsAction = (
   personalData: PersonalDetailsValues,
@@ -20,7 +21,9 @@ export const savePersonalDetailsAction = (
       dispatch({
         type: PersonalDetailsConstants.SAVE_PERSONAL_DETAILS_REQUEST,
       });
-      const userEmail = getState().auth.email;
+      const state = getState();
+      const userEmail = state.auth.email;
+      const navigatedFrom = state.appData.navigatedFrom;
 
       const personalDetailsResp = await axios.get<PersonalDetailsValues[]>(
         `http://localhost:8000/personal-details?email=${userEmail}`
@@ -38,6 +41,12 @@ export const savePersonalDetailsAction = (
             personalDetails: personalData,
           },
         });
+        store.dispatch(navigatedFromAction(AppRoutes.PERSONAL_DETAILS));
+
+        if (navigatedFrom === AppRoutes.REVIEW) {
+          navigate(AppRoutes.REVIEW);
+          return;
+        }
         navigate(AppRoutes.INCOME_DETAILS);
         return;
       }
@@ -56,6 +65,12 @@ export const savePersonalDetailsAction = (
             personalDetails: personalData,
           },
         });
+        store.dispatch(navigatedFromAction(AppRoutes.PERSONAL_DETAILS));
+
+        if (navigatedFrom === AppRoutes.REVIEW) {
+          navigate(AppRoutes.REVIEW);
+          return;
+        }
         navigate(AppRoutes.INCOME_DETAILS);
         return;
       }

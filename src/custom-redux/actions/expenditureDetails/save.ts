@@ -3,10 +3,11 @@ import { Dispatch } from "redux";
 import axios from "axios";
 import { successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
-import { AppState } from "../../store";
+import { AppState, store } from "../../store";
 import { ExpenditureDetailsConstants } from "../../constants";
 import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types";
 import { errorHandler } from "../../../helpers";
+import { navigatedFromAction } from "../navigatedFrom";
 
 export const saveExpenditureDetailsAction = (
   expenditureDetails: ExpenditureDetailsValues,
@@ -38,6 +39,7 @@ export const saveExpenditureDetailsAction = (
             expenditureDetails,
           },
         });
+        store.dispatch(navigatedFromAction(AppRoutes.EXPENDITURES));
         navigate(AppRoutes.REVIEW);
         return;
       }
@@ -56,6 +58,7 @@ export const saveExpenditureDetailsAction = (
             expenditureDetails,
           },
         });
+        store.dispatch(navigatedFromAction(AppRoutes.EXPENDITURES));
         navigate(AppRoutes.REVIEW);
         return;
       }

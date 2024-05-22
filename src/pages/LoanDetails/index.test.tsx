@@ -1,11 +1,10 @@
 import React from "react";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import LoanDetails from ".";
 import { getStore } from "../../custom-redux/store";
 
-// Mocking the Redux store
 let mockStore = getStore();
 
 describe("LoanDetails", () => {

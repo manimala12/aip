@@ -22,12 +22,13 @@ import { saveLoanDetailsAction } from "../../custom-redux/actions/loanDetails/sa
 import { getLoanDetailsAction } from "../../custom-redux/actions/loanDetails/get";
 import { AppState } from "../../custom-redux/store";
 import { loanDetailsContent } from "../../content/loanDetails";
-import FormFooter from "../../components/FormFooter";
-import FormLayout from "../../components/FormHeader";
+import FormLayout from "../../components/FormLayout";
+import useScrollToTop from "../../components/ScrollToTop/useScrollToTop";
 
 export default function LoanDetails() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useScrollToTop();
   const loanDetails = useSelector<AppState, LoanDetailsValues | undefined>(
     (state) => state.appData.loanDetails
   );

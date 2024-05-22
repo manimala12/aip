@@ -17,14 +17,15 @@ import {
   personalDetailsValidation,
 } from "./utils";
 import { AppState } from "../../custom-redux/store";
-import FormHeader from "../../components/FormHeader";
+import FormHeader from "../../components/FormLayout";
 import { personalDetailsContent } from "../../content/personalDetails";
-import FormFooter from "../../components/FormFooter";
 import { AppRoutes } from "../../types";
+import useScrollToTop from "../../components/ScrollToTop/useScrollToTop";
 
 export default function PersonalDetails() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useScrollToTop();
   const personalDetails = useSelector<
     AppState,
     PersonalDetailsValues | undefined

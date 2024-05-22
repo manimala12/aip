@@ -20,14 +20,15 @@ import { saveIncomeDetailsAction } from "../../custom-redux/actions/incomeDetail
 import { getIncomeDetailsAction } from "../../custom-redux/actions/incomeDetails/get";
 import { useEffect } from "react";
 import { UnknownAction } from "redux";
-import FormHeader from "../../components/FormHeader";
+import FormHeader from "../../components/FormLayout";
 import { incomeDetailsContent } from "../../content/incomeDetails";
-import FormFooter from "../../components/FormFooter";
 import { AppRoutes } from "../../types";
+import useScrollToTop from "../../components/ScrollToTop/useScrollToTop";
 
 export default function IncomeDetails() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useScrollToTop();
 
   const incomeDetails = useSelector<AppState, IncomeDetailsValues | undefined>(
     (state) => state.appData.incomeDetails

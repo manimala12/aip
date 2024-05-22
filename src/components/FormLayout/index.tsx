@@ -90,9 +90,11 @@ const FormLayout: FC<FormLayoutProps> = ({
             backgroundColor: "#ffc107",
             padding: { xs: "8px 40px", md: "15px 60px" },
             fontWeight: "bold",
-            marginLeft: "auto",
             width: { sm: "100%" },
             maxWidth: { sm: "200px" },
+            ...(name === "loan"
+              ? { marginLeft: { xs: "inherit", sm: "auto" } }
+              : {}),
           }}
           endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
         >

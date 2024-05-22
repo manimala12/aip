@@ -5,8 +5,9 @@ import axios from "axios";
 import { successToast } from "../../../components/toasts";
 import { AppDataAction, AppRoutes } from "../../../types";
 import { LoanDetailsValues } from "../../../pages/LoanDetails/types";
-import { AppState } from "../../store";
+import { AppState, store } from "../../store";
 import { errorHandler } from "../../../helpers";
+import { navigatedFromAction } from "../navigatedFrom";
 
 export const saveLoanDetailsAction = (
   loanData: LoanDetailsValues,
@@ -18,7 +19,9 @@ export const saveLoanDetailsAction = (
   ) => {
     try {
       dispatch({ type: LoanDetailsConstants.SAVE_LOAN_DETAILS_REQUEST });
-      const userEmail = getState().auth.email;
+      const state = getState();
+      const userEmail = state.auth.email;
+      const navigatedFrom = state.appData.navigatedFrom;
 
       const loanDetailsResp = await axios.get<LoanDetailsValues[]>(
         `http://localhost:8000/loan-details?email=${userEmail}`
@@ -36,6 +39,12 @@ export const saveLoanDetailsAction = (
             loanDetails: loanData,
           },
         });
+        store.dispatch(navigatedFromAction(AppRoutes.LOAN_DETAILS));
+
+        if (navigatedFrom === AppRoutes.REVIEW) {
+          navigate(AppRoutes.REVIEW);
+          return;
+        }
         navigate(AppRoutes.PERSONAL_DETAILS);
         return;
       }

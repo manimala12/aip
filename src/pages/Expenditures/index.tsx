@@ -23,13 +23,14 @@ import { getExpenditureDetailsAction } from "../../custom-redux/actions/expendit
 import { UnknownAction } from "redux";
 import { useEffect } from "react";
 import { AppRoutes } from "../../types";
-import FormHeader from "../../components/FormHeader";
+import FormHeader from "../../components/FormLayout";
 import { expenditureDetailsContent } from "../../content/expenditures";
-import FormFooter from "../../components/FormFooter";
+import useScrollToTop from "../../components/ScrollToTop/useScrollToTop";
 
 export default function Expenditures() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useScrollToTop();
 
   const expenditureDetails = useSelector<
     AppState,

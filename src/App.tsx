@@ -28,6 +28,7 @@ export default function App() {
   );
   const dispatch = useDispatch();
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(verifyTokenAction() as unknown as UnknownAction);
   }, []);
 
