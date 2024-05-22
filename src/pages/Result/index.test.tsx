@@ -20,7 +20,6 @@ describe("Result", () => {
   };
   it("renders success message when result is SUCCESS", () => {
     renderComponent();
-    // Mock state values to simulate SUCCESS result
     mockStore.dispatch({ type: "SET_RESULT", payload: "SUCCESS" });
     mockStore.dispatch({ type: "SET_ROLL_NUMBER", payload: 123 });
     mockStore.dispatch({
@@ -45,7 +44,6 @@ describe("Result", () => {
   it("renders failure message when result is FAILURE", () => {
     renderComponent();
 
-    // Mock state values to simulate FAILURE result
     mockStore.dispatch({ type: "SET_RESULT", payload: "FAILURE" });
     mockStore.dispatch({ type: "SET_ROLL_NUMBER", payload: 456 });
 
@@ -60,7 +58,6 @@ describe("Result", () => {
   it("renders partial message when result is PARTIAL", () => {
     renderComponent();
 
-    // Mock state values to simulate PARTIAL result
     mockStore.dispatch({ type: "SET_RESULT", payload: "PARTIAL" });
     mockStore.dispatch({ type: "SET_ROLL_NUMBER", payload: 789 });
     mockStore.dispatch({ type: "SET_AUTH_EMAIL", payload: "test@example.com" });

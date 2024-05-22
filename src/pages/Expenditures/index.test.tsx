@@ -70,14 +70,12 @@ describe("Expenditures", () => {
   //       { target: { value: "2000" } }
   //     );
 
-  //     // Add more assertions for other form fields if needed
+  //
   //   });
 
   it("submits the form when Review button is clicked", () => {
     renderComponent();
 
     fireEvent.click(screen.getByText("Review"));
-
-    // Add assertions or mocks for form submission logic
   });
 });

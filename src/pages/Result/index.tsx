@@ -139,7 +139,7 @@ function Success({
             <ListItemText sx={{ fontSize: "20px" }}>
               {" "}
               This Agreement in principle is valid until{" "}
-              <b>{getExpiryDate().toLocaleDateString()}</b>. We've eamiled a
+              <b>{getExpiryDate().toLocaleDateString()}</b>. We've emailed a
               copy to <b>{email}</b>
             </ListItemText>
           </ListItem>

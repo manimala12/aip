@@ -4,9 +4,8 @@ import { getExpenditureDetailsAction } from "./get";
 import { ExpenditureDetailsConstants } from "../../constants";
 import { errorToast } from "../../../components/toasts";
 import { AppDataAction } from "../../../types";
-import { AppState } from "../../store"; // Assuming you have these types defined
-import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types"; // Assuming you have this type defined
-
+import { AppState } from "../../store";
+import { ExpenditureDetailsValues } from "../../../pages/Expenditures/types";
 jest.mock("axios");
 jest.mock("../../../components/toasts", () => ({
   errorToast: jest.fn(),
@@ -91,6 +90,4 @@ describe("getExpenditureDetailsAction", () => {
     expect(dispatch).not.toHaveBeenCalled();
     expect(errorToast).not.toHaveBeenCalled();
   });
-
-  // Write other test cases similarly
 });

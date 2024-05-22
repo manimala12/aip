@@ -5,7 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import LoanDetails from ".";
 import { getStore } from "../../custom-redux/store";
 
-// Mocking the Redux store
 let mockStore = getStore();
 
 describe("LoanDetails", () => {
@@ -54,7 +53,5 @@ describe("LoanDetails", () => {
   it("should submit the form when Continue button is clicked", async () => {
     renderComponent();
     fireEvent.click(screen.getByText("Continue"));
-
-    // Add assertions or mocks for form submission logic
   });
 });
