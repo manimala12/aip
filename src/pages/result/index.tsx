@@ -9,8 +9,10 @@ import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../types";
+import useScrollToTop from "../../components/ScrollToTop/useScrollToTop";
 
 export default function Result() {
+  useScrollToTop();
   const result = useSelector<AppState, string | undefined>(
     (state) => state.appData.result
   );

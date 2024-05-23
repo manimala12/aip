@@ -12,20 +12,11 @@
     {
       "userName": "manimala",
       "fullName": "manimala",
-      "email": "manimala@gmail.com",
-      "password": "123456789",
-      "confirmPassword": "123456789",
+      "email": "jnaneswari1@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
       "hasAgreed": true,
       "id": 2
-    },
-    {
-      "userName": "abc",
-      "fullName": "abc",
-      "email": "abc@gmail.com",
-      "password": "1234567890",
-      "confirmPassword": "1234567890",
-      "hasAgreed": true,
-      "id": 3
     }
   ],
   "loan-details": [
@@ -42,19 +33,10 @@
       "noOfPeople": "1",
       "homeType": "Reconstructing an existing home",
       "propertyValue": "5000000",
-      "deposit": "50000",
-      "loanDuration": 14,
-      "email": "manimala@gmail.com",
+      "deposit": "1000000",
+      "loanDuration": 17,
+      "email": "jnaneswari1@gmail.com",
       "id": 2
-    },
-    {
-      "noOfPeople": "2",
-      "homeType": "Reconstructing an existing home",
-      "propertyValue": "5000000",
-      "deposit": "10000",
-      "loanDuration": 14,
-      "email": "abc@gmail.com",
-      "id": 3
     }
   ],
   "personal-details": [
@@ -68,22 +50,13 @@
       "id": 1
     },
     {
-      "fullName": "Manimala Yalla",
+      "fullName": "manimala",
       "panNumber": "BAJPC4350S",
-      "gender": "Female",
+      "gender": "Male",
       "mobileNumber": "9876543210",
-      "address": "c, cgghhgff",
-      "email": "manimala@gmail.com",
+      "address": "hyderabad",
+      "email": "jnaneswari1@gmail.com",
       "id": 2
-    },
-    {
-      "fullName": "abc",
-      "panNumber": "3698745211",
-      "gender": "Female",
-      "mobileNumber": "9875641351",
-      "address": "sdfkjhg",
-      "email": "abc@gmail.com",
-      "id": 3
     }
   ],
   "income-details": [
@@ -104,21 +77,10 @@
       "occupation": "Doctor",
       "nameOfTheOccupation": "",
       "nameOfTheEmployer": "TCS",
-      "oftenYouGetPaid": 2,
-      "earning": "10000",
-      "email": "manimala@gmail.com",
+      "oftenYouGetPaid": 1,
+      "earning": "100000",
+      "email": "jnaneswari1@gmail.com",
       "id": 2
-    },
-    {
-      "typeOfEmployement": "Self Employed",
-      "contractType": "Part Time",
-      "occupation": "Doctor",
-      "nameOfTheOccupation": "",
-      "nameOfTheEmployer": "ycp",
-      "oftenYouGetPaid": 2,
-      "earning": "2000000",
-      "email": "abc@gmail.com",
-      "id": 3
     }
   ],
   "expenditures": [
@@ -139,30 +101,16 @@
     {
       "activeLoans": "Yes",
       "loanEMI": "5000",
-      "loanOutstanding": "500000",
-      "vehicle": "Yes",
-      "vehicleEMI": "1000",
-      "vehicleOutstanding": "500000",
-      "children": "1",
-      "schoolFee": "500000",
-      "otherExpenditures": "Yes",
-      "otherAmount": "20000",
-      "email": "manimala@gmail.com",
-      "id": 2
-    },
-    {
-      "activeLoans": "No",
-      "loanEMI": "",
-      "loanOutstanding": "",
+      "loanOutstanding": "50000",
       "vehicle": "No",
       "vehicleEMI": "",
       "vehicleOutstanding": "",
       "children": "1",
       "schoolFee": "50000",
-      "otherExpenditures": "No",
-      "otherAmount": "",
-      "email": "abc@gmail.com",
-      "id": 3
+      "otherExpenditures": "Yes",
+      "otherAmount": "10000",
+      "email": "jnaneswari1@gmail.com",
+      "id": 2
     }
   ],
   "decision": [
@@ -173,10 +121,16 @@
       "id": 1
     },
     {
-      "result": "P",
+      "result": "S",
       "email": "manimala@gmail.com",
       "rollNumber": 6255570734,
       "id": 2
+    },
+    {
+      "result": "S",
+      "email": "jnaneswari1@gmail.com",
+      "rollNumber": 9727528470,
+      "id": 3
     }
   ],
   "credit-check": [

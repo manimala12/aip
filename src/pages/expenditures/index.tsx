@@ -349,30 +349,31 @@ export default function Expenditures() {
               </FormHelperText>
             </FormControl>
           </Grid>
-          {formik.values.otherExpenditures.match(/yes/i) && (
-            <Grid item xs={12}>
-              <Typography
-                paragraph
-                sx={{ fontSize: "25px", marginTop: "50px" }}
-              >
-                {expenditureDetailsContent.otherAmount.label}
-              </Typography>
-              <TextField
-                sx={{ borderColor: "white", width: "500px" }}
-                name="otherAmount"
-                value={formik.values.otherAmount}
-                placeholder="Enter your other expenses amount"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={Boolean(
-                  formik.touched.otherAmount && formik.errors.otherAmount
-                )}
-                helperText={
-                  formik.touched.otherAmount && formik.errors.otherAmount
-                }
-              />
-            </Grid>
-          )}
+          {formik.values.otherExpenditures &&
+            formik.values.otherExpenditures.match(/yes/i) && (
+              <Grid item xs={12}>
+                <Typography
+                  paragraph
+                  sx={{ fontSize: "25px", marginTop: "50px" }}
+                >
+                  {expenditureDetailsContent.otherAmount.label}
+                </Typography>
+                <TextField
+                  sx={{ borderColor: "white", width: "500px" }}
+                  name="otherAmount"
+                  value={formik.values.otherAmount}
+                  placeholder="Enter your other expenses amount"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={Boolean(
+                    formik.touched.otherAmount && formik.errors.otherAmount
+                  )}
+                  helperText={
+                    formik.touched.otherAmount && formik.errors.otherAmount
+                  }
+                />
+              </Grid>
+            )}
         </Grid>
       </FormHeader>
     </form>
