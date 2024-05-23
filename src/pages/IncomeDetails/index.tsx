@@ -72,11 +72,7 @@ export default function IncomeDetails() {
   }, [incomeDetails]);
 
   return (
-    <form
-      style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
-      autoComplete="off"
-      onSubmit={formik.handleSubmit}
-    >
+    <form autoComplete="off" onSubmit={formik.handleSubmit}>
       <FormHeader
         heading="Your Earnings"
         name="income"
@@ -168,7 +164,7 @@ export default function IncomeDetails() {
           {incomeDetailsContent.occupation.label}
         </Typography>
 
-        <FormControl sx={{ width: "500px", backgroundColor: "grey" }}>
+        <FormControl sx={{ width: "100%", maxWidth: "500px" }}>
           <Select
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -211,7 +207,7 @@ export default function IncomeDetails() {
               {incomeDetailsContent.nameOfTheOccupation.label}
             </Typography>
             <TextField
-              sx={{ borderColor: "white", width: "500px" }}
+              sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
               name="nameOfTheOccupation"
               placeholder="Enter your occupation"
               value={formik.values.nameOfTheOccupation}
@@ -233,7 +229,7 @@ export default function IncomeDetails() {
           {incomeDetailsContent.nameOftheEmployer.label}
         </Typography>
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
           name="nameOfTheEmployer"
           placeholder="Enter your employer name"
           value={formik.values.nameOfTheEmployer}
@@ -253,7 +249,7 @@ export default function IncomeDetails() {
         >
           {incomeDetailsContent.oftenYouGetPaid.label}
         </Typography>
-        <FormControl sx={{ width: "500px", backgroundColor: "grey" }}>
+        <FormControl sx={{ width: "100%", maxWidth: "500px" }}>
           <Select
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -279,7 +275,7 @@ export default function IncomeDetails() {
           {incomeDetailsContent.earning.label}
         </Typography>
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
           name="earning"
           placeholder="Enter your income"
           value={formik.values.earning}

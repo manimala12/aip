@@ -1,19 +1,28 @@
-import { Typography, Container, Button, Grid } from "@mui/material";
+import {
+  Typography,
+  Container,
+  Button,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from "@mui/material";
 import { useSelector } from "react-redux";
 import { AppState } from "../../custom-redux/store";
-import { DecisionTypes } from "../../types";
+import { DecisionTypes, AppRoutes } from "../../types";
 import ConfettiExplosion from "react-confetti-explosion";
 import { LoanDetailsValues } from "../LoanDetails/types";
 import getExpiryDate from "../../helpers/index";
-import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../types";
+import useScrollToTop from "../../components/ScrollToTop/useScrollToTop";
 
 export default function Result() {
   const result = useSelector<AppState, string | undefined>(
     (state) => state.appData.result
   );
+  useScrollToTop();
 
   const rollNumber = useSelector<AppState, number | undefined>(
     (state) => state.appData.rollNumber

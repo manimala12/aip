@@ -56,11 +56,7 @@ export default function PersonalDetails() {
   }, [personalDetails]);
 
   return (
-    <form
-      style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
-      autoComplete="off"
-      onSubmit={formik.handleSubmit}
-    >
+    <form autoComplete="off" onSubmit={formik.handleSubmit}>
       <FormHeader
         heading="Your Personal Details"
         name="personal"
@@ -73,7 +69,11 @@ export default function PersonalDetails() {
           {personalDetailsContent.fullName.label}
         </Typography>
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{
+            borderColor: "white",
+            width: "100%",
+            maxWidth: "500px",
+          }}
           name="fullName"
           placeholder="Enter your full name"
           value={formik.values.fullName}
@@ -91,7 +91,7 @@ export default function PersonalDetails() {
         </Typography>
         <Box sx={{ display: "flex", gap: "20px" }}>
           <TextField
-            sx={{ color: "white" }}
+            sx={{ color: "white", width: "100%", maxWidth: "500px" }}
             placeholder="Enter PAN Card Number"
             name="panNumber"
             value={formik.values.panNumber}
@@ -140,7 +140,7 @@ export default function PersonalDetails() {
           {personalDetailsContent.mobileNumber.label}
         </Typography>
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
           name="mobileNumber"
           placeholder="Enter mobile number"
           value={formik.values.mobileNumber}
@@ -155,7 +155,7 @@ export default function PersonalDetails() {
           {personalDetailsContent.address.label}
         </Typography>
         <TextField
-          sx={{ borderColor: "white", width: "500px" }}
+          sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
           placeholder="Enter your address"
           name="address"
           value={formik.values.address}
