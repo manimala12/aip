@@ -90,11 +90,7 @@ export default function Expenditures() {
   }, [expenditureDetails]);
 
   return (
-    <form
-      style={{ marginTop: "200px", color: "white", marginLeft: "100px" }}
-      autoComplete="off"
-      onSubmit={formik.handleSubmit}
-    >
+    <form autoComplete="off" onSubmit={formik.handleSubmit}>
       <FormHeader
         heading="Your Spendings"
         name="expenditures"
@@ -151,7 +147,11 @@ export default function Expenditures() {
                   {expenditureDetailsContent.loanEMI.label}
                 </Typography>
                 <TextField
-                  sx={{ borderColor: "white", width: "500px" }}
+                  sx={{
+                    borderColor: "white",
+                    width: "100%",
+                    maxWidth: "500px",
+                  }}
                   name="loanEMI"
                   placeholder="Enter your loan EMI"
                   value={formik.values.loanEMI}
@@ -171,7 +171,11 @@ export default function Expenditures() {
                   {expenditureDetailsContent.loanOutstnading.label}
                 </Typography>
                 <TextField
-                  sx={{ borderColor: "white", width: "500px" }}
+                  sx={{
+                    borderColor: "white",
+                    width: "100%",
+                    maxWidth: "500px",
+                  }}
                   name="loanOutstanding"
                   placeholder="Enter your loan outstanding amount"
                   value={formik.values.loanOutstanding}
@@ -231,7 +235,11 @@ export default function Expenditures() {
                   {expenditureDetailsContent.vehicleEMI.label}
                 </Typography>
                 <TextField
-                  sx={{ borderColor: "white", width: "500px" }}
+                  sx={{
+                    borderColor: "white",
+                    width: "100%",
+                    maxWidth: "500px",
+                  }}
                   name="vehicleEMI"
                   value={formik.values.vehicleEMI}
                   placeholder="Enter your vehicle EMI"
@@ -253,7 +261,11 @@ export default function Expenditures() {
                   {expenditureDetailsContent.vehicleOutstanding.label}
                 </Typography>
                 <TextField
-                  sx={{ borderColor: "white", width: "500px" }}
+                  sx={{
+                    borderColor: "white",
+                    width: "100%",
+                    maxWidth: "500px",
+                  }}
                   name="vehicleOutstanding"
                   placeholder="Enter your vehicle outstanding amount"
                   value={formik.values.vehicleOutstanding}
@@ -276,7 +288,7 @@ export default function Expenditures() {
               {expenditureDetailsContent.children.label}
             </Typography>
             <TextField
-              sx={{ borderColor: "white", width: "500px" }}
+              sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
               name="children"
               value={formik.values.children}
               placeholder="Enter number of children"
@@ -295,7 +307,7 @@ export default function Expenditures() {
                 {expenditureDetailsContent.schoolFee.label}
               </Typography>
               <TextField
-                sx={{ borderColor: "white", width: "500px" }}
+                sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
                 name="schoolFee"
                 placeholder="Enter your children school fee"
                 value={formik.values.schoolFee}
@@ -349,31 +361,30 @@ export default function Expenditures() {
               </FormHelperText>
             </FormControl>
           </Grid>
-          {formik.values.otherExpenditures &&
-            formik.values.otherExpenditures.match(/yes/i) && (
-              <Grid item xs={12}>
-                <Typography
-                  paragraph
-                  sx={{ fontSize: "25px", marginTop: "50px" }}
-                >
-                  {expenditureDetailsContent.otherAmount.label}
-                </Typography>
-                <TextField
-                  sx={{ borderColor: "white", width: "500px" }}
-                  name="otherAmount"
-                  value={formik.values.otherAmount}
-                  placeholder="Enter your other expenses amount"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={Boolean(
-                    formik.touched.otherAmount && formik.errors.otherAmount
-                  )}
-                  helperText={
-                    formik.touched.otherAmount && formik.errors.otherAmount
-                  }
-                />
-              </Grid>
-            )}
+          {formik.values.otherExpenditures.match(/yes/i) && (
+            <Grid item xs={12}>
+              <Typography
+                paragraph
+                sx={{ fontSize: "25px", marginTop: "50px" }}
+              >
+                {expenditureDetailsContent.otherAmount.label}
+              </Typography>
+              <TextField
+                sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
+                name="otherAmount"
+                value={formik.values.otherAmount}
+                placeholder="Enter your other expenses amount"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={Boolean(
+                  formik.touched.otherAmount && formik.errors.otherAmount
+                )}
+                helperText={
+                  formik.touched.otherAmount && formik.errors.otherAmount
+                }
+              />
+            </Grid>
+          )}
         </Grid>
       </FormHeader>
     </form>

@@ -69,11 +69,7 @@ export default function LoanDetails() {
   }, [loanDetails]);
 
   return (
-    <form
-      style={{ color: "white" }}
-      autoComplete="off"
-      onSubmit={formik.handleSubmit}
-    >
+    <form autoComplete="off" onSubmit={formik.handleSubmit}>
       <FormLayout heading="Your Loan Details" name="loan" route="">
         <FormControl>
           <FormLabel

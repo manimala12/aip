@@ -22,6 +22,7 @@ const FormLayout: FC<FormLayoutProps> = ({
     <Box
       sx={{
         maxWidth: "lg",
+        color: "white",
         mx: { xs: 4, md: 6, lg: 13 },
         my: { xs: 15, md: 20, lg: 20 },
       }}
