@@ -2,28 +2,24 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import Typography from "@mui/material/Typography";
 import {
-  Container,
-  Divider,
   TableContainer,
   Paper,
   Table,
   TableBody,
   TableRow,
   TableCell,
-  Grid,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState, store } from "../../custom-redux/store";
 import { AppData, AppRoutes } from "../../types";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { reviewSections } from "./utils";
 import { saveDecisionAction } from "../../custom-redux/actions/getDecision";
 import { UnknownAction } from "redux";
 import { navigatedFromAction } from "../../custom-redux/actions/navigatedFrom";
+import FormLayout from "../../components/FormLayout";
 
 export default function Review() {
   const appData = useSelector<AppState, AppData>((state) => state.appData);
@@ -34,27 +30,17 @@ export default function Review() {
     dispatch(saveDecisionAction(navigate) as unknown as UnknownAction);
   };
   return (
-    <>
-      <Container
-        style={{ marginTop: "100px", color: "white", marginLeft: "100px" }}
+    <form autoComplete="off" onSubmit={handleSubmit}>
+      <FormLayout
+        heading="Review Your Details"
+        name="personal"
+        route={AppRoutes.EXPENDITURES}
       >
-        <Typography variant="h5" sx={{ marginBottom: "20px" }}>
-          Agreement In Principle
-        </Typography>
-        <Typography variant="h2"> Review Your Details</Typography>
-        <Divider
-          sx={{
-            backgroundColor: "white",
-            borderBottomWidth: 3,
-            width: "1200px",
-            marginTop: "30px",
-          }}
-        />
         {reviewSections.map(
           ({ label, editButtonText, fieldLabels, name, editLink }) => (
             <Card
               sx={{
-                minWidth: 375,
+                minWidth: 300,
                 my: 8,
                 borderColor: "#ffc107",
                 border: 1,
@@ -119,50 +105,7 @@ export default function Review() {
             </Card>
           )
         )}
-      </Container>
-      <Divider
-        sx={{
-          backgroundColor: "white",
-          borderBottomWidth: 3,
-          width: "1200px",
-          marginTop: "50px",
-          marginLeft: "100px",
-        }}
-      />
-      <Grid sx={{ display: "flex", gap: "700px", marginLeft: 15 }}>
-        <Button
-          variant="contained"
-          color="inherit"
-          component={Link}
-          sx={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          to={AppRoutes.EXPENDITURES}
-        >
-          <ArrowLeftIcon sx={{ fontSize: "30px" }} />
-          Back
-        </Button>
-        <Button
-          type="submit"
-          variant="contained"
-          color="inherit"
-          sx={{
-            backgroundColor: "#ffc107",
-            padding: "15px 60px",
-            marginTop: "40px",
-            fontWeight: "bold",
-            marginBottom: "30px",
-          }}
-          endIcon={<ArrowRightIcon sx={{ fontSize: "30px" }} />}
-          onClick={handleSubmit}
-        >
-          Submit
-        </Button>
-      </Grid>
-    </>
+      </FormLayout>
+    </form>
   );
 }

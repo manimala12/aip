@@ -361,7 +361,7 @@ export default function Expenditures() {
               </FormHelperText>
             </FormControl>
           </Grid>
-          {formik.values.otherExpenditures.match(/yes/i) && (
+          {formik.values.otherExpenditures === "Yes" && (
             <Grid item xs={12}>
               <Typography
                 paragraph
@@ -370,7 +370,11 @@ export default function Expenditures() {
                 {expenditureDetailsContent.otherAmount.label}
               </Typography>
               <TextField
-                sx={{ borderColor: "white", width: "100%", maxWidth: "500px" }}
+                sx={{
+                  borderColor: "white",
+                  width: "100%",
+                  maxWidth: "500px",
+                }}
                 name="otherAmount"
                 value={formik.values.otherAmount}
                 placeholder="Enter your other expenses amount"
