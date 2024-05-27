@@ -26,7 +26,8 @@ export default function Review() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
     dispatch(saveDecisionAction(navigate) as unknown as UnknownAction);
   };
   return (
